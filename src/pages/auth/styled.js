@@ -9,3 +9,12 @@ export const LoginBackground = styled.div`
   height: 100%;
   width: 100%;
 `
+
+export const RegistrationBackground = styled.div`
+  background-position: center;
+  background-size: cover;
+  display: block;
+  background-image: url(${background});
+  height: 100%;
+  width: 100%;
+`

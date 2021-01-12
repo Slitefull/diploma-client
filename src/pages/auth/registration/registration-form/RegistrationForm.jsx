@@ -1,15 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Input } from '../../../components/common/form-control/FormControl'
-import { maxLengthCreator, required } from '../../../helpers/validators/validators'
-import { appSelectors } from '../../../app/selectors'
-import { Button, Preloader } from '../../../styled'
-import { Form, FormField, FormLabel } from '../../../components/common/form-control/styled'
+import { maxLengthCreator, required } from '../../../../helpers/validators/validators'
+import { appSelectors } from '../../../../app/selectors'
+import { Form, FormField, FormLabel } from '../../../../components/common/form-control/styled'
+import { Input } from '../../../../components/common/form-control/FormControl'
+import { Button, Preloader } from '../../../../styled'
 
 
 const maxLength15 = maxLengthCreator(15)
 
-export const RegistrationForm = (props) => {
+export const RegistrationForm = props => {
   const isLoading = useSelector(appSelectors.getIsLoading)
 
   return (

@@ -1,13 +1,12 @@
 import React from 'react'
-import {Input} from '../../../components/common/form-control/FormControl'
-import {maxLengthCreator, required} from '../../../helpers/validators/validators'
-import {Button} from '../../../styled'
-import {Form, FormField, FormLabel} from '../../../components/common/form-control/styled'
-
+import { maxLengthCreator, required } from '../../../../helpers/validators/validators'
+import { Form, FormField, FormLabel } from '../../../../components/common/form-control/styled'
+import { Input } from '../../../../components/common/form-control/FormControl'
+import { Button } from '../../../../styled'
 
 const maxLength15 = maxLengthCreator(15)
 
-export const LoginForm = (props: any) => (
+export const LoginForm = props => (
 	<Form onSubmit={props.handleSubmit}>
 		<FormLabel htmlFor={'email'}>Email address</FormLabel>
 		<FormField

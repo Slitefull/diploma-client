@@ -1,16 +1,17 @@
-import { put, takeLatest } from 'redux-saga/effects'
+import { put, takeEvery, takeLatest } from 'redux-saga/effects'
 import { history } from '../../history'
-import { loginAPI } from './api'
 import { message } from 'antd'
 import { appActions } from '../../app/store'
 import { authActions } from './store'
 import { localStorageDataName } from '../../consts'
 import { profileActions } from '../profile/store'
 import jwt_decode from 'jwt-decode'
+import { authApi } from './api'
 
 
-export const loginWatcher = [
+export const authWatcher = [
   takeLatest(authActions.login.type, handleLogin),
+  takeEvery(authActions.register.type, handleRegister),
   takeLatest(authActions.logout.type, logout)
 ]
 
@@ -18,7 +19,7 @@ function* handleLogin(action) {
   try {
     yield put(appActions.setLoading(true))
 
-    const response = yield loginAPI.login(action.payload)
+    const response = yield authApi.login(action.payload)
     const { token } = response.data
 
     const decodedToken = jwt_decode(token)
@@ -32,6 +33,23 @@ function* handleLogin(action) {
     history.push('/')
   } catch (e) {
     message.error('Incorrect email or password!')
+  }
+}
+
+function* handleRegister(action) {
+  try {
+    const data = action.payload;
+    const { email, password } = data
+
+    yield put(appActions.setLoading(true))
+    yield authApi.register(data)
+    yield put(appActions.setLoading(false))
+
+    yield put(authActions.login({ email, password }))
+    history.push('/')
+  } catch (e) {
+    yield put(appActions.setLoading(false))
+    message.error('User with this email already created!')
   }
 }
 

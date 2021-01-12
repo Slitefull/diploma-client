@@ -1,9 +1,9 @@
 import React from 'react'
-import { Redirect, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { pagesLinks } from '../consts'
-import { Login } from '../pages/login/Login'
-import { Registration } from '../pages/registration/Registration'
 import { Profile } from '../pages/profile/Profile'
+import { Registration } from '../pages/auth/registration/Registration'
+import { Login } from '../pages/auth/login/Login'
 
 
 export const useRoutes = isAuth => {
@@ -17,7 +17,6 @@ export const useRoutes = isAuth => {
     <>
       <Route path={pagesLinks.registration} component={Registration}/>
       <Route path={pagesLinks.login} component={Login}/>
-      <Redirect to={'/login'}/>
     </>
   )
 }

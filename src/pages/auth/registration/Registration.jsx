@@ -1,14 +1,14 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
 import { useDispatch } from 'react-redux'
-import { authActions } from '../login/store'
 import { RegistrationForm } from './registration-form/RegistrationForm'
-import { pagesLinks } from '../../consts'
-import logo from '../../assets/logo.svg'
+import logo from '../../../assets/logo.svg'
 
-import { AuthLink, FormTitle, FormWrapper } from '../../components/common/form-control/styled'
-import { RegistrationBackground } from './styled'
-import { Logo } from '../../styled'
+import { authActions } from '../store'
+import { AuthLink, FormTitle, FormWrapper } from '../../../components/common/form-control/styled'
+import { pagesLinks } from '../../../consts'
+import { Logo } from '../../../components/header/styled'
+import { RegistrationBackground } from '../styled'
 
 
 export const Registration = () => {
