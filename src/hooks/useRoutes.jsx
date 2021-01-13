@@ -9,7 +9,9 @@ import { Login } from '../pages/auth/login/Login'
 export const useRoutes = isAuth => {
   if (isAuth) {
     return (
-      <Route path={'/'} component={Profile}/>
+      <>
+        <Route exact path={'/'} component={Profile}/>
+      </>
     )
   }
 

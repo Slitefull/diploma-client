@@ -10,7 +10,6 @@ import { pagesLinks } from '../../../consts'
 import { LoginBackground } from '../styled'
 
 
-
 export const Login = () => {
   const dispatch = useDispatch()
   const login = data => dispatch(authActions.login(data))

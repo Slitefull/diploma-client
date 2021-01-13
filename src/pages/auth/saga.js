@@ -20,7 +20,7 @@ function* handleLogin(action) {
     yield put(appActions.setLoading(true))
 
     const response = yield authApi.login(action.payload)
-    const { token } = response.data
+    const { token } = response
 
     const decodedToken = jwt_decode(token)
     const { name, role } = decodedToken

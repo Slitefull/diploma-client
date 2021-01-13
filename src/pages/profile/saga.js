@@ -22,7 +22,7 @@ function* editProfile(action) {
     const userData = Object.assign(action.payload, { userId })
 
     const response = yield profileApi.saveProfileSettings(userData)
-    const { token } = response.data
+    const { token } = response
 
     const newTokenDecoded = jwt_decode(token)
     const { name } = newTokenDecoded
