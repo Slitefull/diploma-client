@@ -1,11 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { maxLengthCreator, required } from '../../../../helpers/validators/validators'
 import { appSelectors } from '../../../../app/selectors'
-import { Form, FormField, FormLabel } from '../../../../components/common/form-control/styled'
 import { Input } from '../../../../components/common/form-control/FormControl'
-import { Button } from '../../../../styled'
+import { maxLengthCreator, required } from '../../../../helpers/validators/validators'
+
+import { Form, FormField, FormLabel } from '../../../../components/common/form-control/styled'
 import { Preloader } from '../../../../components/common/preloader/styled'
+import { AuthButton } from '../../styled'
 
 
 const maxLength15 = maxLengthCreator(15)
@@ -40,11 +41,11 @@ export const RegistrationForm = props => {
         component={Input}
         validate={[maxLength15, required]}
       />
-      <Button fullWidth>{
+      <AuthButton fullWidth>{
         isLoading
           ? <Preloader small/>
           : 'Register'
-      }</Button>
+      }</AuthButton>
     </Form>
   )
 }

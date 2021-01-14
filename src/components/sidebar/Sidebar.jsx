@@ -1,38 +1,45 @@
 import React, { useState } from 'react'
-import { FixedTop, SidebarWrapper, StyledMenu } from './styled'
-import { Logo, Wrapper } from '../../styled'
 import logo from '../../assets/logo.svg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Sider from 'antd/es/layout/Sider'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { Menu } from 'antd'
+import { DesktopOutlined, PieChartOutlined } from '@ant-design/icons'
+import { Logo } from '../../styled'
 
+import './style.less'
 
 library.add(fas)
 
 
-// const Menu = ({open}) => {
-//   return (
-//     <StyledMenu open={open}></StyledMenu>
-//   )
-// }
-
 export const Sidebar = () => {
-  const [open, setOpen] = useState(true);
+  const [collapsed, setCollapsed] = useState(false)
+  const onCollapse = () => setCollapsed(!collapsed)
 
   return (
-    <SidebarWrapper open={open}>
-      <FixedTop>
-        <Wrapper row>
-          <Logo src={logo}/>
-          Diploma
-        </Wrapper>
-        <FontAwesomeIcon
-          icon={["fas", "thumbtack"]}
-          style={{color: "#fff", cursor: 'pointer'}}
-          onClick={() => setOpen(!open)}
-        />
-      </FixedTop>
-      {/*<Menu open={open} setOpen={setOpen}/>*/}
-    </SidebarWrapper>
+    <Sider
+      collapsible
+      collapsed={collapsed}
+      onCollapse={onCollapse}
+      style={{background: "rgb(28 34 55)",}}
+    >
+      <Logo src={logo} />
+      <Menu
+        theme="dark"
+        defaultSelectedKeys={['1']}
+        style={{ background: "rgb(28 34 55)" }}
+        mode="inline"
+      >
+        <Menu.Item key="1" icon={<PieChartOutlined />}>
+          Option 1
+        </Menu.Item>
+        <Menu.Item key="2" icon={<DesktopOutlined />}>
+          Option 2
+        </Menu.Item>
+      </Menu>
+    </Sider>
   )
 }
+
+//TODO normal menu component
+//TODO fix close button color

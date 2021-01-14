@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { appActions } from './store'
 import { useRoutes } from '../hooks/useRoutes'
+import { appActions } from './store'
 import { authSelectors } from '../pages/auth/selectors'
 
-import { AppWrapper, MainWrapper } from './styled'
-import { Sidebar } from '../components/sidebar/Sidebar'
-import { Header } from '../components/header/Header'
+import { AppWrapper } from './styled'
 
 
 export const App = () => {
@@ -18,11 +16,7 @@ export const App = () => {
 
   return (
     <AppWrapper>
-      <Sidebar/>
-      <MainWrapper>
-        <Header/>
-        {routes}
-      </MainWrapper>
+      {routes}
     </AppWrapper>
   )
 }

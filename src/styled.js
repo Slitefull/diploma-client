@@ -29,10 +29,11 @@ export const Container = styled.div`
 `
 
 export const Wrapper = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: ${props => props.row ? 'row' : 'column'};
   align-items: center;
-  justify-content: space-between;
+  flex-direction: ${props => props.row ? 'row' : 'column'};
+  justify-content: ${props => props.justify ? 'space-between' : 'inherit'};
 `
 
 export const Button = styled.button`
@@ -83,7 +84,7 @@ export const Logo = styled.img`
 `
 
 export const PagePanel = styled.div`
-  padding: 40px 20px;
+  padding: 40px 20px 100px;
   width: 100%;
   background-color: #28304e;
 `
