@@ -5,9 +5,9 @@ import { LoginForm } from './login-form/LoginForm'
 import logo from '../../../assets/logo.svg'
 import { authActions } from '../store'
 import { AuthLink, FormTitle, FormWrapper } from '../../../components/common/form-control/styled'
-import { Logo } from '../../../components/header/styled'
 import { pagesLinks } from '../../../consts'
 import { LoginBackground } from '../styled'
+import { Logo } from '../../../styled'
 
 
 export const Login = () => {

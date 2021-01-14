@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 
 
-export const Avatar = styled.img`
+export const Avatar = styled.span`
   width: 40px;
   height: 40px;
-`
-
-export const UserName = styled.span`
-  color: #ffffff;
+  display: grid;
+  cursor: pointer;
+  align-items: center;
+  background: #28304e;
+  border-radius: 50%;
+  text-align: center;
   font-size: 14px;
-  margin: 0 0 0 10px;
+  font-weight: 800;
+  color: #ffffff;
 `

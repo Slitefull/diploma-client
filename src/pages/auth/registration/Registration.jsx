@@ -7,8 +7,8 @@ import logo from '../../../assets/logo.svg'
 import { authActions } from '../store'
 import { AuthLink, FormTitle, FormWrapper } from '../../../components/common/form-control/styled'
 import { pagesLinks } from '../../../consts'
-import { Logo } from '../../../components/header/styled'
 import { RegistrationBackground } from '../styled'
+import { Logo } from '../../../styled'
 
 
 export const Registration = () => {

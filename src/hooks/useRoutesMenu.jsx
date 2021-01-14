@@ -1,7 +1,5 @@
 import React from 'react'
 import { pagesLinks, pagesTitles } from '../consts'
-import { ProfileIcon } from '../components/header/profile-icon/ProfileIcon'
-import { HeaderDropdown } from '../components/header/header-dropdown/HeaderDropdown'
 
 import { NavLinkItem } from '../components/header/menu/styled'
 
@@ -11,8 +9,6 @@ export const useRoutesMenu = isAuth => {
     return (
       <>
         <NavLinkItem to={pagesLinks.catalog}>{pagesTitles.catalog}</NavLinkItem>
-        <ProfileIcon/>
-        <HeaderDropdown/>
       </>
     )
   }

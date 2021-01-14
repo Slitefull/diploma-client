@@ -1,7 +1,11 @@
 import React from 'react'
 import { Dropdown } from 'antd'
-import { BiDownArrow as ArrowDown } from 'react-icons/bi'
 import { DropdownMenu } from './DropdownMenu/DropdownMenu'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+library.add(fas)
 
 
 export const HeaderDropdown = () => (
@@ -9,12 +13,9 @@ export const HeaderDropdown = () => (
     overlay={<DropdownMenu/>}
     trigger='click'
   >
-    <ArrowDown
-      style={{
-        height: 20,
-        width: 20,
-        color: '#ffffff'
-      }}
+    <FontAwesomeIcon
+      icon={["fas", "sort-down"]}
+      style={{color: "#212841", cursor: 'pointer'}}
     />
   </Dropdown>
 )

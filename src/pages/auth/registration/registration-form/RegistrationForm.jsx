@@ -4,7 +4,8 @@ import { maxLengthCreator, required } from '../../../../helpers/validators/valid
 import { appSelectors } from '../../../../app/selectors'
 import { Form, FormField, FormLabel } from '../../../../components/common/form-control/styled'
 import { Input } from '../../../../components/common/form-control/FormControl'
-import { Button, Preloader } from '../../../../styled'
+import { Button } from '../../../../styled'
+import { Preloader } from '../../../../components/common/preloader/styled'
 
 
 const maxLength15 = maxLengthCreator(15)

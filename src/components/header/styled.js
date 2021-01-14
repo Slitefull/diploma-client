@@ -2,17 +2,11 @@ import styled from 'styled-components'
 
 
 export const HeaderWrapper = styled.header`
-  grid-area: Header;
   width: 100%;
-  margin: auto;
-  padding: 10px 0;
-  background: #24292e;
+  padding: 10px 30px;
+  background: #f4f7fc;
   display: flex;
   flex-direction: row;
-`
-
-export const Logo = styled.img`
-  width: 100%;
-  max-width: 50px;
-  margin: 0 30px 0 0;
+  align-items: center;
+  justify-content: space-between;
 `

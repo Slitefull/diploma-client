@@ -35,36 +35,29 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 `
 
-export const Title = styled.h1`
-  font-size: 36px;
-  line-height: 42px;
-`
-
-export const Logo = styled.img`
-  width: 100%;
-  margin: ${props => props.center ? 'auto' : 'inherit'};
-  max-width: 80px;
-`
-
 export const Button = styled.button`
   display: flex;
   justify-content: center;
   margin: ${props => props.withoutMargin ? 0 : '10px 0 0 0'};
-  padding: 10px 20px;
+  padding: 5px 10px;
   cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
-  background: ${props => props.disabled ? 'grey' : '#687ae8'};
+  background: ${props => props.disabled ? 'grey' : 'rgba(255,255,255,.15)'};
   border: none;
   outline: none;
-  border-radius: 6px;
+  border-radius: 4px;
   color: #ffffff;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   transition: 0.3s;
   width: ${props => props.fullWidth ? '100%' : 'auto'};
 
+  &:focus{
+    box-shadow: 0 0 0 0.2rem rgba(104,122,232,.25);
+  }
+  
   &:hover {
     transition: 0.3s;
-    background: ${props => props.disabled ? 'grey' : '#475de3'};
+    background: ${props => props.disabled ? 'grey' : 'rgba(128,128,128,.15)'};
   }
 `
 
@@ -83,28 +76,21 @@ export const Count = styled.span`
   text-align: center;
 `
 
-export const Preloader = styled.span`
-  display: inline-block;
-  width: ${props => props.small ? '22px' : '80px'};
-  height: ${props => props.small ? '22px' : '80px'};
+export const Logo = styled.img`
+  width: 100%;
+  max-width: 50px;
+  margin: 0 30px 0 0;
+`
 
-  &:after {
-    content: " ";
-    display: block;
-    border-radius: 50%;
-    border: 6px solid #fff;
-    border-color: #fff transparent #fff transparent;
-    animation: loading 1.2s linear infinite;
-    width: ${props => props.small ? '22px' : '64px'};
-    height: ${props => props.small ? '22px' : '64px'};
-  }
+export const PagePanel = styled.div`
+  padding: 40px 20px;
+  width: 100%;
+  background-color: #28304e;
+`
 
-  @keyframes loading {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+export const PanelText = styled.h1`
+  font-weight: 500;
+  font-size: ${props => props.subtitle ? '14px' : '22px'};
+  opacity: ${props => props.subtitle ? '0.75' : '1'};
+  color: #ffffff;
 `
