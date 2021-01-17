@@ -9,8 +9,8 @@ import { Logo } from '../../styled'
 
 import './style.less'
 
-library.add(fas)
 
+library.add(fas)
 
 export const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false)

@@ -14,7 +14,7 @@ export const useRoutes = isAuth => {
     return (
       <>
         <Sidebar/>
-        <Wrapper>
+        <Wrapper full>
           <Header/>
           <Route exact path={'/'} component={Profile}/>
         </Wrapper>
@@ -23,7 +23,7 @@ export const useRoutes = isAuth => {
   }
 
   return (
-    <Wrapper row>
+    <Wrapper row full>
       <Route path={pagesLinks.registration} component={Registration}/>
       <Route path={pagesLinks.login} component={Login}/>
     </Wrapper>

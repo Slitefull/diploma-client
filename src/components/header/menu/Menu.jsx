@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useRoutesMenu } from '../../../hooks/useRoutesMenu'
-
-import { MenuWrapper } from './styled'
 import { authSelectors } from '../../../pages/auth/selectors'
+
+import { Wrapper } from '../../../styled'
 
 
 export const Menu = () => {
@@ -11,8 +11,8 @@ export const Menu = () => {
   const menu = useRoutesMenu(isAuth)
 
   return (
-    <MenuWrapper>
+    <Wrapper row>
       {menu}
-    </MenuWrapper>
+    </Wrapper>
   )
 }

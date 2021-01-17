@@ -29,9 +29,9 @@ export const Container = styled.div`
 `
 
 export const Wrapper = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
+  width: ${props => props.full ? '100%' : ''};
   flex-direction: ${props => props.row ? 'row' : 'column'};
   justify-content: ${props => props.justify ? 'space-between' : 'inherit'};
 `
@@ -80,7 +80,7 @@ export const Count = styled.span`
 export const Logo = styled.img`
   width: 100%;
   max-width: 50px;
-  margin: 0 30px 0 0;
+  margin: ${props => props.center ? 'auto' : '0 30px 0 0'};
 `
 
 export const PagePanel = styled.div`

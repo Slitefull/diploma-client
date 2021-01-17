@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { Field } from 'redux-form';
-import { RiErrorWarningFill } from 'react-icons/ri'
 import { NavLink } from 'react-router-dom'
 
 
@@ -52,15 +51,10 @@ export const FormError = styled.div`
   align-items: center;
 `
 
-export const FormErrorIcon = styled(RiErrorWarningFill)`
-  width: 100%;
-`
-
 export const FormErrorMessage = styled.div`
-  color: #000000;
-  font-weight: 300;
+  color: red;
+  font-weight: 500;
   font-size: 14px;
-  width: 220px;
 `
 
 export const AuthLink = styled(NavLink)`

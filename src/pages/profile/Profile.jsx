@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button, PagePanel, PanelText, Wrapper } from '../../styled'
 import { useSelector } from 'react-redux'
 import { profileSelectors } from './selectors'
-import { StatisticCard } from '../../components/common/statistic-card/StatisticCard'
 import { ArrowDownOutlined } from '@ant-design/icons'
+import { StatisticCard } from '../../components/common/statistic-card/StatisticCard'
+
+import { Button, PagePanel, PanelText, Wrapper } from '../../styled'
 
 
 export const Profile = () => {
@@ -19,9 +20,7 @@ export const Profile = () => {
         </PanelText>
         <Button>View reports</Button>
       </PagePanel>
-      <Wrapper
-        row
-        justify
+      <Wrapper row full justify
         style={{
           transform: "translate(0, -50px)",
           paddingLeft: 20,

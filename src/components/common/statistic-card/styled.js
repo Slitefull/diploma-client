@@ -39,7 +39,7 @@ export const InfoCardTitle = styled.p`
 
 export const InfoCardCount = styled.span`
   font-size: 1.575rem;
-  font-weight: 00;
+  font-weight: 600;
   line-height: 1.2;
   margin-bottom: .5rem;
 `

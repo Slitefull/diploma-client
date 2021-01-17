@@ -2,12 +2,6 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 
-export const MenuWrapper = styled.nav`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`
-
 export const NavLinkItem = styled(NavLink)`
   font-size: 18px;
   font-weight: 500;
