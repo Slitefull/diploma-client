@@ -8,6 +8,7 @@ import { Header } from '../components/header/Header'
 import { Sidebar } from '../components/sidebar/Sidebar'
 
 import { Wrapper } from '../styled'
+import { AddGoods } from '../pages/add-goods/AddGoods'
 
 
 export const useRoutes = isAuth => {
@@ -18,6 +19,7 @@ export const useRoutes = isAuth => {
         <Wrapper full>
           <Header/>
           <Route exact path={'/'} component={Dashboard}/>
+          <Route exact path={pagesLinks.addGoods} component={AddGoods}/>
         </Wrapper>
       </>
     )

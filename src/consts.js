@@ -1,17 +1,17 @@
 export const pagesLinks = {
-  catalog: '/catalog',
   login: '/login',
   registration: '/registration',
   profile: '/profile',
   settings: '/settings',
+  addGoods: '/add-goods'
 }
 
 export const pagesTitles = {
-  catalog: 'Catalog',
   login: 'Login',
   registration: 'Registration',
   profile: 'Profile',
   settings: 'Settings',
+  addGoods: 'Add Goods'
 }
 
 export const localStorageDataName = 'userData'
