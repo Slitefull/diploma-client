@@ -1,16 +1,14 @@
 import { put, takeLatest } from 'redux-saga/effects'
-import jwt_decode from 'jwt-decode'
+import { dashboardActions } from '../dashboard/store'
 import { getToken } from '../../helpers/getToken'
+import jwt_decode from 'jwt-decode'
 import { localStorageDataName } from '../../consts'
-import { profileActions } from './store'
-import { profileApi } from './api'
 import { message } from 'antd'
+import { profileActions } from './store'
 
 
 export const profileWatcher = [
-  takeLatest(profileActions.saveProfileSettings.type, editProfile),
-  takeLatest(profileActions.makeAdmin.type, makeAdmin),
-  takeLatest(profileActions.removeAdmin.type, removeAdmin)
+  takeLatest(profileActions.saveProfileSettings.type, editProfile)
 ]
 
 function* editProfile(action) {
@@ -21,7 +19,7 @@ function* editProfile(action) {
     const userId = tokenDecoded.userId
     const userData = Object.assign(action.payload, { userId })
 
-    const response = yield profileApi.saveProfileSettings(userData)
+    const response = yield profileActions.saveProfileSettings(userData)
     const { token } = response
 
     const newTokenDecoded = jwt_decode(token)
@@ -31,37 +29,7 @@ function* editProfile(action) {
       localStorage.removeItem(localStorageDataName)
       localStorage.setItem(localStorageDataName, JSON.stringify({ token }))
 
-      yield put(profileActions.setUserData({ name }))
-    }
-  } catch (e) {
-    message.error('Something went wrong! Try again later')
-  }
-}
-
-function* makeAdmin({ payload:userId }) {
-  try {
-    const makeAdmin = yield profileApi.makeAdmin(userId)
-
-    if (makeAdmin.status === 200) {
-      const { data:users } = yield profileApi.getAllUsers()
-      yield put(profileActions.setUsers(users))
-
-      return message.success('New admin has been added!')
-    }
-  } catch (e) {
-    message.error('Something went wrong! Try again later')
-  }
-}
-
-function* removeAdmin({ payload:userId }) {
-  try {
-    const removeAdmin = yield profileApi.removeAdmin(userId)
-
-    if (removeAdmin.status === 200) {
-      const { data:users } = yield profileApi.getAllUsers()
-      yield put(profileActions.setUsers(users))
-
-      return message.success('Admin has been removed!')
+      yield put(dashboardActions.setUserData({ name }))
     }
   } catch (e) {
     message.error('Something went wrong! Try again later')

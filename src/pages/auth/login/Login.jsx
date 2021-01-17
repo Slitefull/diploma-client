@@ -1,13 +1,14 @@
 import React from 'react'
+import logo from '../../../assets/logo.svg'
 import { reduxForm } from 'redux-form'
 import { useDispatch } from 'react-redux'
-import { LoginForm } from './login-form/LoginForm'
-import logo from '../../../assets/logo.svg'
-import { authActions } from '../store'
-import { AuthLink, FormTitle, FormWrapper } from '../../../components/common/form-control/styled'
 import { pagesLinks } from '../../../consts'
-import { LoginBackground } from '../styled'
+import { authActions } from '../store'
+import { LoginForm } from './login-form/LoginForm'
+
 import { Logo } from '../../../styled'
+import { LoginBackground } from '../styled'
+import { AuthLink, FormTitle, FormWrapper } from '../../../components/common/form-control/styled'
 
 
 export const Login = () => {

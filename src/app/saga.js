@@ -3,10 +3,12 @@ import { appActions } from './store'
 import jwt_decode from 'jwt-decode'
 import { localStorageDataName } from '../consts'
 import { userRoles } from '../helpers/getRole'
-import { profileApi } from '../pages/profile/api'
-import { profileActions } from '../pages/profile/store'
 import { message } from 'antd'
 import { authActions } from '../pages/auth/store'
+import { dashboardApi } from '../pages/dashboard/api'
+import { dashboardActions } from '../pages/dashboard/store'
+import { profileActions } from '../pages/profile/store'
+
 
 export const appWatcher = [
   takeLatest(appActions.setInit.type, initHandle)
@@ -22,12 +24,12 @@ function* initHandle() {
     const { name, role } = tokenDecoded
 
     if (role === userRoles.superAdmin) {
-      const response = yield profileApi.getAllUsers()
+      const response = yield dashboardApi.getAllUsers()
 
       if (response.status === 200) {
         const getAllUsers = yield response.json()
         const { users } = getAllUsers
-        yield put(profileActions.setUsers(users))
+        yield put(dashboardActions.setUsers(users))
       } else {
         message.error('Error with getting all users!')
       }

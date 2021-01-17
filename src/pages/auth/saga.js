@@ -4,9 +4,9 @@ import { message } from 'antd'
 import { appActions } from '../../app/store'
 import { authActions } from './store'
 import { localStorageDataName } from '../../consts'
-import { profileActions } from '../profile/store'
 import jwt_decode from 'jwt-decode'
 import { authApi } from './api'
+import { profileActions } from '../profile/store'
 
 
 export const authWatcher = [

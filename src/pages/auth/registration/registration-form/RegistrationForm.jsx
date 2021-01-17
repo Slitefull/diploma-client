@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { appSelectors } from '../../../../app/selectors'
 import { Input } from '../../../../components/common/form-control/FormControl'
-import { maxLengthCreator, required } from '../../../../helpers/validators/validators'
+import { email, maxLengthCreator, required } from '../../../../helpers/validators/validators'
 
 import { Form, FormField, FormLabel } from '../../../../components/common/form-control/styled'
 import { Preloader } from '../../../../components/common/preloader/styled'
@@ -32,7 +32,7 @@ export const RegistrationForm = props => {
       <FormField
         name={'email'}
         component={Input}
-        validate={[required]}
+        validate={[required, email]}
       />
       <FormLabel htmlFor={'password'}>Password</FormLabel>
       <FormField
