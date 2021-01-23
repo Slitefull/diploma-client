@@ -1,11 +1,12 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
+
 export const Chart = () => {
   const chartData = {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [{
-      label: '# of Votes',
+      label: 'Testing chart',
       data: [12, 19, 23, 15, 52, 3],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',

@@ -29,8 +29,8 @@ export const Container = styled.div`
 `
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+  display: ${props => props.inline ? 'inline' : 'flex'};
+  align-items: ${props => props.center ? 'center' : 'inherit'};
   width: ${props => props.full ? '100%' : ''};
   flex-direction: ${props => props.row ? 'row' : 'column'};
   justify-content: ${props => props.justify ? 'space-between' : 'inherit'};
@@ -60,16 +60,6 @@ export const Button = styled.button`
     transition: 0.3s;
     background: ${props => props.disabled ? 'grey' : 'rgba(128,128,128,.15)'};
   }
-`
-
-export const Window = styled.div`
-  width: 100%;
-  margin: 20px auto;
-  text-align: center;
-  border-radius: 5px;
-  padding: ${props => props.hasError ? '4px 0' : '15px 0'};
-  background: ${props => props.hasError ? '#ffe3e6' : 'transparent'};
-  border: ${props => props.hasError ? '1px solid #9d1c232b' : '1px solid #d8dee2'};
 `
 
 export const Count = styled.span`

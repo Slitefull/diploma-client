@@ -42,6 +42,7 @@ export const FormTitle = styled.h1`
 `
 
 export const FormLabel = styled.label`
+  display: block;
   font-weight: 500;
 `
 

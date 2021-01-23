@@ -13,6 +13,7 @@ const maxLength15 = maxLengthCreator(15)
 
 export const LoginForm = props => {
   const isLoading = useSelector(appSelectors.getIsLoading)
+  
   return (
     <Form onSubmit={props.handleSubmit}>
       <FormLabel htmlFor={'email'}>Email address</FormLabel>

@@ -8,9 +8,6 @@ import { DesktopOutlined, PieChartOutlined } from '@ant-design/icons'
 import { Logo } from '../../styled'
 
 import './style.less'
-import { useSelector } from 'react-redux'
-import { authSelectors } from '../../pages/auth/selectors'
-import { useRoutesMenu } from '../../hooks/useRoutesMenu'
 import { NavLinkItem } from '../header/menu/styled'
 import { pagesLinks, pagesTitles } from '../../consts'
 
@@ -18,9 +15,6 @@ import { pagesLinks, pagesTitles } from '../../consts'
 library.add(fas)
 
 export const Sidebar = () => {
-  const isAuth = useSelector(authSelectors.getIsAuth)
-  const routes = useRoutesMenu(isAuth)
-
   const [collapsed, setCollapsed] = useState(false)
   const onCollapse = () => setCollapsed(!collapsed)
 
