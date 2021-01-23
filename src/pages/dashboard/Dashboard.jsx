@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Button, PagePanel, PanelText } from '../../styled'
 import { GeneralInfoCards } from './general-info-cards/GeneralInfoCards'
 import { profileSelectors } from '../profile/selectors'
+import { Chart } from '../../components/common/chart/Chart'
 
 
 export const Dashboard = () => {
@@ -20,6 +21,7 @@ export const Dashboard = () => {
         <Button>View reports</Button>
       </PagePanel>
       <GeneralInfoCards/>
+      <Chart/>
     </>
   )
 }
