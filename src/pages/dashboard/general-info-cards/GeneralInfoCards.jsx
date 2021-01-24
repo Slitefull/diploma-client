@@ -28,7 +28,7 @@ export const GeneralInfoCards = () => {
       }}
     >
       <StatisticCard
-        icon={<ArrowDownOutlined style={{color: 'red'}}/>}
+        icon={<ArrowDownOutlined style={{ color: 'red' }}/>}
         iconBackground={'#fcddde'}
         title={'Total users count'}
         count={usersCount}

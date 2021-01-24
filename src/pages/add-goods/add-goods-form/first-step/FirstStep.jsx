@@ -1,16 +1,17 @@
 import React from 'react'
-import { Input, Textarea } from '../../../../components/common/form-control/FormControl'
-import { FormField, FormLabel } from '../../../../components/common/form-control/styled'
 import { useSelector } from 'react-redux'
 import { profileSelectors } from '../../../profile/selectors'
-import { Greeting } from '../styled'
+import { Input, Textarea } from '../../../../components/common/form-control/FormControl'
+import { FormField, FormLabel } from '../../../../components/common/form-control/styled'
 import { maxLengthCreator, required } from '../../../../helpers/validators/validators'
+
+import { Greeting } from '../styled'
 
 
 const maxLength40 = maxLengthCreator(40)
 const maxLength500 = maxLengthCreator(500)
 
-export const FirstStep = ({setName, setDescription, setCategory}) => {
+export const FirstStep = ({ setName, setDescription, setCategory }) => {
   const userName = useSelector(profileSelectors.getUserName)
 
   return (

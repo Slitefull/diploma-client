@@ -15,7 +15,7 @@ export const Header = () => {
     <HeaderWrapper>
       <FontAwesomeIcon
         icon={["fas", "search"]}
-        style={{color: "#212841", cursor: 'pointer'}}
+        style={{ color: "#212841", cursor: 'pointer' }}
       />
       <Wrapper row>
         <ProfileIcon/>

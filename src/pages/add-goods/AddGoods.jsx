@@ -9,7 +9,7 @@ export const AddGoods = () => {
   const handleSubmit = data => console.log(data)
 
   return (
-    <Container style={{maxWidth: 700}}>
+    <Container style={{ maxWidth: 700 }}>
       <AddGoodsReduxForm onSubmit={handleSubmit}/>
     </Container>
   )

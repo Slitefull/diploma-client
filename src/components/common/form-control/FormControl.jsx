@@ -3,7 +3,7 @@ import React from 'react'
 import { FormError, FormErrorMessage, FormFieldWrapper } from './styled';
 
 
-const FieldCreator = ({input, child, meta, ...props}) => {
+const FieldCreator = ({ input, child, meta, ...props }) => {
   const hasError = meta.touched && meta.error
 
   return (
@@ -18,7 +18,7 @@ const FieldCreator = ({input, child, meta, ...props}) => {
 }
 
 export const Textarea = props => {
-  const {input, meta, child, ...restProps} = props;
+  const { input, meta, child, ...restProps } = props;
 
   return (
     <FieldCreator {...props}>
@@ -28,7 +28,7 @@ export const Textarea = props => {
 }
 
 export const Input = props => {
-  const {input, meta, child, ...restProps} = props;
+  const { input, meta, child, ...restProps } = props;
 
   return (
     <FieldCreator {...props}>

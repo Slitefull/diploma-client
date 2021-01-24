@@ -15,7 +15,7 @@ export const HeaderDropdown = () => (
   >
     <FontAwesomeIcon
       icon={["fas", "sort-down"]}
-      style={{color: "#212841", cursor: 'pointer'}}
+      style={{ color: "#212841", cursor: 'pointer' }}
     />
   </Dropdown>
 )

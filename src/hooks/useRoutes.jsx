@@ -27,10 +27,10 @@ export const useRoutes = isAuth => {
 
   return (
     <>
-    <Wrapper row full>
-      <Route path={pagesLinks.registration} component={Registration}/>
-      <Route path={pagesLinks.login} component={Login}/>
-    </Wrapper>
+      <Wrapper row full>
+        <Route path={pagesLinks.registration} component={Registration}/>
+        <Route path={pagesLinks.login} component={Login}/>
+      </Wrapper>
     </>
   )
 }

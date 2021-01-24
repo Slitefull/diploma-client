@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Button, Steps } from 'antd'
 import { FirstStep } from './first-step/FirstStep'
-import { SecondStep } from './second-step/FirstStep'
-
-import { AddGoodsWrapper, StepsAction } from './styled'
+import { SecondStep } from './second-step/SecondStep'
 import { ThirdStep } from './third-step/ThirdStep'
 
+import { AddGoodsWrapper, StepsAction } from './styled'
 
-const {Step} = Steps;
+
+const { Step } = Steps;
 
 export const AddGoodsForm = props => {
   const [current, setCurrent] = useState(0);
@@ -42,7 +42,7 @@ export const AddGoodsForm = props => {
       />,
     },
     {
-      title: 'Photos',
+      title: 'Photo',
       content: <ThirdStep
         setThumbnail={setThumbnail}
       />,
@@ -59,7 +59,7 @@ export const AddGoodsForm = props => {
         {current < steps.length - 1 && <Button onClick={() => next()}>Next</Button>}
         {current === steps.length - 1 &&
         <Button disabled={isDisabled} type='primary' onClick={props.handleSubmit}>Done</Button>}
-        {current > 0 && <Button style={{margin: '0 8px'}} onClick={() => prev()}>Previous</Button>}
+        {current > 0 && <Button style={{ margin: '0 8px' }} onClick={() => prev()}>Previous</Button>}
       </StepsAction>
     </AddGoodsWrapper>
   )

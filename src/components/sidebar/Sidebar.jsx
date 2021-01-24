@@ -23,19 +23,19 @@ export const Sidebar = () => {
       collapsible
       collapsed={collapsed}
       onCollapse={onCollapse}
-      style={{background: "rgb(28 34 55)",}}
+      style={{ background: "rgb(28 34 55)", }}
     >
-      <Logo src={logo} />
+      <Logo src={logo}/>
       <Menu
         theme="dark"
         defaultSelectedKeys={['1']}
         style={{ background: "rgb(28 34 55)" }}
         mode="inline"
       >
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
+        <Menu.Item key="1" icon={<PieChartOutlined/>}>
           <NavLinkItem to={'/'}>Dashboard</NavLinkItem>
         </Menu.Item>
-        <Menu.Item key="2" icon={<DesktopOutlined />}>
+        <Menu.Item key="2" icon={<DesktopOutlined/>}>
           <NavLinkItem to={pagesLinks.addGoods}>{pagesTitles.addGoods}</NavLinkItem>
         </Menu.Item>
       </Menu>
