@@ -22,7 +22,7 @@ export const AddGoodsForm = props => {
   const next = () => setCurrent(current + 1);
   const prev = () => setCurrent(current - 1);
 
-  const isDisabled = name === ''
+  const isDisabled = name === '' || description === '' || category === ''
 
   const steps = [
     {
@@ -56,9 +56,9 @@ export const AddGoodsForm = props => {
       </Steps>
       {steps[current].content}
       <StepsAction>
-        {current < steps.length - 1 && <Button onClick={() => next()}>Next</Button>}
+        {current < steps.length - 1 && <Button disabled={isDisabled} onClick={() => next()}>Next</Button>}
         {current === steps.length - 1 &&
-        <Button disabled={isDisabled} type='primary' onClick={props.handleSubmit}>Done</Button>}
+        <Button type='primary' onClick={props.handleSubmit}>Done</Button>}
         {current > 0 && <Button style={{ margin: '0 8px' }} onClick={() => prev()}>Previous</Button>}
       </StepsAction>
     </AddGoodsWrapper>

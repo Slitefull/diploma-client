@@ -59,22 +59,6 @@ export const GeneralInfoCards = () => {
         percents={"19%"}
         isGrow={false}
       />
-      <StatisticCard
-        icon={'test'}
-        iconBackground={'#f2545b'}
-        title={'CURRENT FISCAL'}
-        count={"$199,580"}
-        percents={"19%"}
-        isGrow={false}
-      />
-      <StatisticCard
-        icon={'test'}
-        iconBackground={'#f2545b'}
-        title={'CURRENT FISCAL'}
-        count={"$199,580"}
-        percents={"19%"}
-        isGrow={false}
-      />
     </Wrapper>
   )
 }

@@ -3,7 +3,7 @@ import { createAction, createSlice } from '@reduxjs/toolkit'
 const storeName = 'dashboard'
 
 const initialState = {
-  users: {}
+  users: []
 }
 
 const dashboardSlice = createSlice({
