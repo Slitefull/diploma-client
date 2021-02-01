@@ -5,7 +5,7 @@ import { onlyUrl } from '../../../../helpers/validators/validators'
 import { FormField, FormLabel } from '../../../../components/common/form-control/styled'
 
 
-export const ThirdStep = ({ setThumbnail }) => (
+export const ThirdStep = ({ thumbnail, setThumbnail }) => (
   <div>
     <FormLabel htmlFor={'thumbnail'}>Thumbnail</FormLabel>
     <FormField
@@ -13,6 +13,7 @@ export const ThirdStep = ({ setThumbnail }) => (
       component={Input}
       validate={[onlyUrl]}
       onChange={e => setThumbnail(e.target.value)}
+      placeholder={thumbnail}
     />
   </div>
 )

@@ -8,7 +8,7 @@ import { FormField, FormLabel } from '../../../../components/common/form-control
 import { Wrapper } from '../../../../styled'
 
 
-export const SecondStep = ({ setPrice, setInStockCount, setDiscount }) => {
+export const SecondStep = ({ price, setPrice, inStockCount, setInStockCount, discount, setDiscount }) => {
   const [isOpenInStockModal, setIsOpenInStockModal] = useState(false)
   const [isOpenDiscountModal, setIsOpenDiscountModal] = useState(false)
 
@@ -20,6 +20,7 @@ export const SecondStep = ({ setPrice, setInStockCount, setDiscount }) => {
         component={Input}
         validate={[required, onlyDigits]}
         onChange={e => setPrice(e.target.value)}
+        placeholder={price}
       />
       <Wrapper>
         <Wrapper inline style={{ margin: 10, marginLeft: 0 }}>
@@ -36,14 +37,15 @@ export const SecondStep = ({ setPrice, setInStockCount, setDiscount }) => {
           </FormLabel>
           {
             isOpenInStockModal && <>
-              <FormLabel htmlFor={'stock'}>
+              <FormLabel htmlFor={'onStockCount'}>
                 How many goods do you have on the stock?
               </FormLabel>
               <FormField
-                name={'stock'}
+                name={'onStockCount'}
                 component={Input}
                 validate={[onlyDigits]}
                 onChange={e => setInStockCount(e.target.value)}
+                placeholder={inStockCount}
               />
             </>
           }
@@ -70,6 +72,7 @@ export const SecondStep = ({ setPrice, setInStockCount, setDiscount }) => {
                 component={Input}
                 validate={[onlyDigits]}
                 onChange={e => setDiscount(e.target.value)}
+                placeholder={discount}
               />
             </>
           }

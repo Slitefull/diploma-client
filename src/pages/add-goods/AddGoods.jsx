@@ -3,10 +3,13 @@ import { reduxForm } from 'redux-form'
 import { AddGoodsForm } from './add-goods-form/AddGoodsForm'
 
 import { Container } from '../../styled'
+import { useDispatch } from 'react-redux'
+import { goodsActions } from './store'
 
 
 export const AddGoods = () => {
-  const handleSubmit = data => console.log(data)
+  const dispatch = useDispatch()
+  const handleSubmit = data => dispatch(goodsActions.createGoods(data))
 
   return (
     <Container style={{ maxWidth: 700 }}>

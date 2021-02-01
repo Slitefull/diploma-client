@@ -32,6 +32,7 @@ function* handleLogin(action) {
     yield put(appActions.setLoading(false))
     history.push('/')
   } catch (e) {
+    yield put(appActions.setLoading(false))
     message.error('Incorrect email or password!')
   }
 }

@@ -22,7 +22,8 @@ export const AddGoodsForm = props => {
   const next = () => setCurrent(current + 1);
   const prev = () => setCurrent(current - 1);
 
-  const isDisabled = name === '' || description === '' || category === ''
+  //TODO fix disabled price
+  const isDisabled = name === '' || description === '' || category === '' || (current === 2 && price === 0)
 
   const steps = [
     {
@@ -36,14 +37,18 @@ export const AddGoodsForm = props => {
     {
       title: 'Additional',
       content: <SecondStep
+        price={price}
         setPrice={setPrice}
+        inStockCount={inStockCount}
         setInStockCount={setInStockCount}
+        discount={discount}
         setDiscount={setDiscount}
       />,
     },
     {
       title: 'Photo',
       content: <ThirdStep
+        thumbnail={thumbnail}
         setThumbnail={setThumbnail}
       />,
     },

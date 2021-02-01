@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAction, createSlice } from '@reduxjs/toolkit'
+
 
 const storeName = 'goods'
 
@@ -17,7 +18,8 @@ const goodsSlice = createSlice({
 })
 
 export const goodsActions = {
-  setGoods: goodsSlice.actions.setGoods
+  setGoods: goodsSlice.actions.setGoods,
+  createGoods: createAction(`${storeName}/createGoods`)
 }
 
 export const goodsReducer = goodsSlice.reducer
