@@ -4,26 +4,25 @@ import { FirstStep } from './first-step/FirstStep'
 import { SecondStep } from './second-step/SecondStep'
 import { ThirdStep } from './third-step/ThirdStep'
 
-import { AddGoodsWrapper, StepsAction } from './styled'
+import { AddGoodsWrapper } from './styled'
+import { Wrapper } from '../../../styled'
 
 
 const { Step } = Steps;
 
 export const AddGoodsForm = props => {
+  const {
+    handleSubmit, name, setName, description, setDescription,
+    category, setCategory, price, setPrice, inStockCount, setInStockCount,
+    discount, setDiscount, thumbnail, setThumbnail, isPreview, setIsPreview
+  } = props
   const [current, setCurrent] = useState(0);
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [category, setCategory] = useState('')
-  const [price, setPrice] = useState(0)
-  const [inStockCount, setInStockCount] = useState(0)
-  const [discount, setDiscount] = useState(0)
-  const [thumbnail, setThumbnail] = useState('')
 
-  const next = () => setCurrent(current + 1);
-  const prev = () => setCurrent(current - 1);
+  const next = () => setCurrent(current + 1)
+  const prev = () => setCurrent(current - 1)
 
   //TODO fix disabled price
-  const isDisabled = name === '' || description === '' || category === '' || (current === 2 && price === 0)
+  const isDisabled = name === '' || description === '' || category === '' || (current === 2 && price === null)
 
   const steps = [
     {
@@ -55,17 +54,23 @@ export const AddGoodsForm = props => {
   ];
 
   return (
-    <AddGoodsWrapper onSubmit={props.handleSubmit}>
+    <AddGoodsWrapper onSubmit={handleSubmit}>
       <Steps current={current}>
         {steps.map(item => <Step key={item.title} title={item.title}/>)}
       </Steps>
       {steps[current].content}
-      <StepsAction>
+      <Wrapper row center justify style={{ marginTop: 20 }}>
         {current < steps.length - 1 && <Button disabled={isDisabled} onClick={() => next()}>Next</Button>}
         {current === steps.length - 1 &&
-        <Button type='primary' onClick={props.handleSubmit}>Done</Button>}
+        <Button type='primary' onClick={handleSubmit}>Done</Button>}
+        <Button
+          type="primary"
+          onClick={() => setIsPreview(!isPreview)}
+        >
+          {isPreview ? "Hide preview" : "Show preview"}
+        </Button>
         {current > 0 && <Button style={{ margin: '0 8px' }} onClick={() => prev()}>Previous</Button>}
-      </StepsAction>
+      </Wrapper>
     </AddGoodsWrapper>
   )
 }

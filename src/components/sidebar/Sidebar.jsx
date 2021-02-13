@@ -15,7 +15,7 @@ import { pagesLinks, pagesTitles } from '../../consts'
 library.add(fas)
 
 export const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState(true)
   const onCollapse = () => setCollapsed(!collapsed)
 
   return (
@@ -25,7 +25,7 @@ export const Sidebar = () => {
       onCollapse={onCollapse}
       style={{ background: "rgb(28 34 55)", }}
     >
-      <Logo src={logo}/>
+      <Logo center src={logo}/>
       <Menu
         theme="dark"
         defaultSelectedKeys={['1']}

@@ -1,16 +1,12 @@
 import styled from 'styled-components'
 import { Form } from 'redux-form'
 
-
 export const AddGoodsWrapper = styled(Form)`
+  width: 900px;
   border: 0 solid rgba(0,0,0,.125);
   border-radius: .25rem;
   background: #ffffff;
   padding: 25px;
-`
-
-export const StepsAction = styled.div`
-  margin: 20px 0 0;
 `
 
 export const Greeting = styled.p`

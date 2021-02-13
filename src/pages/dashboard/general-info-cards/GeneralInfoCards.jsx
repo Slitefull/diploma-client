@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { dashboardSelectors } from '../selectors'
 import { ArrowDownOutlined } from '@ant-design/icons'
 import { StatisticCard } from '../../../components/common/statistic-card/StatisticCard'
 
 import { Wrapper } from '../../../styled'
+import { goodsSelectors } from '../../add-goods/selectors'
 
 
 export const GeneralInfoCards = () => {
@@ -17,6 +18,9 @@ export const GeneralInfoCards = () => {
   const regulars = users.filter(user => user.role === 'regular')
   const regularsCount = regulars.length
 
+  const goodsCount = useSelector(goodsSelectors.getGoodsCount)
+
+  useEffect(()=> console.log('rebdasdas'), [goodsCount])
 
   return (
     <Wrapper
@@ -54,8 +58,8 @@ export const GeneralInfoCards = () => {
       <StatisticCard
         icon={'test'}
         iconBackground={'#f2545b'}
-        title={'CURRENT FISCAL'}
-        count={"$199,580"}
+        title={'Goods count'}
+        count={goodsCount}
         percents={"19%"}
         isGrow={false}
       />

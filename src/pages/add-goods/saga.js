@@ -5,17 +5,32 @@ import { goodsApi } from './api'
 
 
 export const goodsWatcher = [
-  takeLatest(goodsActions.createGoods.type, createGoods)
+  takeLatest(goodsActions.createGoods.type, createGoods),
+  takeLatest(goodsActions.createCategory.type, createCategory)
 ]
 
 function* createGoods(action) {
   try {
     const response = yield goodsApi.createGoods(action.payload)
-    console.log(response)
-    //TODO check response status
-    if (response.status === 400) message.error('Commodity already exist')
-    message.success('New commodity has been created!')
+    if (response.status === 201) {
+      return message.success('New commodity has been created!')
+    } else {
+      return message.success('Commodity is already exist')
+    }
   } catch (e) {
-    message.error('Something went wrong, try again later!')
+    return message.error('Something went wrong! Try again later')
+  }
+}
+
+function* createCategory(action) {
+  try {
+    const response = yield goodsApi.createCategory(action.payload)
+    if (response.status === 201) {
+      return message.success('New category has been created!')
+    } else {
+      return message.success('Category is already exist')
+    }
+  } catch (e) {
+    return message.error('Something went wrong! Try again later')
   }
 }

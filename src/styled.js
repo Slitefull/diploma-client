@@ -68,6 +68,7 @@ export const Count = styled.span`
 `
 
 export const Logo = styled.img`
+  display: block;
   width: 100%;
   max-width: 50px;
   margin: ${props => props.center ? 'auto' : '0 30px 0 0'};

@@ -8,6 +8,8 @@ import { authActions } from '../pages/auth/store'
 import { dashboardApi } from '../pages/dashboard/api'
 import { dashboardActions } from '../pages/dashboard/store'
 import { profileActions } from '../pages/profile/store'
+import { goodsApi } from '../pages/add-goods/api'
+import { goodsActions } from '../pages/add-goods/store'
 
 
 export const appWatcher = [
@@ -15,28 +17,37 @@ export const appWatcher = [
 ]
 
 function* initHandle() {
-  yield put(appActions.setLoading(true))
-  const data = JSON.parse(localStorage.getItem(localStorageDataName))
+  try {
+    yield put(appActions.setLoading(true))
+    const data = JSON.parse(localStorage.getItem(localStorageDataName))
 
-  if (data) {
-    const { token } = data
-    const tokenDecoded = jwt_decode(token)
-    const { name, role } = tokenDecoded
+    if (data) {
+      const { token } = data
+      const tokenDecoded = jwt_decode(token)
+      const { name, role } = tokenDecoded
 
-    if (role === userRoles.superAdmin) {
-      const response = yield dashboardApi.getAllUsers()
-
-      if (response.status === 200) {
-        const getAllUsers = yield response.json()
+      if (role === userRoles.superAdmin) {
+        const getAllUsers = yield dashboardApi.getAllUsers()
         const { users } = getAllUsers
         yield put(dashboardActions.setUsers(users))
-      } else {
-        message.error('Error with getting all users!')
-      }
-    }
 
-    yield put(profileActions.setUserData({ name, role }))
-    yield put(authActions.setIsAuth(true))
+        const getAllGoods = yield goodsApi.getAllGoods()
+        const { goodsCount, goods } = getAllGoods
+        yield put(goodsActions.setGoodsCount(goodsCount))
+        yield put(goodsActions.setGoods(goods))
+
+        const getAllCategories = yield goodsApi.getAllCategories()
+        const { categories, categoriesCount } = getAllCategories
+        yield put(goodsActions.setCategories(categories))
+        yield put(goodsActions.setCategoriesCount(categoriesCount))
+      }
+
+      yield put(profileActions.setUserData({ name, role }))
+      yield put(authActions.setIsAuth(true))
+    }
+    yield put(appActions.setLoading(false))
+  } catch (e) {
+    yield put(appActions.setLoading(false))
+    return message.error('Something went wrong! Try again later')
   }
-  yield put(appActions.setLoading(false))
 }
