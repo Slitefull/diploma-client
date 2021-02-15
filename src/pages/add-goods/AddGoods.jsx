@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { reduxForm } from 'redux-form'
+import { reduxForm, reset } from 'redux-form'
 import { AddGoodsForm } from './add-goods-form/AddGoodsForm'
 
 import { Container, Wrapper } from '../../styled'
@@ -30,6 +30,7 @@ export const AddGoods = () => {
     setInStockCount(null)
     setDiscount(null)
     setThumbnail('')
+    dispatch(reset('add-goods'))
   }
 
   return (

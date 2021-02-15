@@ -60,16 +60,15 @@ export const AddGoodsForm = props => {
       </Steps>
       {steps[current].content}
       <Wrapper row center justify style={{ marginTop: 20 }}>
-        {current < steps.length - 1 && <Button disabled={isDisabled} onClick={() => next()}>Next</Button>}
-        {current === steps.length - 1 &&
-        <Button type='primary' onClick={handleSubmit}>Done</Button>}
+        {current > 0 && <Button onClick={() => prev()}>Previous</Button>}
         <Button
           type="primary"
           onClick={() => setIsPreview(!isPreview)}
         >
           {isPreview ? "Hide preview" : "Show preview"}
         </Button>
-        {current > 0 && <Button style={{ margin: '0 8px' }} onClick={() => prev()}>Previous</Button>}
+        {current < steps.length - 1 && <Button disabled={isDisabled} onClick={() => next()}>Next</Button>}
+        {current === steps.length - 1 && <Button type='primary' onClick={handleSubmit}>Done</Button>}
       </Wrapper>
     </AddGoodsWrapper>
   )

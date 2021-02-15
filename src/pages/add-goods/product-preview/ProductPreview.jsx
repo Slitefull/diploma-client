@@ -8,20 +8,25 @@ import {
   ProductThumbnail
 } from './styled'
 import { Wrapper } from '../../../styled'
+import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons'
 
-export const ProductPreview = ({ name, description, category, discount, price, thumbnail, inStockCount }) => (
-  <ProductPreviewWrapper>
-    <Wrapper row center justify>
-      <ProductName>{name}</ProductName>
-      {inStockCount
-        ? <ProductInStock>Product is on the stock</ProductInStock>
-        : <ProductInStock>Product is not on the stock</ProductInStock>
-      }
-      {category ? <ProductCategory>{category}</ProductCategory> : null}
-    </Wrapper>
-    <ProductDescription>{description}</ProductDescription>
-    {thumbnail ? <ProductThumbnail src={thumbnail} alt="Commodity"/> : null}
-    <ProductDiscount>{discount}</ProductDiscount>
-    <ProductPrice>{price ? `${price}₴` : null}</ProductPrice>
-  </ProductPreviewWrapper>
-)
+export const ProductPreview = ({ name, description, category, discount, price, thumbnail, inStockCount }) => {
+  return (
+    <ProductPreviewWrapper>
+      <Wrapper row center justify>
+        <ProductName>{name}</ProductName>
+        <ProductInStock onStock={inStockCount}>
+          {inStockCount
+            ? <><CheckCircleOutlined/> On the stock</>
+            : <><CloseCircleOutlined/> Not on the stock</>
+          }
+        </ProductInStock>
+        {category ? <ProductCategory>{category}</ProductCategory> : null}
+      </Wrapper>
+      <ProductDescription>{description}</ProductDescription>
+      {thumbnail ? <ProductThumbnail src={thumbnail} alt="Commodity"/> : null}
+      <ProductDiscount>{discount ? `${price}₴` : null}</ProductDiscount>
+      <ProductPrice>{price ? `${price - discount}₴` : null}</ProductPrice>
+    </ProductPreviewWrapper>
+  )
+}

@@ -8,10 +8,10 @@ export const Chart = () => {
   const goodsCount = useSelector(goodsSelectors.getGoodsCount)
 
   const chartData = {
-    labels: ['Goods', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['Goods', 'Categories', 'Dimon', 'Green', 'Purple', 'Orange'],
     datasets: [{
       label: 'Testing chart',
-      data: [goodsCount, 19, 23, 15, 52, 3],
+      data: [goodsCount, 190, 23, 196, 522, 39],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',

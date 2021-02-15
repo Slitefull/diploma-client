@@ -36,29 +36,29 @@ export const ProductCategory = styled.span`
 export const ProductInStock = styled.span`
   font-size: 16px;
   font-weight: 600;
-  color: #333333;
+  color: ${props => props.onStock ? "green" : "red"};
   border-radius: 10px;
-  background: #85ffa3;
   padding: 5px;
   margin: 0 0 0 15px;
 `
 
 export const ProductPrice = styled.p`
-  font-size: 28px;
+  font-size: 18px;
   font-weight: 600;
   color: #f84147;
   margin-bottom: 0;
 `
 
 export const ProductDiscount = styled.p`
-  font-size: 28px;
+  font-size: 18px;
   font-weight: 600;
-  color: black;
+  color: #33333396;
   margin-bottom: 0;
+  text-decoration: line-through;
 `
 
 export const ProductThumbnail = styled.img`
   display: block;
-  max-width: 300px;
+  max-width: 400px;
   margin: auto;
 `

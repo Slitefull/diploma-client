@@ -13,7 +13,7 @@ import { Option } from 'antd/es/mentions'
 
 
 const maxLength40 = maxLengthCreator(40)
-const maxLength500 = maxLengthCreator(500)
+const maxLength800 = maxLengthCreator(800)
 
 export const FirstStep = ({ setName, setDescription, setCategory }) => {
   const dispatch = useDispatch()
@@ -38,7 +38,7 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
       <FormField
         name={'description'}
         component={Textarea}
-        validate={[required, maxLength500]}
+        validate={[required, maxLength800]}
         onChange={e => setDescription(e.target.value)}
       />
       <Wrapper row justify center style={{ marginBottom: '10px' }}>
