@@ -1,0 +1,9 @@
+{
+  "logout": "Logout",
+  "goodMorning": "Good Morning",
+  "goodEvening": "Good Evening",
+  "goodAfternoon": "Good Afternoon",
+  "goodNight": "Good Night",
+  "newAdminHasBeenAdded": "New admin has been added!",
+  "adminHasBeenRemoved": "Admin has been removed!"
+}

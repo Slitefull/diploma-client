@@ -5,9 +5,11 @@ import { Menu } from 'antd'
 
 import { NavLinkItem } from '../../menu/styled'
 import { authActions } from '../../../../pages/auth/store'
+import { useTranslation } from 'react-i18next'
 
 
 export const DropdownMenu = () => {
+  const { t } = useTranslation()
   const dispatch = useDispatch()
 
   return (
@@ -16,7 +18,7 @@ export const DropdownMenu = () => {
         <NavLinkItem to={pagesLinks.settings}>{pagesTitles.settings}</NavLinkItem>
       </Menu.Item>
       <Menu.Item onClick={() => dispatch(authActions.logout())}>
-        Logout
+        {t('logout')}
       </Menu.Item>
     </Menu>
   )

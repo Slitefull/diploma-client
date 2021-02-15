@@ -1,3 +1,4 @@
+import i18next from 'i18next'
 import { put, takeLatest } from 'redux-saga/effects'
 import { dashboardApi } from './api'
 import { message } from 'antd'
@@ -16,7 +17,7 @@ function* makeAdmin(action) {
     const { data: users } = yield dashboardApi.getAllUsers()
     yield put(dashboardActions.setUsers(users))
 
-    return message.success('New admin has been added!')
+    return message.success(i18next.t("newAdminHasBeenAdded"))
   } catch (e) {
     return message.error(e.text)
   }
@@ -29,7 +30,7 @@ function* removeAdmin(action) {
     const { data: users } = yield dashboardApi.getAllUsers()
     yield put(dashboardActions.setUsers(users))
 
-    return message.success('Admin has been removed!')
+    return message.success(i18next.t("adminHasBeenRemoved"))
   } catch (e) {
     return message.error(e.text)
   }

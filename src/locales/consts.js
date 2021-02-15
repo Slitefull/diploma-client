@@ -1,4 +1,4 @@
-import { localeFlags } from '../src/assets/flags'
+import { localeFlags } from '../assets/flags'
 
 export const getAllLocales = [
   'en','ru','es','pl','he',

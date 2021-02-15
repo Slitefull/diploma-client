@@ -1,7 +1,7 @@
+import jwt_decode from 'jwt-decode'
 import { put, takeLatest } from 'redux-saga/effects'
 import { dashboardActions } from '../dashboard/store'
 import { getToken } from '../../helpers/getToken'
-import jwt_decode from 'jwt-decode'
 import { localStorageDataName } from '../../consts'
 import { message } from 'antd'
 import { profileApi } from './api'
