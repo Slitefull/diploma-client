@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { profileSelectors } from '../../../profile/selectors'
+import { goodsSelectors } from '../../selectors'
+import { goodsActions } from '../../store'
 import { Input, Textarea } from '../../../../components/common/form-control/FormControl'
 import { FormField, FormLabel } from '../../../../components/common/form-control/styled'
 import { maxLengthCreator, onlyLetters, required } from '../../../../helpers/validators/validators'
 
-import { Greeting } from '../styled'
 import { Button, Modal, Input as AntInput, Select } from 'antd'
-import { Wrapper } from '../../../../styled'
-import { goodsActions } from '../../store'
 import { Option } from 'antd/es/mentions'
+import { Wrapper } from '../../../../styled'
+import { Greeting } from '../styled'
 
 
 const maxLength40 = maxLengthCreator(40)
@@ -22,6 +23,7 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
   const [newCategory, setNewCategory] = useState('')
 
   const userName = useSelector(profileSelectors.getUserName)
+  const categories = useSelector(goodsSelectors.getAllCategories)
   const isValidMessage = onlyLetters(newCategory)
 
   return (
@@ -60,25 +62,16 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
           }
         </Modal>
       </Wrapper>
-      {/*<Select*/}
-      {/*  showSearch*/}
-      {/*  style={{ width: 200 }}*/}
-      {/*  placeholder="Select a person"*/}
-      {/*  optionFilterProp="children"*/}
-      {/*  filterOption={(input, option) =>*/}
-      {/*    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0*/}
-      {/*  }*/}
-      {/*>*/}
-      {/*  <Option value="jack">Jack</Option>*/}
-      {/*  <Option value="lucy">Lucy</Option>*/}
-      {/*  <Option value="tom">Tom</Option>*/}
-      {/*</Select>*/}
-      <FormField
-        name={'category'}
-        component={Input}
-        validate={[required]}
-        onChange={e => setCategory(e.target.value)}
-      />
+      <Select
+        showSearch
+        style={{ width: 200 }}
+        placeholder="Select a category"
+        optionFilterProp="children"
+        onChange={value => setCategory(value)}
+        filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+      >
+        {categories.map(category => <Option value={category.name} key={category.id}>{category.name}</Option>)}
+      </Select>
     </div>
   )
 }

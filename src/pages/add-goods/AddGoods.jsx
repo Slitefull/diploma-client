@@ -20,9 +20,9 @@ export const AddGoods = () => {
   const [thumbnail, setThumbnail] = useState(null)
   const [isPreview, setIsPreview] = useState(false)
 
-  //TODO obnulit
   const handleSubmit = data => {
-    dispatch(goodsActions.createGoods(data))
+    const commodity = { ...data, category }
+    dispatch(goodsActions.createGoods(commodity))
     setName('')
     setDescription('')
     setCategory('')
