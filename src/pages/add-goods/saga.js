@@ -11,26 +11,18 @@ export const goodsWatcher = [
 
 function* createGoods(action) {
   try {
-    const response = yield goodsApi.createGoods(action.payload)
-    if (response.status === 201) {
-      return message.success('New commodity has been created!')
-    } else {
-      return message.success('Commodity is already exist')
-    }
+    yield goodsApi.createGoods(action.payload)
+    return message.success('New commodity has been created!')
   } catch (e) {
-    return message.error('Something went wrong! Try again later')
+    return message.error(e.text)
   }
 }
 
 function* createCategory(action) {
   try {
-    const response = yield goodsApi.createCategory(action.payload)
-    if (response.status === 201) {
-      return message.success('New category has been created!')
-    } else {
-      return message.success('Category is already exist')
-    }
+    yield goodsApi.createCategory(action.payload)
+    return message.success('New category has been created!')
   } catch (e) {
-    return message.error('Something went wrong! Try again later')
+    return message.error(e.text)
   }
 }

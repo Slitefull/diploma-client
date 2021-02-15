@@ -9,32 +9,28 @@ export const dashboardWatcher = [
   takeLatest(dashboardActions.removeAdmin.type, removeAdmin)
 ]
 
-function* makeAdmin({ payload: userId }) {
+function* makeAdmin(action) {
   try {
-    const makeAdmin = yield dashboardApi.makeAdmin(userId)
+    yield dashboardApi.makeAdmin(action.payload)
 
-    if (makeAdmin.status === 200) {
-      const { data: users } = yield dashboardApi.getAllUsers()
-      yield put(dashboardActions.setUsers(users))
+    const { data: users } = yield dashboardApi.getAllUsers()
+    yield put(dashboardActions.setUsers(users))
 
-      return message.success('New admin has been added!')
-    }
+    return message.success('New admin has been added!')
   } catch (e) {
-    message.error('Something went wrong! Try again later')
+    return message.error(e.text)
   }
 }
 
-function* removeAdmin({ payload: userId }) {
+function* removeAdmin(action) {
   try {
-    const removeAdmin = yield dashboardApi.removeAdmin(userId)
+    yield dashboardApi.removeAdmin(action.payload)
 
-    if (removeAdmin.status === 200) {
-      const { data: users } = yield dashboardApi.getAllUsers()
-      yield put(dashboardActions.setUsers(users))
+    const { data: users } = yield dashboardApi.getAllUsers()
+    yield put(dashboardActions.setUsers(users))
 
-      return message.success('Admin has been removed!')
-    }
+    return message.success('Admin has been removed!')
   } catch (e) {
-    message.error('Something went wrong! Try again later')
+    return message.error(e.text)
   }
 }

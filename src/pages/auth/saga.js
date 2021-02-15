@@ -33,7 +33,7 @@ function* handleLogin(action) {
     history.push('/')
   } catch (e) {
     yield put(appActions.setLoading(false))
-    message.error('Incorrect email or password!')
+    return message.error(e.text)
   }
 }
 
@@ -50,7 +50,7 @@ function* handleRegister(action) {
     history.push('/')
   } catch (e) {
     yield put(appActions.setLoading(false))
-    message.error('User with this email already created!')
+    return message.error(e.text)
   }
 }
 
