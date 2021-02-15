@@ -4,6 +4,8 @@
   "description": "The Project Diploma, client",
   "private": true,
   "dependencies": {
+    "i18next": "^19.8.4",
+    "react-i18next": "11.2.7",
     "@ant-design/icons": "^4.3.0",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
