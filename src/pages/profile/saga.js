@@ -2,10 +2,11 @@ import jwt_decode from 'jwt-decode'
 import { put, takeLatest } from 'redux-saga/effects'
 import { dashboardActions } from '../dashboard/store'
 import { getToken } from '../../helpers/getToken'
-import { localStorageDataName } from '../../consts'
 import { message } from 'antd'
 import { profileApi } from './api'
 import { profileActions } from './store'
+import { errorCatcher } from '../../helpers/errorCatcher'
+import { localStorageDataName } from '../../helpers/localStorageHelper'
 
 
 export const profileWatcher = [
@@ -29,6 +30,6 @@ function* editProfile(action) {
 
     yield put(dashboardActions.setUserData({ name }))
   } catch (e) {
-    return message.error(e.text)
+    return message.error(errorCatcher(e.text))
   }
 }

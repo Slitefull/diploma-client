@@ -9,6 +9,7 @@ import { Sidebar } from '../components/sidebar/Sidebar'
 
 import { Wrapper } from '../styled'
 import { AddGoods } from '../pages/add-goods/AddGoods'
+import { Profile } from '../pages/profile/Profile'
 
 
 export const useRoutes = isAuth => {
@@ -19,7 +20,8 @@ export const useRoutes = isAuth => {
         <Wrapper full>
           <Header/>
           <Route exact path={'/'} component={Dashboard}/>
-          <Route exact path={pagesLinks.addGoods} component={AddGoods}/>
+          <Route path={pagesLinks.addGoods} component={AddGoods}/>
+          <Route path={pagesLinks.profile} component={Profile}/>
         </Wrapper>
       </>
     )

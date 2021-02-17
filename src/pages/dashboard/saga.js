@@ -3,6 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects'
 import { dashboardApi } from './api'
 import { message } from 'antd'
 import { dashboardActions } from './store'
+import { errorCatcher } from '../../helpers/errorCatcher'
 
 
 export const dashboardWatcher = [
@@ -19,7 +20,7 @@ function* makeAdmin(action) {
 
     return message.success(i18next.t("newAdminHasBeenAdded"))
   } catch (e) {
-    return message.error(e.text)
+    return message.error(errorCatcher(e.text))
   }
 }
 
@@ -32,6 +33,6 @@ function* removeAdmin(action) {
 
     return message.success(i18next.t("adminHasBeenRemoved"))
   } catch (e) {
-    return message.error(e.text)
+    return message.error(errorCatcher(e.text))
   }
 }

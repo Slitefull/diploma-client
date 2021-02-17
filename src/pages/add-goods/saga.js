@@ -1,7 +1,9 @@
+import i18next from 'i18next'
 import { takeLatest } from 'redux-saga/effects'
 import { goodsActions } from './store'
 import { message } from 'antd'
 import { goodsApi } from './api'
+import { errorCatcher } from '../../helpers/errorCatcher'
 
 
 export const goodsWatcher = [
@@ -12,17 +14,17 @@ export const goodsWatcher = [
 function* createGoods(action) {
   try {
     yield goodsApi.createGoods(action.payload)
-    return message.success('New commodity has been created!')
+    return message.success(i18next.t("newCommodityHasBeenCreated"))
   } catch (e) {
-    return message.error(e.text)
+    return message.error(errorCatcher(e.text))
   }
 }
 
 function* createCategory(action) {
   try {
     yield goodsApi.createCategory(action.payload)
-    return message.success('New category has been created!')
+    return message.success(i18next.t("newCategoryHasBeenCreated"))
   } catch (e) {
-    return message.error(e.text)
+    return message.error(errorCatcher(e.text))
   }
 }

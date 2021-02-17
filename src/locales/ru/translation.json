@@ -1,3 +1,27 @@
 {
-  "logout": "Logout"
+  "logout": "Logout",
+  "goodMorning": "Доброе утро",
+  "goodEvening": "Добрый вечер",
+  "goodAfternoon": "Добрый день",
+  "goodNight": "Спокойной ночи",
+  "newAdminHasBeenAdded": "New admin has been added!",
+  "adminHasBeenRemoved": "Admin has been removed!",
+  "thisUserIsAlreadyExists": "This user is already exists!",
+  "newUserHasBeenCreated": "New user has been created!",
+  "somethingWentWrongPleaseTryAgainLater.": "Something went wrong, please try again later.",
+  "userIsNotFound": "User is not found.",
+  "invalidPasswordPleaseTryAgain": "Invalid password, please try again",
+  "thisCommodityIsAlreadyExists": "This commodity is already exists!",
+  "cantFindGoods": "Can't find goods.",
+  "cantFindUsers.": "Can't find users.",
+  "userWasNotFound": "User was not found!",
+  "userIsAlreadyRegular": "User is already regular!",
+  "userIsAlreadyAdmin": "User is already admin!",
+  "userRoleWasUpdated": "User role was updated",
+  "notCorrectUserId": "Not correct user id",
+  "thisCategoryIsAlreadyExist": "This category is already exist!",
+  "cantFindCategories": "Can't find categories.",
+  "newCommodityHasBeenCreated": "New commodity has been created!",
+  "newCategoryHasBeenCreated": "New category has been created!",
+  "viewReports": "Получить репорт"
 }

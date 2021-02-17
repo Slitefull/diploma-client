@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { dashboardSelectors } from '../selectors'
 import { ArrowDownOutlined } from '@ant-design/icons'
@@ -19,8 +19,6 @@ export const GeneralInfoCards = () => {
   const regularsCount = regulars.length
 
   const goodsCount = useSelector(goodsSelectors.getGoodsCount)
-
-  useEffect(()=> console.log('rebdasdas'), [goodsCount])
 
   return (
     <Wrapper

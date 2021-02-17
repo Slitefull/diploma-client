@@ -7,6 +7,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { HeaderWrapper } from './styled'
 import { Wrapper } from '../../styled'
+import { LocalesDropdown } from './locales-dropdown/LocalesDropdown'
+import { NavLinkItem } from './menu/styled'
 
 library.add(fas)
 
@@ -19,7 +21,10 @@ export const Header = () => {
         style={{ color: "#212841", cursor: 'pointer' }}
       />
       <Wrapper row>
-        <ProfileIcon/>
+        <LocalesDropdown/>
+        <NavLinkItem to={'/profile'}>
+          <ProfileIcon/>
+        </NavLinkItem>
         <HeaderDropdown/>
       </Wrapper>
     </HeaderWrapper>

@@ -13,5 +13,3 @@ export const pagesTitles = {
   settings: 'Settings',
   addGoods: 'Add Goods'
 }
-
-export const localStorageDataName = 'userData'

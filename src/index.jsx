@@ -14,7 +14,7 @@ import 'antd/dist/antd.css'
 
 
 i18next.init({ resources, lng: 'en' })
-
+//TODO rerender after translate
 ReactDOM.render(
   <Router history={history}>
     <Provider store={store}>

@@ -7,9 +7,11 @@ import { GeneralInfoCards } from './general-info-cards/GeneralInfoCards'
 import { Chart } from '../../components/common/chart/Chart'
 
 import { Button, PagePanel, PanelText } from '../../styled'
+import { useTranslation } from 'react-i18next'
 
 
 export const Dashboard = () => {
+  const { t } = useTranslation()
   const userName = useSelector(profileSelectors.getUserName)
   const time = new Date()
 
@@ -21,7 +23,7 @@ export const Dashboard = () => {
           doloribus esse et iste laboriosam maiores maxime, mollitia nisi numquam omnis praesentium provident quam quasi
           quia quisquam recusandae vel.
         </PanelText>
-        <Button>View reports</Button>
+        <Button>{t("viewReports")}</Button>
       </PagePanel>
       <GeneralInfoCards/>
       <Chart/>

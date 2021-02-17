@@ -1,7 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects'
 import { appActions } from './store'
 import jwt_decode from 'jwt-decode'
-import { localStorageDataName } from '../consts'
 import { userRoles } from '../helpers/getRole'
 import { message } from 'antd'
 import { authActions } from '../pages/auth/store'
@@ -10,6 +9,7 @@ import { dashboardActions } from '../pages/dashboard/store'
 import { profileActions } from '../pages/profile/store'
 import { goodsApi } from '../pages/add-goods/api'
 import { goodsActions } from '../pages/add-goods/store'
+import { getLocalStorageLocale, localStorageDataName } from '../helpers/localStorageHelper'
 
 
 export const appWatcher = [
@@ -18,6 +18,9 @@ export const appWatcher = [
 
 function* initHandle() {
   try {
+    const locale = getLocalStorageLocale()
+    locale ? yield put(appActions.setLocale(locale)) : yield put(appActions.setLocale('en'))
+
     yield put(appActions.setLoading(true))
     const data = JSON.parse(localStorage.getItem(localStorageDataName))
 
