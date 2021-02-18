@@ -28,6 +28,12 @@ export const RegistrationForm = props => {
         component={Input}
         validate={[maxLength15, required]}
       />
+      <FormLabel htmlFor={'name'}>Username</FormLabel>
+      <FormField
+        name={'userName'}
+        component={Input}
+        validate={[maxLength15, required]}
+      />
       <FormLabel htmlFor={'email'}>Email</FormLabel>
       <FormField
         name={'email'}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { profileSelectors } from '../../../profile/selectors'
 import { goodsSelectors } from '../../selectors'
@@ -17,6 +18,7 @@ const maxLength40 = maxLengthCreator(40)
 const maxLength800 = maxLengthCreator(800)
 
 export const FirstStep = ({ setName, setDescription, setCategory }) => {
+  const { t } = useTranslation()
   const dispatch = useDispatch()
 
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -29,7 +31,7 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
   return (
     <div>
       <Greeting>Welcome {userName}, there you can add new goods</Greeting>
-      <FormLabel htmlFor={'name'}>Good's name *</FormLabel>
+      <FormLabel htmlFor={'name'}>{t("goodsName")}*</FormLabel>
       <FormField
         name={'name'}
         component={Input}
@@ -43,7 +45,7 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
         validate={[required, maxLength800]}
         onChange={e => setDescription(e.target.value)}
       />
-      <Wrapper row justify center style={{ marginBottom: '10px' }}>
+      <Wrapper row justify center style={{ margin: '10px 0' }}>
         <FormLabel htmlFor={'category'}>Category *</FormLabel>
         <Button type={'primary'} onClick={() => setIsModalVisible(true)}>Add new</Button>
         <Modal

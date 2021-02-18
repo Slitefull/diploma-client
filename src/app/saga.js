@@ -27,7 +27,7 @@ function* initHandle() {
     if (data) {
       const { token } = data
       const tokenDecoded = jwt_decode(token)
-      const { name, role } = tokenDecoded
+      const { name, surname, userName, email, role } = tokenDecoded
 
       if (role === userRoles.superAdmin) {
         const getAllUsers = yield dashboardApi.getAllUsers()
@@ -45,7 +45,7 @@ function* initHandle() {
         yield put(goodsActions.setCategoriesCount(categoriesCount))
       }
 
-      yield put(profileActions.setUserData({ name, role }))
+      yield put(profileActions.setUserData({ name, role, surname, userName, email }))
       yield put(authActions.setIsAuth(true))
     }
     yield put(appActions.setLoading(false))

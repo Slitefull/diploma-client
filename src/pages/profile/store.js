@@ -23,6 +23,7 @@ export const profileActions = {
   setUserData: profileSlice.actions.setUserData,
   setUserName: profileSlice.actions.setUserName,
   saveProfileSettings: createAction(`${storeName}/saveProfileSettings`),
+  initProfile: createAction(`${storeName}/initProfile`)
 }
 
 export const profileReducer = profileSlice.reducer

@@ -19,7 +19,7 @@ export const Login = () => {
     <>
       <FormWrapper>
         <Logo src={logo} center/>
-        <FormTitle>Login</FormTitle>
+        <FormTitle center>Login</FormTitle>
         <LoginReduxForm onSubmit={login}/>
         <AuthLink to={pagesLinks.registration}>Don't have an account? Register it</AuthLink>
       </FormWrapper>

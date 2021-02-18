@@ -19,7 +19,7 @@ export const Registration = () => {
     <>
       <FormWrapper>
         <Logo src={logo} center/>
-        <FormTitle>Registration</FormTitle>
+        <FormTitle center>Registration</FormTitle>
         <RegistrationReduxForm onSubmit={register}/>
         <AuthLink to={pagesLinks.login}>Already have an account? Login, please</AuthLink>
       </FormWrapper>

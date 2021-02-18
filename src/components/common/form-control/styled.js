@@ -16,6 +16,7 @@ export const FormWrapper = styled.div`
 `
 
 export const FormField = styled(Field)`
+  display: block;
   width: 100%;
   font-size: 14px;
   line-height: 20px;
@@ -36,8 +37,14 @@ export const FormFieldWrapper = styled.div`
 `
 
 export const FormTitle = styled.h1`
-  text-align: center;
+  text-align: ${props => props.center ? "center" : "left"};
   font-size: 24px;
+  font-weight: 600;
+`
+
+export const FormDescription = styled.p`
+  text-align: ${props => props.center ? "center" : "left"};
+  font-size: 16px;
   font-weight: 600;
 `
 

@@ -1,5 +1,5 @@
 import jwt_decode from 'jwt-decode'
-import { put, takeLatest } from 'redux-saga/effects'
+import { put, select, takeLatest } from 'redux-saga/effects'
 import { dashboardActions } from '../dashboard/store'
 import { getToken } from '../../helpers/getToken'
 import { message } from 'antd'
@@ -7,10 +7,13 @@ import { profileApi } from './api'
 import { profileActions } from './store'
 import { errorCatcher } from '../../helpers/errorCatcher'
 import { localStorageDataName } from '../../helpers/localStorageHelper'
+import { profileSelectors } from './selectors'
+import { reduxForm } from 'redux-form'
+import { ProfileForm } from './profile-form/ProfileForm'
 
 
 export const profileWatcher = [
-  takeLatest(profileActions.saveProfileSettings.type, editProfile)
+  takeLatest(profileActions.saveProfileSettings.type, editProfile),
 ]
 
 function* editProfile(action) {

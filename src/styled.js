@@ -77,12 +77,16 @@ export const Logo = styled.img`
 export const PagePanel = styled.div`
   padding: 40px 20px 100px;
   width: 100%;
+  max-height: 244px;
   background-color: #28304e;
+  background-size: contain;
+  background-image: url("https://cdn.hipwallpaper.com/i/29/69/M5kWUT.png");
 `
 
 export const PanelText = styled.h1`
   font-weight: 500;
-  font-size: ${props => props.subtitle ? '14px' : '22px'};
+  text-align: ${props => props.center ? 'center' : 'left'};
+  font-size: ${props => props.subtitle ? '14px' : '24px'};
   opacity: ${props => props.subtitle ? '0.75' : '1'};
   color: #ffffff;
 `

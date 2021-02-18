@@ -23,5 +23,7 @@
   "cantFindCategories": "Can't find categories.",
   "newCommodityHasBeenCreated": "New commodity has been created!",
   "newCategoryHasBeenCreated": "New category has been created!",
-  "viewReports": "View reports"
+  "viewReports": "View reports",
+  "userSettings": "User Settings",
+  "goodsName": "Good's name"
 }

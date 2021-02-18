@@ -24,9 +24,11 @@ function* handleLogin(action) {
     const { token } = response
 
     const decodedToken = jwt_decode(token)
-    const { name, role } = decodedToken
+    console.log(decodedToken, 'decoded')
 
-    yield put(profileActions.setUserData({ name, role }))
+    const { name, surname, email, role } = decodedToken
+
+    yield put(profileActions.setUserData({ name, surname, email, role }))
     localStorage.setItem(localStorageDataName, JSON.stringify({ token }))
 
     yield put(authActions.setIsAuth(true))
@@ -58,4 +60,5 @@ function* handleRegister(action) {
 function* logout() {
   localStorage.removeItem(localStorageDataName)
   yield put(authActions.setIsAuth(false))
+  history.push('/login')
 }
