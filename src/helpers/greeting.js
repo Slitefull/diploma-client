@@ -1,5 +1,8 @@
+import React from 'react'
 import i18next from 'i18next'
+
 import { PanelText } from '../styled'
+
 
 export const greeting = (time, userName) => {
   if (time >= 7 && time < 12) return <PanelText>{i18next.t("goodMorning")}, {userName}!</PanelText>
