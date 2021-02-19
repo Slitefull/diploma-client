@@ -38,3 +38,5 @@ const AddGoodsReduxForm = reduxForm({
     email: 'email'
   }
 })(ProfileForm)
+
+//TODO add initial values

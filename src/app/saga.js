@@ -31,6 +31,7 @@ function* initHandle() {
 
       if (role === userRoles.superAdmin) {
         const getAllUsers = yield dashboardApi.getAllUsers()
+
         const { users } = getAllUsers
         yield put(dashboardActions.setUsers(users))
 
@@ -41,6 +42,7 @@ function* initHandle() {
 
         const getAllCategories = yield goodsApi.getAllCategories()
         const { categories, categoriesCount } = getAllCategories
+
         yield put(goodsActions.setCategories(categories))
         yield put(goodsActions.setCategoriesCount(categoriesCount))
       }

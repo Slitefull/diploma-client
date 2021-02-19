@@ -26,6 +26,9 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
 
   const userName = useSelector(profileSelectors.getUserName)
   const categories = useSelector(goodsSelectors.getAllCategories)
+
+  console.log(categories, 'category')
+
   const isValidMessage = onlyLetters(newCategory)
 
   return (
