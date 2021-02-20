@@ -1,29 +1,29 @@
-import { createAction, createSlice } from '@reduxjs/toolkit'
+import { createAction, createSlice } from '@reduxjs/toolkit';
 
-const storeName = 'profile'
+const storeName = 'profile';
 
 const initialState = {
-  profile: {}
-}
+  profile: {},
+};
 
 const profileSlice = createSlice({
   name: storeName,
   initialState,
   reducers: {
     setUserData(state, action) {
-      state.profile = action.payload
+      state.profile = action.payload;
     },
     setUserName(state, action) {
-      state.profile.name = action.payload
-    }
-  }
-})
+      state.profile.name = action.payload;
+    },
+  },
+});
 
 export const profileActions = {
   setUserData: profileSlice.actions.setUserData,
   setUserName: profileSlice.actions.setUserName,
   saveProfileSettings: createAction(`${storeName}/saveProfileSettings`),
-  initProfile: createAction(`${storeName}/initProfile`)
-}
+  initProfile: createAction(`${storeName}/initProfile`),
+};
 
-export const profileReducer = profileSlice.reducer
+export const profileReducer = profileSlice.reducer;

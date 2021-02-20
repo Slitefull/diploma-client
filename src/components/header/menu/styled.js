@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 
 export const NavLinkItem = styled(NavLink)`
@@ -16,4 +16,4 @@ export const NavLinkItem = styled(NavLink)`
   &:hover {
     color: #d8cece;
   }
-`
+`;

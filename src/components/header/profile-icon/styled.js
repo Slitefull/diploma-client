@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 
 export const AvatarLetter = styled.span`
@@ -13,7 +13,7 @@ export const AvatarLetter = styled.span`
   font-size: 14px;
   font-weight: 800;
   color: #ffffff;
-`
+`;
 
 export const AvatarImage = styled.img`
   width: 40px;
@@ -27,4 +27,4 @@ export const AvatarImage = styled.img`
   font-size: 14px;
   font-weight: 800;
   color: #ffffff;
-`
+`;

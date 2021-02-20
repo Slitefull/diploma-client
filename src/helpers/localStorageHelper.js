@@ -1,3 +1,3 @@
-export const localStorageDataName = 'userData'
+export const localStorageDataName = 'userData';
 export const localStorageLocale = 'diplomaLocale';
-export const getLocalStorageLocale = () => localStorage.getItem(localStorageLocale)
+export const getLocalStorageLocale = () => localStorage.getItem(localStorageLocale);

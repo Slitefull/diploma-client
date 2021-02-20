@@ -1,32 +1,32 @@
-import { createAction, createSlice } from '@reduxjs/toolkit'
+import { createAction, createSlice } from '@reduxjs/toolkit';
 
-const storeName = 'goods'
+const storeName = 'goods';
 
 const initialState = {
   goods: [],
   categories: [],
   goodsCount: 0,
-  categoriesCount: 0
-}
+  categoriesCount: 0,
+};
 
 const goodsSlice = createSlice({
   name: storeName,
   initialState,
   reducers: {
     setGoods(state, action) {
-      state.goods = action.payload
+      state.goods = action.payload;
     },
     setGoodsCount(state, action) {
-      state.goodsCount = action.payload
+      state.goodsCount = action.payload;
     },
     setCategories(state, action) {
-      state.categories = action.payload
+      state.categories = action.payload;
     },
     setCategoriesCount(state, action) {
-      state.categoriesCount = action.payload
-    }
-  }
-})
+      state.categoriesCount = action.payload;
+    },
+  },
+});
 
 export const goodsActions = {
   setGoods: goodsSlice.actions.setGoods,
@@ -35,6 +35,6 @@ export const goodsActions = {
   setCategoriesCount: goodsSlice.actions.setCategoriesCount,
   createGoods: createAction(`${storeName}/createGoods`),
   createCategory: createAction(`${storeName}/createCategory`),
-}
+};
 
-export const goodsReducer = goodsSlice.reducer
+export const goodsReducer = goodsSlice.reducer;

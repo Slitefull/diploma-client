@@ -1,5 +1,5 @@
-import React from 'react'
-import { InfoCard, InfoCardCount, InfoCardIcon, InfoCardPercent, InfoCardTitle } from './styled'
+import React from 'react';
+import { InfoCard, InfoCardCount, InfoCardIcon, InfoCardPercent, InfoCardTitle } from './styled';
 
 
 export const StatisticCard = ({ title, count, icon, iconBackground, percents, isGrow }) => (
@@ -9,4 +9,4 @@ export const StatisticCard = ({ title, count, icon, iconBackground, percents, is
     <InfoCardCount>{count}</InfoCardCount>
     <InfoCardTitle>{title}</InfoCardTitle>
   </InfoCard>
-)
+);

@@ -1,37 +1,37 @@
-import React, { useState } from 'react'
-import { reduxForm, reset } from 'redux-form'
-import { AddGoodsForm } from './add-goods-form/AddGoodsForm'
+import React, { useState } from 'react';
+import { reduxForm, reset } from 'redux-form';
+import { useDispatch } from 'react-redux';
+import { AddGoodsForm } from './add-goods-form/AddGoodsForm';
 
-import { Container, Wrapper } from '../../styled'
-import { useDispatch } from 'react-redux'
-import { goodsActions } from './store'
-import { ProductPreview } from './product-preview/ProductPreview'
+import { Container, Wrapper } from '../../styled';
+import { goodsActions } from './store';
+import { ProductPreview } from './product-preview/ProductPreview';
 
 
 export const AddGoods = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [category, setCategory] = useState('')
-  const [price, setPrice] = useState(null)
-  const [inStockCount, setInStockCount] = useState(null)
-  const [discount, setDiscount] = useState(null)
-  const [thumbnail, setThumbnail] = useState(null)
-  const [isPreview, setIsPreview] = useState(false)
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('');
+  const [price, setPrice] = useState(null);
+  const [inStockCount, setInStockCount] = useState(null);
+  const [discount, setDiscount] = useState(null);
+  const [thumbnail, setThumbnail] = useState(null);
+  const [isPreview, setIsPreview] = useState(false);
 
-  const handleSubmit = data => {
-    const commodity = { ...data, category }
-    dispatch(goodsActions.createGoods(commodity))
-    setName('')
-    setDescription('')
-    setCategory('')
-    setPrice(null)
-    setInStockCount(null)
-    setDiscount(null)
-    setThumbnail('')
-    dispatch(reset('add-goods'))
-  }
+  const handleSubmit = (data) => {
+    const commodity = { ...data, category };
+    dispatch(goodsActions.createGoods(commodity));
+    setName('');
+    setDescription('');
+    setCategory('');
+    setPrice(null);
+    setInStockCount(null);
+    setDiscount(null);
+    setThumbnail('');
+    dispatch(reset('add-goods'));
+  };
 
   return (
     <Container style={{ maxWidth: 1600 }}>
@@ -55,18 +55,20 @@ export const AddGoods = () => {
           isPreview={isPreview}
           setIsPreview={setIsPreview}
         />
-        {isPreview && <ProductPreview
-          name={name}
-          description={description}
-          category={category}
-          price={price}
-          inStockCount={inStockCount}
-          discount={discount}
-          thumbnail={thumbnail}
-        />}
+        {isPreview && (
+          <ProductPreview
+            name={name}
+            description={description}
+            category={category}
+            price={price}
+            inStockCount={inStockCount}
+            discount={discount}
+            thumbnail={thumbnail}
+          />
+        )}
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-const AddGoodsReduxForm = reduxForm({ form: 'add-goods' })(AddGoodsForm)
+const AddGoodsReduxForm = reduxForm({ form: 'add-goods' })(AddGoodsForm);

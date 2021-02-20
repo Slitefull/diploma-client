@@ -1,17 +1,17 @@
-import React from 'react'
-import { Button, ProfileFormWrapper } from '../styled'
-import { FormDescription, FormField, FormLabel, FormTitle } from '../../../components/common/form-control/styled'
-import { Input } from '../../../components/common/form-control/FormControl'
-import { required } from '../../../helpers/validators/validators'
-import { Wrapper } from '../../../styled'
-import { useSelector } from 'react-redux'
-import { profileSelectors } from '../selectors'
-import { AvatarImage, AvatarLetter } from '../../../components/header/profile-icon/styled'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Button, ProfileFormWrapper } from '../styled';
+import { FormDescription, FormField, FormLabel, FormTitle } from '../../../components/common/form-control/styled';
+import { Input } from '../../../components/common/form-control/FormControl';
+import { required } from '../../../helpers/validators/validators';
+import { Wrapper } from '../../../styled';
+import { profileSelectors } from '../selectors';
+import { AvatarImage, AvatarLetter } from '../../../components/header/profile-icon/styled';
 
 
 export const ProfileForm = ({ handleSubmit }) => {
-  const userNameLetter = useSelector(profileSelectors.getUserName).split('', 1)[0]
-  const avatar = useSelector(profileSelectors.getUserAvatar)
+  const userNameLetter = useSelector(profileSelectors.getUserName).split('', 1)[0];
+  const avatar = useSelector(profileSelectors.getUserAvatar);
 
   return (
     <ProfileFormWrapper style={{ maxWidth: 1200 }} onSubmit={handleSubmit}>
@@ -26,8 +26,8 @@ export const ProfileForm = ({ handleSubmit }) => {
         <Wrapper full style={{ maxWidth: 550 }}>
           <FormLabel>Name</FormLabel>
           <FormField
-            name={'name'}
-            placeholder={'Input your name'}
+            name="name"
+            placeholder="Input your name"
             component={Input}
             validate={[required]}
           />
@@ -35,8 +35,8 @@ export const ProfileForm = ({ handleSubmit }) => {
         <Wrapper full style={{ maxWidth: 550 }}>
           <FormLabel>Surname</FormLabel>
           <FormField
-            name={'surname'}
-            placeholder={'Input your surname'}
+            name="surname"
+            placeholder="Input your surname"
             component={Input}
             validate={[required]}
           />
@@ -46,8 +46,8 @@ export const ProfileForm = ({ handleSubmit }) => {
         <Wrapper full style={{ maxWidth: 550 }}>
           <FormLabel>Username</FormLabel>
           <FormField
-            name={'username'}
-            placeholder={'Input your username'}
+            name="username"
+            placeholder="Input your username"
             component={Input}
             validate={[required]}
           />
@@ -55,8 +55,8 @@ export const ProfileForm = ({ handleSubmit }) => {
         <Wrapper full style={{ maxWidth: 550 }}>
           <FormLabel>Email</FormLabel>
           <FormField
-            name={'email'}
-            placeholder={'Input your email'}
+            name="email"
+            placeholder="Input your email"
             component={Input}
             validate={[required]}
           />
@@ -64,12 +64,12 @@ export const ProfileForm = ({ handleSubmit }) => {
       </Wrapper>
       <FormLabel>Address</FormLabel>
       <FormField
-        name={'address'}
-        placeholder={'Input your address'}
+        name="address"
+        placeholder="Input your address"
         component={Input}
         validate={[required]}
       />
       <Button>Save changes</Button>
     </ProfileFormWrapper>
-  )
-}
+  );
+};

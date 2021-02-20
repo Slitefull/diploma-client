@@ -1,8 +1,7 @@
-import { createSelector } from 'reselect'
+import { createSelector } from 'reselect';
 
+const dashboardState = (state) => state.dashboard;
 
-const dashboardState = state => state.dashboard
+const getAllUsers = createSelector(dashboardState, (dashboard) => dashboard.users);
 
-const getAllUsers = createSelector(dashboardState, dashboard => dashboard.users)
-
-export const dashboardSelectors = { getAllUsers }
+export const dashboardSelectors = { getAllUsers };

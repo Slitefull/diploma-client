@@ -1,16 +1,16 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { pagesLinks, pagesTitles } from '../../../../consts'
-import { Menu } from 'antd'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Menu } from 'antd';
+import { useTranslation } from 'react-i18next';
+import { pagesLinks, pagesTitles } from '../../../../consts';
 
-import { NavLinkItem } from '../../menu/styled'
-import { authActions } from '../../../../pages/auth/store'
-import { useTranslation } from 'react-i18next'
+import { NavLinkItem } from '../../menu/styled';
+import { authActions } from '../../../../pages/auth/store';
 
 
 export const DropdownMenu = () => {
-  const { t } = useTranslation()
-  const dispatch = useDispatch()
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   return (
     <Menu>
@@ -21,5 +21,5 @@ export const DropdownMenu = () => {
         {t('logout')}
       </Menu.Item>
     </Menu>
-  )
-}
+  );
+};

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { SettingOutlined } from '@ant-design/icons'
+import styled from 'styled-components';
+import { SettingOutlined } from '@ant-design/icons';
 
 export const CustomSettingOutlined = styled(SettingOutlined)`
   display: block;
@@ -10,7 +10,7 @@ export const CustomSettingOutlined = styled(SettingOutlined)`
   background: #19b5fe;
   border-radius: 50px;
   font-size: 40px;
-`
+`;
 
 export const ProfileFormWrapper = styled.div`
   padding: 40px 20px;
@@ -24,13 +24,13 @@ export const ProfileFormWrapper = styled.div`
     transition: 0.5s;
     box-shadow: 0 0 10px darkslategrey;
   }
-`
+`;
 
 export const Button = styled.button`
   margin: 20px 0;
   padding: 15px 10px;
-  cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
-  background: ${props => props.disabled ? 'grey' : '#0c9'};
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  background: ${(props) => (props.disabled ? 'grey' : '#0c9')};
   border: none;
   outline: none;
   border-radius: 3px;
@@ -39,7 +39,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   font-weight: 500;
   transition: 0.3s;
-  width: ${props => props.fullWidth ? '100%' : 'auto'};
+  width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
 
   &:focus{
     box-shadow: 0 0 0 0.2rem rgba(104,122,232,.25);
@@ -47,6 +47,6 @@ export const Button = styled.button`
 
   &:hover {
     transition: 0.3s;
-    background: ${props => props.disabled ? 'grey' : '#219d7c'};
+    background: ${(props) => (props.disabled ? 'grey' : '#219d7c')};
   }
-`
+`;

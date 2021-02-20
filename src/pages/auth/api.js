@@ -1,9 +1,9 @@
-import wretch from 'wretch'
+import wretch from 'wretch';
 
-const register = data => wretch(`api/auth/register`).post(data).json()
-const login = data => wretch('api/auth/login').post(data).json()
+const register = (data) => wretch('api/auth/register').post(data).json();
+const login = (data) => wretch('api/auth/login').post(data).json();
 
 export const authApi = {
   login,
-  register
-}
+  register,
+};

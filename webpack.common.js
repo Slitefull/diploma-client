@@ -42,11 +42,11 @@ const getEnv = () => {
 
 module.exports = {
   node: {
-    fs: 'empty'
+    fs: 'empty',
   },
   externals: [
-    {'./cptable': 'var cptable'},
-    {'./jszip': 'jszip'}
+    { './cptable': 'var cptable' },
+    { './jszip': 'jszip' },
   ],
   entry: {
     index: path.join(__dirname, '/src/index.js'),
@@ -61,15 +61,15 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "@root": path.resolve(__dirname, './src'),
-      "@app": path.resolve(__dirname, './src/app'),
-      "@assets": path.resolve(__dirname, './src/assets'),
-      "@components": path.resolve(__dirname, './src/components'),
-      "@helpers": path.resolve(__dirname, './src/helpers'),
-      "@hooks": path.resolve(__dirname, './src/hooks'),
-      "@locales": path.resolve(__dirname, './src/locales'),
-      "@pages": path.resolve(__dirname, './src/pages'),
-    }
+      '@root': path.resolve(__dirname, './src'),
+      '@app': path.resolve(__dirname, './src/app'),
+      '@assets': path.resolve(__dirname, './src/assets'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@helpers': path.resolve(__dirname, './src/helpers'),
+      '@hooks': path.resolve(__dirname, './src/hooks'),
+      '@locales': path.resolve(__dirname, './src/locales'),
+      '@pages': path.resolve(__dirname, './src/pages'),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

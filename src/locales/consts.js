@@ -1,11 +1,11 @@
-import { localeFlags } from '../assets/flags'
+import { localeFlags } from '../assets/flags';
 
 export const getAllLocales = [
-  'en','ru','es','pl','he',
-  'ar','de','vi','pt','ko'
-]
+  'en', 'ru', 'es', 'pl', 'he',
+  'ar', 'de', 'vi', 'pt', 'ko',
+];
 
-export const getReversedLocales = ['ar', 'he']
+export const getReversedLocales = ['ar', 'he'];
 
 const localeNames = {
   en: 'English',
@@ -17,8 +17,8 @@ const localeNames = {
   de: 'Deutsche',
   vi: 'Tiếng Việt',
   pt: 'Português',
-  ko: '한국어'
-}
+  ko: '한국어',
+};
 
-export const getLocaleName = lang => localeNames[lang]
-export const getLocaleFlag = lang => localeFlags[lang]
+export const getLocaleName = (lang) => localeNames[lang];
+export const getLocaleFlag = (lang) => localeFlags[lang];

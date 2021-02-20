@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 
 export const HeaderWrapper = styled.header`
@@ -9,4 +9,4 @@ export const HeaderWrapper = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-`
+`;

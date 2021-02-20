@@ -1,5 +1,5 @@
-import wretch from 'wretch'
+import wretch from 'wretch';
 
-const saveProfileSettings = data => wretch(`api/user/profile`).put(data)
+const saveProfileSettings = (data) => wretch('api/user/profile').put(data);
 
-export const profileApi = { saveProfileSettings }
+export const profileApi = { saveProfileSettings };
