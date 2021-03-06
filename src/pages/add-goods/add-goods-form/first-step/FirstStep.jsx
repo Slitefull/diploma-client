@@ -27,16 +27,16 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
   const userName = useSelector(profileSelectors.getUserName);
   const categories = useSelector(goodsSelectors.getAllCategories);
 
-  console.log(categories, 'category');
-
   const isValidMessage = onlyLetters(newCategory);
 
   return (
     <div>
       <Greeting>
-        Welcome
+        {t('welcome')}
         {userName}
-        , there you can add new goods
+        ,
+        {' '}
+        {t('thereYouCanAddNewGoods')}
       </Greeting>
       <FormLabel htmlFor="name">
         {t('goodsName')}
@@ -48,7 +48,11 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
         validate={[required, maxLength40]}
         onChange={(e) => setName(e.target.value)}
       />
-      <FormLabel htmlFor="description">Description *</FormLabel>
+      <FormLabel htmlFor="description">
+        {t('description')}
+        {' '}
+        *
+      </FormLabel>
       <FormField
         name="description"
         component={Textarea}
@@ -56,16 +60,20 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
         onChange={(e) => setDescription(e.target.value)}
       />
       <Wrapper row justify center style={{ margin: '10px 0' }}>
-        <FormLabel htmlFor="category">Category *</FormLabel>
-        <Button type="primary" onClick={() => setIsModalVisible(true)}>Add new</Button>
+        <FormLabel htmlFor="category">
+          {t('category')}
+          {' '}
+          *
+        </FormLabel>
+        <Button type="primary" onClick={() => setIsModalVisible(true)}>{t('addNew')}</Button>
         <Modal
-          title="Create category"
+          title={t('createCategory')}
           visible={isModalVisible}
           onOk={() => dispatch(goodsActions.createCategory(newCategory))}
           onCancel={() => setIsModalVisible(false)}
         >
           <AntInput
-            placeholder="Category"
+            placeholder={t('category')}
             onChange={(e) => setNewCategory(e.target.value)}
           />
           {isValidMessage
@@ -76,7 +84,7 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
       <Select
         showSearch
         style={{ width: 200 }}
-        placeholder="Select a category"
+        placeholder={t('selectCategory')}
         optionFilterProp="children"
         onChange={(value) => setCategory(value)}
         filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Steps } from 'antd';
+import { useTranslation } from 'react-i18next';
 import { FirstStep } from './first-step/FirstStep';
 import { SecondStep } from './second-step/SecondStep';
 import { ThirdStep } from './third-step/ThirdStep';
@@ -16,6 +17,7 @@ export const AddGoodsForm = (props) => {
     category, setCategory, price, setPrice, inStockCount, setInStockCount,
     discount, setDiscount, thumbnail, setThumbnail, isPreview, setIsPreview,
   } = props;
+  const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
 
   const next = () => setCurrent(current + 1);
@@ -26,7 +28,7 @@ export const AddGoodsForm = (props) => {
 
   const steps = [
     {
-      title: 'General',
+      title: t('general'),
       content: <FirstStep
         setName={setName}
         setDescription={setDescription}
@@ -34,7 +36,7 @@ export const AddGoodsForm = (props) => {
       />,
     },
     {
-      title: 'Additional',
+      title: t('additional'),
       content: <SecondStep
         price={price}
         setPrice={setPrice}
@@ -45,7 +47,7 @@ export const AddGoodsForm = (props) => {
       />,
     },
     {
-      title: 'Photo',
+      title: t('photo'),
       content: <ThirdStep
         thumbnail={thumbnail}
         setThumbnail={setThumbnail}
@@ -60,15 +62,12 @@ export const AddGoodsForm = (props) => {
       </Steps>
       {steps[current].content}
       <Wrapper row center justify style={{ marginTop: 20 }}>
-        {current > 0 && <Button onClick={() => prev()}>Previous</Button>}
-        <Button
-          type="primary"
-          onClick={() => setIsPreview(!isPreview)}
-        >
-          {isPreview ? 'Hide preview' : 'Show preview'}
+        {current > 0 && <Button onClick={() => prev()}>{t('previous')}</Button>}
+        <Button type="primary" onClick={() => setIsPreview(!isPreview)}>
+          {isPreview ? t('hidePreview') : t('showPreview')}
         </Button>
-        {current < steps.length - 1 && <Button disabled={isDisabled} onClick={() => next()}>Next</Button>}
-        {current === steps.length - 1 && <Button type="primary" onClick={handleSubmit}>Done</Button>}
+        {current < steps.length - 1 && <Button disabled={isDisabled} onClick={() => next()}>{t('next')}</Button>}
+        {current === steps.length - 1 && <Button type="primary" onClick={handleSubmit}>{t('done')}</Button>}
       </Wrapper>
     </AddGoodsWrapper>
   );

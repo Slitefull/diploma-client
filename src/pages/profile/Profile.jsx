@@ -35,5 +35,3 @@ export const Profile = () => {
 const AddGoodsReduxForm = reduxForm({
   form: 'profile',
 })(ProfileForm);
-
-// TODO add initial values

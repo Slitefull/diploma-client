@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Field } from 'redux-form';
 import { Checkbox } from 'antd';
+import { useTranslation } from 'react-i18next';
 import { Input } from '../../../../components/common/form-control/FormControl';
 import { onlyDigits, required } from '../../../../helpers/validators/validators';
 
@@ -9,12 +10,17 @@ import { Wrapper } from '../../../../styled';
 
 
 export const SecondStep = ({ price, setPrice, inStockCount, setInStockCount, discount, setDiscount }) => {
+  const { t } = useTranslation();
   const [isOpenInStockModal, setIsOpenInStockModal] = useState(false);
   const [isOpenDiscountModal, setIsOpenDiscountModal] = useState(false);
 
   return (
     <div>
-      <FormLabel htmlFor="price">Price *</FormLabel>
+      <FormLabel>
+        {t('price')}
+        {' '}
+        *
+      </FormLabel>
       <FormField
         name="price"
         component={Input}
@@ -29,18 +35,13 @@ export const SecondStep = ({ price, setPrice, inStockCount, setInStockCount, dis
             component={Checkbox}
             onClick={(e) => setIsOpenInStockModal(e.target.checked)}
           />
-          <FormLabel
-            style={{ display: 'inline', margin: 10 }}
-            htmlFor="stock"
-          >
-            Is your goods in the stock?
+          <FormLabel style={{ display: 'inline', margin: 10 }}>
+            {t('isYourGoodsInTheStock')}
           </FormLabel>
           {
             isOpenInStockModal && (
               <>
-                <FormLabel htmlFor="onStockCount">
-                  How many goods do you have on the stock?
-                </FormLabel>
+                <FormLabel>{t('howManyGoodsDoYouHaveOnTheStock')}</FormLabel>
                 <FormField
                   name="onStockCount"
                   component={Input}
@@ -58,17 +59,12 @@ export const SecondStep = ({ price, setPrice, inStockCount, setInStockCount, dis
             component={Checkbox}
             onClick={(e) => setIsOpenDiscountModal(e.target.checked)}
           />
-          <FormLabel
-            style={{ display: 'inline', margin: 10 }}
-            htmlFor="discount"
-          >
-            Do you want to add a discount?
-          </FormLabel>
+          <FormLabel style={{ display: 'inline', margin: 10 }}>{t('doYouWantToAddDiscount')}</FormLabel>
           {
             isOpenDiscountModal && (
               <>
-                <FormLabel htmlFor="discount">
-                  Set your discount
+                <FormLabel>
+                  {t('setYourDiscount')}
                 </FormLabel>
                 <FormField
                   name="discount"

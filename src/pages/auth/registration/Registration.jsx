@@ -1,6 +1,7 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { RegistrationForm } from './registration-form/RegistrationForm';
 import logo from '../../../assets/logo.svg';
 
@@ -12,6 +13,7 @@ import { Logo } from '../../../styled';
 
 
 export const Registration = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const register = (data) => dispatch(authActions.register(data));
 
@@ -19,9 +21,9 @@ export const Registration = () => {
     <>
       <FormWrapper>
         <Logo src={logo} center />
-        <FormTitle center>Registration</FormTitle>
+        <FormTitle center>{t('registration')}</FormTitle>
         <RegistrationReduxForm onSubmit={register} />
-        <AuthLink to={pagesLinks.login}>Already have an account? Login, please</AuthLink>
+        <AuthLink to={pagesLinks.login}>{t('alreadyHaveAnAccountLoginPlease')}</AuthLink>
       </FormWrapper>
       <RegistrationBackground />
     </>

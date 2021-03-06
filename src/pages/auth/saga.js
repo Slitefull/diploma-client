@@ -18,8 +18,6 @@ function* handleLogin(action) {
     const { token } = response;
 
     const decodedToken = jwtDecode(token);
-    console.log(decodedToken, 'decoded');
-
     const { name, surname, email, role } = decodedToken;
 
     yield put(profileActions.setUserData({ name, surname, email, role }));

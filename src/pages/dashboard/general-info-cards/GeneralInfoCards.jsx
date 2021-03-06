@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { ArrowDownOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import { dashboardSelectors } from '../selectors';
 import { StatisticCard } from '../../../components/common/statistic-card/StatisticCard';
 
@@ -9,6 +10,7 @@ import { goodsSelectors } from '../../add-goods/selectors';
 
 
 export const GeneralInfoCards = () => {
+  const { t } = useTranslation();
   const users = useSelector(dashboardSelectors.getAllUsers);
   const usersCount = users.length;
 
@@ -34,7 +36,7 @@ export const GeneralInfoCards = () => {
       <StatisticCard
         icon={<ArrowDownOutlined style={{ color: 'red' }} />}
         iconBackground="#fcddde"
-        title="Total users count"
+        title={t('totalUsersCount')}
         count={usersCount}
         percents="11%"
         isGrow
@@ -42,7 +44,7 @@ export const GeneralInfoCards = () => {
       <StatisticCard
         icon="test"
         iconBackground="#ccf5eb"
-        title="Total regulars count"
+        title={t('totalRegularsCount')}
         count={regularsCount}
         percents="21%"
         isGrow={false}
@@ -50,7 +52,7 @@ export const GeneralInfoCards = () => {
       <StatisticCard
         icon="test"
         iconBackground="#f2545b"
-        title="Totals admins count"
+        title={t('totalsAdminsCount')}
         count={adminsCount}
         percents="54%"
         isGrow
@@ -58,7 +60,7 @@ export const GeneralInfoCards = () => {
       <StatisticCard
         icon="test"
         iconBackground="#f2545b"
-        title="Goods count"
+        title={t('goodsCount')}
         count={goodsCount}
         percents="19%"
         isGrow={false}

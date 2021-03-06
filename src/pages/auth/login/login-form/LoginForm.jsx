@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { appSelectors } from '../../../../app/selectors';
 import { email, maxLengthCreator, required } from '../../../../helpers/validators/validators';
 import { Input } from '../../../../components/common/form-control/FormControl';
@@ -11,20 +12,19 @@ import { Form, FormField, FormLabel } from '../../../../components/common/form-c
 
 const maxLength15 = maxLengthCreator(15);
 
-export const LoginForm = (props) => {
-  const { handleSubmit } = props;
-
+export const LoginForm = ({ handleSubmit }) => {
+  const { t } = useTranslation();
   const isLoading = useSelector(appSelectors.getIsLoading);
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormLabel htmlFor="email">Email address</FormLabel>
+      <FormLabel>{t('emailAddress')}</FormLabel>
       <FormField
         name="email"
         component={Input}
         validate={[required, email]}
       />
-      <FormLabel htmlFor="password">Password</FormLabel>
+      <FormLabel>{t('password')}</FormLabel>
       <FormField
         name="password"
         type="password"
@@ -35,7 +35,7 @@ export const LoginForm = (props) => {
         {
           isLoading
             ? <Preloader small />
-            : 'Login'
+            : t('login')
         }
       </AuthButton>
     </Form>
