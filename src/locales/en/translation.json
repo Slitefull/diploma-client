@@ -25,5 +25,18 @@
   "newCategoryHasBeenCreated": "New category has been created!",
   "viewReports": "View reports",
   "userSettings": "User Settings",
-  "goodsName": "Good's name"
+  "goodsName": "Good's name",
+  "personalData": "Personal data",
+  "inputYourName": "Input your name",
+  "inputYourSurname": "Input your surname",
+  "surname": "Surname",
+  "name": "name",
+  "email": "Email",
+  "username": "Username",
+  "address": "Address",
+  "inputYourEmail": "Input your email",
+  "inputYourUsername": "Input your username",
+  "inputYourAddress": "Input your address",
+  "saveChanges": "Save changes",
+  "useThisPageToUpdateYourContactInformationAndChangeYourPassword": "Use this page to update your contact information and change your password."
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { Button, ProfileFormWrapper } from '../styled';
 import { FormDescription, FormField, FormLabel, FormTitle } from '../../../components/common/form-control/styled';
 import { Input } from '../../../components/common/form-control/FormControl';
@@ -10,13 +11,14 @@ import { AvatarImage, AvatarLetter } from '../../../components/header/profile-ic
 
 
 export const ProfileForm = ({ handleSubmit }) => {
+  const { t } = useTranslation();
   const userNameLetter = useSelector(profileSelectors.getUserName).split('', 1)[0];
   const avatar = useSelector(profileSelectors.getUserAvatar);
 
   return (
     <ProfileFormWrapper style={{ maxWidth: 1200 }} onSubmit={handleSubmit}>
-      <FormTitle>Personal data</FormTitle>
-      <FormDescription>Use this page to update your contact information and change your password.</FormDescription>
+      <FormTitle>{t('personalData')}</FormTitle>
+      <FormDescription>{t('useThisPageToUpdateYourContactInformationAndChangeYourPassword')}</FormDescription>
       {
         avatar
           ? <AvatarImage src={avatar} style={{ width: 100, height: 100 }} />
@@ -24,19 +26,19 @@ export const ProfileForm = ({ handleSubmit }) => {
       }
       <Wrapper row justify>
         <Wrapper full style={{ maxWidth: 550 }}>
-          <FormLabel>Name</FormLabel>
+          <FormLabel>{t('name')}</FormLabel>
           <FormField
             name="name"
-            placeholder="Input your name"
+            placeholder={t('inputYourName')}
             component={Input}
             validate={[required]}
           />
         </Wrapper>
         <Wrapper full style={{ maxWidth: 550 }}>
-          <FormLabel>Surname</FormLabel>
+          <FormLabel>{t('surname')}</FormLabel>
           <FormField
             name="surname"
-            placeholder="Input your surname"
+            placeholder={t('inputYourSurname')}
             component={Input}
             validate={[required]}
           />
@@ -44,32 +46,32 @@ export const ProfileForm = ({ handleSubmit }) => {
       </Wrapper>
       <Wrapper row justify>
         <Wrapper full style={{ maxWidth: 550 }}>
-          <FormLabel>Username</FormLabel>
+          <FormLabel>{t('username')}</FormLabel>
           <FormField
             name="userName"
-            placeholder="Input your username"
+            placeholder={t('inputYourUsername')}
             component={Input}
             validate={[required]}
           />
         </Wrapper>
         <Wrapper full style={{ maxWidth: 550 }}>
-          <FormLabel>Email</FormLabel>
+          <FormLabel>{t('email')}</FormLabel>
           <FormField
             name="email"
-            placeholder="Input your email"
+            placeholder={t('inputYourEmail')}
             component={Input}
             validate={[required]}
           />
         </Wrapper>
       </Wrapper>
-      <FormLabel>Address</FormLabel>
+      <FormLabel>{t('address')}</FormLabel>
       <FormField
         name="address"
-        placeholder="Input your address"
+        placeholder={t('inputYourAddress')}
         component={Input}
         validate={[required]}
       />
-      <Button>Save changes</Button>
+      <Button>{t('saveChanges')}</Button>
     </ProfileFormWrapper>
   );
 };
