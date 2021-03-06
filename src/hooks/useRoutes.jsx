@@ -16,12 +16,12 @@ export const useRoutes = (isAuth) => {
   if (isAuth) {
     return (
       <>
-        <Sidebar/>
+        <Sidebar />
         <Wrapper full>
-          <Header/>
-          <Route exact path="/" component={Dashboard}/>
-          <Route path={pagesLinks.addGoods} component={AddGoods}/>
-          <Route path={pagesLinks.profile} component={Profile}/>
+          <Header />
+          <Route exact path="/" component={Dashboard} />
+          <Route path={pagesLinks.addGoods} component={AddGoods} />
+          <Route path={pagesLinks.profile} component={Profile} />
         </Wrapper>
       </>
     );
@@ -30,8 +30,8 @@ export const useRoutes = (isAuth) => {
   return (
     <>
       <Wrapper row full>
-        <Route path={pagesLinks.registration} component={Registration}/>
-        <Route path={pagesLinks.login} component={Login}/>
+        <Route path={pagesLinks.registration} component={Registration} />
+        <Route path={pagesLinks.login} component={Login} />
       </Wrapper>
     </>
   );

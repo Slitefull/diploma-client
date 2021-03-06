@@ -21,7 +21,7 @@ export const AddGoodsForm = (props) => {
   const next = () => setCurrent(current + 1);
   const prev = () => setCurrent(current - 1);
 
-  //TODO fix disabled price
+  // TODO fix disabled price
   const isDisabled = name === '' || description === '' || category === '' || (current === 2 && price === null);
 
   const steps = [
@@ -56,7 +56,7 @@ export const AddGoodsForm = (props) => {
   return (
     <AddGoodsWrapper onSubmit={handleSubmit}>
       <Steps current={current}>
-        {steps.map((item) => <Step key={item.title} title={item.title}/>)}
+        {steps.map((item) => <Step key={item.title} title={item.title} />)}
       </Steps>
       {steps[current].content}
       <Wrapper row center justify style={{ marginTop: 20 }}>
@@ -68,7 +68,7 @@ export const AddGoodsForm = (props) => {
           {isPreview ? 'Hide preview' : 'Show preview'}
         </Button>
         {current < steps.length - 1 && <Button disabled={isDisabled} onClick={() => next()}>Next</Button>}
-        {current === steps.length - 1 && <Button type='primary' onClick={handleSubmit}>Done</Button>}
+        {current === steps.length - 1 && <Button type="primary" onClick={handleSubmit}>Done</Button>}
       </Wrapper>
     </AddGoodsWrapper>
   );

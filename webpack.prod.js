@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { HashedModuleIdsPlugin } = require('webpack');
 const common = require('./webpack.common.js');
 
+
 module.exports = merge(common, {
   mode: 'production',
   // devtool: 'source-map',

@@ -19,7 +19,7 @@ export const ProfileForm = ({ handleSubmit }) => {
       <FormDescription>Use this page to update your contact information and change your password.</FormDescription>
       {
         avatar
-          ? <AvatarImage src={avatar} style={{ width: 100, height: 100 }}/>
+          ? <AvatarImage src={avatar} style={{ width: 100, height: 100 }} />
           : <AvatarLetter style={{ width: 100, height: 100, fontSize: 36 }}>{userNameLetter}</AvatarLetter>
       }
       <Wrapper row justify>
@@ -46,7 +46,7 @@ export const ProfileForm = ({ handleSubmit }) => {
         <Wrapper full style={{ maxWidth: 550 }}>
           <FormLabel>Username</FormLabel>
           <FormField
-            name="username"
+            name="userName"
             placeholder="Input your username"
             component={Input}
             validate={[required]}

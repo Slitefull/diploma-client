@@ -34,7 +34,7 @@ export const LoginForm = (props) => {
       <AuthButton fullWidth>
         {
           isLoading
-            ? <Preloader small/>
+            ? <Preloader small />
             : 'Login'
         }
       </AuthButton>

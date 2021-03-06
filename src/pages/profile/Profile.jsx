@@ -10,12 +10,14 @@ import { profileSelectors } from './selectors';
 
 
 export const Profile = () => {
+  const { t } = useTranslation();
+
   const name = useSelector(profileSelectors.getUserName);
   const surname = useSelector(profileSelectors.getUserSurname);
   const userName = useSelector(profileSelectors.getUserUserName);
   const email = useSelector(profileSelectors.getUserEmail);
 
-  const { t } = useTranslation();
+  const initialValues = { name, surname, userName, email };
 
   const handleSubmit = (data) => {
     console.log(data, 'data');
@@ -23,20 +25,15 @@ export const Profile = () => {
 
   return (
     <PagePanel>
-      <CustomSettingOutlined/>
+      <CustomSettingOutlined />
       <PanelText center>{t('userSettings')}</PanelText>
-      <AddGoodsReduxForm onSubmit={handleSubmit}/>
+      <AddGoodsReduxForm initialValues={initialValues} onSubmit={handleSubmit} />
     </PagePanel>
   );
 };
 
 const AddGoodsReduxForm = reduxForm({
   form: 'profile',
-  initialValues: {
-    name: 'name',
-    surname: 'surname',
-    email: 'email',
-  },
 })(ProfileForm);
 
-//TODO add initial values
+// TODO add initial values

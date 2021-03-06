@@ -1,3 +1,4 @@
+/*eslint-disable*/
 export const required = (value) => (value ? null : 'Field is required');
 export const onlyDigits = (value) => (value && /^\d+$/.test(value) ? null : 'Only digits');
 export const onlyLetters = (value) => (value && /^[a-zA-Z]/.test(value) ? null : 'Only letters');

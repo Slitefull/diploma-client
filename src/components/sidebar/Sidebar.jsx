@@ -25,17 +25,17 @@ export const Sidebar = () => {
       onCollapse={onCollapse}
       style={{ background: 'rgb(28 34 55)' }}
     >
-      <Logo center src={logo}/>
+      <Logo center src={logo} />
       <Menu
         theme="dark"
         defaultSelectedKeys={['1']}
         style={{ background: 'rgb(28 34 55)' }}
         mode="inline"
       >
-        <Menu.Item key="1" icon={<PieChartOutlined/>}>
+        <Menu.Item key="1" icon={<PieChartOutlined />}>
           <NavLinkItem to="/">Dashboard</NavLinkItem>
         </Menu.Item>
-        <Menu.Item key="2" icon={<DesktopOutlined/>}>
+        <Menu.Item key="2" icon={<DesktopOutlined />}>
           <NavLinkItem to={pagesLinks.addGoods}>{pagesTitles.addGoods}</NavLinkItem>
         </Menu.Item>
       </Menu>
@@ -43,5 +43,5 @@ export const Sidebar = () => {
   );
 };
 
-//TODO normal menu component
-//TODO fix close button color
+// TODO normal menu component
+// TODO fix close button color

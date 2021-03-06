@@ -6,11 +6,6 @@ import { dashboardActions } from './store';
 import { errorCatcher } from '../../helpers/errorCatcher';
 
 
-export const dashboardWatcher = [
-  takeLatest(dashboardActions.makeAdmin.type, makeAdmin),
-  takeLatest(dashboardActions.removeAdmin.type, removeAdmin),
-];
-
 function* makeAdmin(action) {
   try {
     yield dashboardApi.makeAdmin(action.payload);
@@ -18,9 +13,9 @@ function* makeAdmin(action) {
     const { data: users } = yield dashboardApi.getAllUsers();
     yield put(dashboardActions.setUsers(users));
 
-    return message.success(i18next.t('newAdminHasBeenAdded'));
+    message.success(i18next.t('newAdminHasBeenAdded'));
   } catch (e) {
-    return message.error(errorCatcher(e.text));
+    message.error(errorCatcher(e.text));
   }
 }
 
@@ -31,8 +26,13 @@ function* removeAdmin(action) {
     const { data: users } = yield dashboardApi.getAllUsers();
     yield put(dashboardActions.setUsers(users));
 
-    return message.success(i18next.t('adminHasBeenRemoved'));
+    message.success(i18next.t('adminHasBeenRemoved'));
   } catch (e) {
-    return message.error(errorCatcher(e.text));
+    message.error(errorCatcher(e.text));
   }
 }
+
+export const dashboardWatcher = [
+  takeLatest(dashboardActions.makeAdmin.type, makeAdmin),
+  takeLatest(dashboardActions.removeAdmin.type, removeAdmin),
+];

@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 
+
 const goodsState = (state) => state.goods;
 
 const getAllGoods = createSelector(goodsState, (goods) => goods.goods);

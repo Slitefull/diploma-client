@@ -13,7 +13,7 @@ import { localStorageLocale } from '../../../helpers/localStorageHelper';
 const LocalesDropdownMenu = ({ changeLanguage }) => {
   const menu = getAllLocales.map((locale) => (
     <MenuItem onClick={(localeInfo) => changeLanguage(localeInfo.key)} key={locale}>
-      <LocaleFlag src={getLocaleFlag(locale)}/>
+      <LocaleFlag src={getLocaleFlag(locale)} />
       <DropdownLocaleName>{getLocaleName(locale)}</DropdownLocaleName>
     </MenuItem>
   ));
@@ -38,16 +38,16 @@ export const LocalesDropdown = () => {
   return (
     <Dropdown
       visible={visible}
-      overlay={<LocalesDropdownMenu changeLanguage={changeLanguage}/>}
+      overlay={<LocalesDropdownMenu changeLanguage={changeLanguage} />}
       onClick={() => setVisible(!visible)}
     >
-      <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
-        <LocaleFlag src={getLocaleFlag(appLocale)}/>
+      <button className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+        <LocaleFlag src={getLocaleFlag(appLocale)} />
         <LocaleName>
           {getLocaleName(appLocale)}
-          <DownOutlined style={{ fontSize: 12, marginLeft: 10 }}/>
+          <DownOutlined style={{ fontSize: 12, marginLeft: 10 }} />
         </LocaleName>
-      </a>
+      </button>
     </Dropdown>
   );
 };

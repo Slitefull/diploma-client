@@ -1,26 +1,26 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const webpack = require('webpack');
+
 
 module.exports = merge(common, {
   node: {
-    fs: 'empty'
+    fs: 'empty',
   },
   externals: [
-    {'./cptable': 'var cptable'},
-    {'./jszip': 'jszip'}
+    { './cptable': 'var cptable' },
+    { './jszip': 'jszip' },
   ],
   mode: 'development',
   devServer: {
     proxy: {
       '/api': {
         target: 'http://localhost:5000',
-        secure: false
-      }
+        secure: false,
+      },
     },
     contentBase: './dist',
     watchOptions: {
-      //poll: true,
+      // poll: true,
     },
     hot: true,
     open: true,

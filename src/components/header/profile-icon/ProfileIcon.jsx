@@ -12,11 +12,11 @@ export const ProfileIcon = () => {
     <>
       {
         avatar
-          ? <AvatarImage src={avatar}/>
+          ? <AvatarImage src={avatar} />
           : <AvatarLetter>{userName}</AvatarLetter>
       }
     </>
   );
 };
 
-//TODO avatar letter
+// TODO avatar letter

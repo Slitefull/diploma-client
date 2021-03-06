@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+
 
 export const ProductPreviewWrapper = styled.div`
   max-width: 600px;
@@ -6,7 +7,7 @@ export const ProductPreviewWrapper = styled.div`
   border-radius: .25rem;
   background: #ffffff;
   padding: 25px;
-`
+`;
 
 export const ProductName = styled.p`
   font-size: 28px;
@@ -14,14 +15,14 @@ export const ProductName = styled.p`
   color: #333333;
   margin-bottom: 0;
   display: inline;
-`
+`;
 
 export const ProductDescription = styled.p`
   font-size: 16px;
   font-weight: 400;
   color: #333333;
   margin-bottom: 0;
-`
+`;
 
 export const ProductCategory = styled.span`
   font-size: 16px;
@@ -31,23 +32,23 @@ export const ProductCategory = styled.span`
   background: #85ffa3;
   padding: 5px;
   margin: 0 0 0 15px;
-`
+`;
 
 export const ProductInStock = styled.span`
   font-size: 16px;
   font-weight: 600;
-  color: ${props => props.onStock ? "green" : "red"};
+  color: ${(props) => (props.onStock ? 'green' : 'red')};
   border-radius: 10px;
   padding: 5px;
   margin: 0 0 0 15px;
-`
+`;
 
 export const ProductPrice = styled.p`
   font-size: 18px;
   font-weight: 600;
   color: #f84147;
   margin-bottom: 0;
-`
+`;
 
 export const ProductDiscount = styled.p`
   font-size: 18px;
@@ -55,10 +56,10 @@ export const ProductDiscount = styled.p`
   color: #33333396;
   margin-bottom: 0;
   text-decoration: line-through;
-`
+`;
 
 export const ProductThumbnail = styled.img`
   display: block;
   max-width: 400px;
   margin: auto;
-`
+`;

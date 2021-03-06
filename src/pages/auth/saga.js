@@ -1,6 +1,6 @@
 import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 import { message } from 'antd';
-import jwt_decode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 import { history } from '../../history';
 import { appActions } from '../../app/store';
 import { authActions } from './store';
@@ -10,12 +10,6 @@ import { errorCatcher } from '../../helpers/errorCatcher';
 import { localStorageDataName } from '../../helpers/localStorageHelper';
 
 
-export const authWatcher = [
-  takeLatest(authActions.login.type, handleLogin),
-  takeEvery(authActions.register.type, handleRegister),
-  takeLatest(authActions.logout.type, logout),
-];
-
 function* handleLogin(action) {
   try {
     yield put(appActions.setLoading(true));
@@ -23,7 +17,7 @@ function* handleLogin(action) {
     const response = yield authApi.login(action.payload);
     const { token } = response;
 
-    const decodedToken = jwt_decode(token);
+    const decodedToken = jwtDecode(token);
     console.log(decodedToken, 'decoded');
 
     const { name, surname, email, role } = decodedToken;
@@ -36,7 +30,7 @@ function* handleLogin(action) {
     history.push('/');
   } catch (e) {
     yield put(appActions.setLoading(false));
-    return message.error(errorCatcher(e.text));
+    message.error(errorCatcher(e.text));
   }
 }
 
@@ -53,7 +47,7 @@ function* handleRegister(action) {
     history.push('/');
   } catch (e) {
     yield put(appActions.setLoading(false));
-    return message.error(errorCatcher(e.text));
+    message.error(errorCatcher(e.text));
   }
 }
 
@@ -62,3 +56,9 @@ function* logout() {
   yield put(authActions.setIsAuth(false));
   history.push('/login');
 }
+
+export const authWatcher = [
+  takeLatest(authActions.login.type, handleLogin),
+  takeEvery(authActions.register.type, handleRegister),
+  takeLatest(authActions.logout.type, logout),
+];

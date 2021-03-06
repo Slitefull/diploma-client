@@ -51,7 +51,7 @@ export const RegistrationForm = (props) => {
       <AuthButton fullWidth>
         {
           isLoading
-            ? <Preloader small/>
+            ? <Preloader small />
             : 'Register'
         }
       </AuthButton>

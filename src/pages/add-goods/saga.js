@@ -6,11 +6,6 @@ import { goodsApi } from './api';
 import { errorCatcher } from '../../helpers/errorCatcher';
 
 
-export const goodsWatcher = [
-  takeLatest(goodsActions.createGoods.type, createGoods),
-  takeLatest(goodsActions.createCategory.type, createCategory),
-];
-
 function* createGoods(action) {
   try {
     yield goodsApi.createGoods(action.payload);
@@ -28,3 +23,8 @@ function* createCategory(action) {
     return message.error(errorCatcher(e.text));
   }
 }
+
+export const goodsWatcher = [
+  takeLatest(goodsActions.createGoods.type, createGoods),
+  takeLatest(goodsActions.createCategory.type, createCategory),
+];

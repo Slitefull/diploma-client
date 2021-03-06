@@ -18,12 +18,12 @@ export const Registration = () => {
   return (
     <>
       <FormWrapper>
-        <Logo src={logo} center/>
+        <Logo src={logo} center />
         <FormTitle center>Registration</FormTitle>
-        <RegistrationReduxForm onSubmit={register}/>
+        <RegistrationReduxForm onSubmit={register} />
         <AuthLink to={pagesLinks.login}>Already have an account? Login, please</AuthLink>
       </FormWrapper>
-      <RegistrationBackground/>
+      <RegistrationBackground />
     </>
   );
 };

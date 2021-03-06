@@ -9,6 +9,7 @@ import VI from './locales/vi/translation.json';
 import PT from './locales/pt/translation.json';
 import KO from './locales/ko/translation.json';
 
+
 export const resources = {
   en: { translation: EN },
   ru: { translation: RU },

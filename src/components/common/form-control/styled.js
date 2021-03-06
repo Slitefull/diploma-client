@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { Field } from 'redux-form';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 
 export const Form = styled.form`
   border-radius: 5px;
-`
+`;
 
 export const FormWrapper = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ export const FormWrapper = styled.div`
   align-self: center;
   width: 850px;
   padding: 0 100px;
-`
+`;
 
 export const FormField = styled(Field)`
   display: block;
@@ -30,40 +30,40 @@ export const FormField = styled(Field)`
     background: #e8f0fe;
     box-shadow: 0 0 4px #0366d6;
   }
-`
+`;
 
 export const FormFieldWrapper = styled.div`
   width: 100%;
-`
+`;
 
 export const FormTitle = styled.h1`
-  text-align: ${props => props.center ? "center" : "left"};
+  text-align: ${(props) => (props.center ? 'center' : 'left')};
   font-size: 24px;
   font-weight: 600;
-`
+`;
 
 export const FormDescription = styled.p`
-  text-align: ${props => props.center ? "center" : "left"};
+  text-align: ${(props) => (props.center ? 'center' : 'left')};
   font-size: 16px;
   font-weight: 600;
-`
+`;
 
 export const FormLabel = styled.label`
   display: block;
   font-weight: 500;
-`
+`;
 
 export const FormError = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`
+`;
 
 export const FormErrorMessage = styled.div`
   color: red;
   font-weight: 500;
   font-size: 14px;
-`
+`;
 
 export const AuthLink = styled(NavLink)`
   border-bottom: 1px black dotted;
@@ -71,4 +71,4 @@ export const AuthLink = styled(NavLink)`
   align-self: flex-end;
   color: #3e46a2;
   margin: 10px 0 0;
-`
+`;

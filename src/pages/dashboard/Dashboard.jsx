@@ -21,14 +21,14 @@ export const Dashboard = () => {
         {greeting((time.getHours()), userName)}
         <PanelText subtitle>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis dolores
-          <br/>
+          <br />
           doloribus esse et iste laboriosam maiores maxime, mollitia nisi numquam omnis praesentium provident quam quasi
           quia quisquam recusandae vel.
         </PanelText>
         <Button>{t('viewReports')}</Button>
       </PagePanel>
-      <GeneralInfoCards/>
-      <Chart/>
+      <GeneralInfoCards />
+      <Chart />
     </>
   );
 };

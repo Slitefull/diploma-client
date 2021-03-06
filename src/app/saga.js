@@ -1,5 +1,5 @@
 import { put, takeLatest } from 'redux-saga/effects';
-import jwt_decode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 import { message } from 'antd';
 import { appActions } from './store';
 import { userRoles } from '../helpers/getRole';
@@ -12,10 +12,6 @@ import { goodsActions } from '../pages/add-goods/store';
 import { getLocalStorageLocale, localStorageDataName } from '../helpers/localStorageHelper';
 import { errorCatcher } from '../helpers/errorCatcher';
 
-
-export const appWatcher = [
-  takeLatest(appActions.setInit.type, initHandle),
-];
 
 function* initHandle() {
   try {
@@ -31,7 +27,7 @@ function* initHandle() {
 
     if (data) {
       const { token } = data;
-      const tokenDecoded = jwt_decode(token);
+      const tokenDecoded = jwtDecode(token);
       const { name, surname, userName, email, role } = tokenDecoded;
 
       if (role === userRoles.superAdmin) {
@@ -58,6 +54,10 @@ function* initHandle() {
     yield put(appActions.setLoading(false));
   } catch (e) {
     yield put(appActions.setLoading(false));
-    return message.error(errorCatcher(e.text));
+    message.error(errorCatcher(e.text));
   }
 }
+
+export const appWatcher = [
+  takeLatest(appActions.setInit.type, initHandle),
+];

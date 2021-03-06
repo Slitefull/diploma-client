@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { SettingOutlined } from '@ant-design/icons';
 
+
 export const CustomSettingOutlined = styled(SettingOutlined)`
   display: block;
   margin: 0 auto 15px;

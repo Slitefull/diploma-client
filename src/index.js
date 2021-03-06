@@ -18,8 +18,8 @@ ReactDOM.render(
   <Router history={history}>
     <Provider store={store}>
       <I18nextProvider i18n={i18next}>
-        <GlobalStyle/>
-        <App/>
+        <GlobalStyle />
+        <App />
       </I18nextProvider>
     </Provider>
   </Router>,

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const InfoCardIcon = styled.div`
   display: grid;
   text-align: center;
