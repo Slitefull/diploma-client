@@ -1,16 +1,18 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ProfileForm } from './profile-form/ProfileForm';
 
 import { CustomSettingOutlined } from './styled';
 import { PagePanel, PanelText } from '../../styled';
 import { profileSelectors } from './selectors';
+import { profileActions } from './store';
 
 
 export const Profile = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const name = useSelector(profileSelectors.getUserName);
   const surname = useSelector(profileSelectors.getUserSurname);
@@ -19,9 +21,7 @@ export const Profile = () => {
 
   const initialValues = { name, surname, userName, email };
 
-  const handleSubmit = (data) => {
-    console.log(data, 'data');
-  };
+  const handleSubmit = (data) => dispatch(profileActions.saveProfileSettings(data));
 
   return (
     <PagePanel>
@@ -32,6 +32,4 @@ export const Profile = () => {
   );
 };
 
-const AddGoodsReduxForm = reduxForm({
-  form: 'profile',
-})(ProfileForm);
+const AddGoodsReduxForm = reduxForm({ form: 'profile' })(ProfileForm);

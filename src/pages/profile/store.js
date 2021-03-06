@@ -14,15 +14,11 @@ const profileSlice = createSlice({
     setUserData(state, action) {
       state.profile = action.payload;
     },
-    setUserName(state, action) {
-      state.profile.name = action.payload;
-    },
   },
 });
 
 export const profileActions = {
   setUserData: profileSlice.actions.setUserData,
-  setUserName: profileSlice.actions.setUserName,
   saveProfileSettings: createAction(`${storeName}/saveProfileSettings`),
   initProfile: createAction(`${storeName}/initProfile`),
 };

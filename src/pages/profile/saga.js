@@ -1,7 +1,7 @@
 import jwtDecode from 'jwt-decode';
-import { put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { message } from 'antd';
-import { dashboardActions } from '../dashboard/store';
+import i18next from 'i18next';
 import { getToken } from '../../helpers/getToken';
 import { profileApi } from './api';
 import { profileActions } from './store';
@@ -15,18 +15,19 @@ function* editProfile(action) {
     const tokenDecoded = jwtDecode(oldToken);
 
     const { userId } = tokenDecoded;
-    const userData = Object.assign(action.payload, { userId });
+    const userData = { ...action.payload, userId };
 
     const { token } = yield profileApi.saveProfileSettings(userData);
     const newTokenDecoded = jwtDecode(token);
-    const { name } = newTokenDecoded;
+    const { name, email, surname, userName } = newTokenDecoded;
 
     localStorage.removeItem(localStorageDataName);
     localStorage.setItem(localStorageDataName, JSON.stringify({ token }));
 
-    yield put(dashboardActions.setUserData({ name }));
+    yield put(profileActions.setUserData({ name, email, surname, userName }));
+    yield call(message.success, i18next.t('userDataHasBeenChanged'));
   } catch (e) {
-    message.error(errorCatcher(e.text));
+    yield call(message.error, errorCatcher(e.text));
   }
 }
 

@@ -69,9 +69,8 @@ export const ProfileForm = ({ handleSubmit }) => {
         name="address"
         placeholder={t('inputYourAddress')}
         component={Input}
-        validate={[required]}
       />
-      <Button>{t('saveChanges')}</Button>
+      <Button onClick={handleSubmit}>{t('saveChanges')}</Button>
     </ProfileFormWrapper>
   );
 };
