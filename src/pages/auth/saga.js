@@ -1,4 +1,4 @@
-import { put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import { message } from 'antd';
 import jwtDecode from 'jwt-decode';
 import { history } from '../../history';
@@ -14,7 +14,7 @@ function* handleLogin(action) {
   try {
     yield put(appActions.setLoading(true));
 
-    const response = yield authApi.login(action.payload);
+    const response = yield call(authApi.login, action.payload);
     const { token } = response;
 
     const decodedToken = jwtDecode(token);
@@ -28,7 +28,7 @@ function* handleLogin(action) {
     history.push('/');
   } catch (e) {
     yield put(appActions.setLoading(false));
-    message.error(errorCatcher(e.text));
+    yield call(message.error, errorCatcher(e.text));
   }
 }
 
@@ -38,14 +38,14 @@ function* handleRegister(action) {
     const { email, password } = data;
 
     yield put(appActions.setLoading(true));
-    yield authApi.register(data);
+    yield call(authApi.register, data);
     yield put(appActions.setLoading(false));
 
     yield put(authActions.login({ email, password }));
     history.push('/');
   } catch (e) {
     yield put(appActions.setLoading(false));
-    message.error(errorCatcher(e.text));
+    yield call(message.error, errorCatcher(e.text));
   }
 }
 
