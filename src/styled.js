@@ -72,7 +72,7 @@ export const Logo = styled.img`
   display: block;
   width: 100%;
   max-width: 50px;
-  margin: ${(props) => (props.center ? 'auto' : '0 30px 0 0')};
+  margin: ${(props) => (props.center ? '3px auto' : '0 30px 0 0')};
 `;
 
 export const PagePanel = styled.div`

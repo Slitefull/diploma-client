@@ -3,8 +3,8 @@ import { reduxForm } from 'redux-form';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import logo from '../../../assets/logo.svg';
-import { pagesLinks } from '../../../consts';
 import { authActions } from '../store';
+import { pagesLinks } from '../../../consts';
 import { LoginForm } from './login-form/LoginForm';
 
 import { Logo } from '../../../styled';
@@ -15,6 +15,7 @@ import { AuthLink, FormTitle, FormWrapper } from '../../../components/common/for
 export const Login = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+
   const login = (data) => dispatch(authActions.login(data));
 
   return (

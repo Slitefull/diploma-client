@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { getAllLocales, getLocaleFlag, getLocaleName } from '../../../locales/consts';
-import { CustomMenu, DropdownLocaleName, LocaleFlag, LocaleName, MenuItem } from './styled';
+import { CustomMenu, DropdownLocaleName, LocaleFlag, LocaleName, LocalesDropdownTrigger, MenuItem } from './styled';
 import { appActions } from '../../../app/store';
 import { appSelectors } from '../../../app/selectors';
 import { localStorageLocale } from '../../../helpers/localStorageHelper';
@@ -41,13 +41,13 @@ export const LocalesDropdown = () => {
       overlay={<LocalesDropdownMenu changeLanguage={changeLanguage} />}
       onClick={() => setVisible(!visible)}
     >
-      <button className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+      <LocalesDropdownTrigger className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
         <LocaleFlag src={getLocaleFlag(appLocale)} />
         <LocaleName>
           {getLocaleName(appLocale)}
           <DownOutlined style={{ fontSize: 12, marginLeft: 10 }} />
         </LocaleName>
-      </button>
+      </LocalesDropdownTrigger>
     </Dropdown>
   );
 };

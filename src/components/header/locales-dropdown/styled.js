@@ -27,3 +27,9 @@ export const MenuItem = styled(Menu.Item)`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const LocalesDropdownTrigger = styled.button`
+  background: transparent;
+  border: none;
+  outline: none;
+`;

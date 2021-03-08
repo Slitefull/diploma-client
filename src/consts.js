@@ -1,4 +1,5 @@
 export const pagesLinks = {
+  dashboard: '/',
   login: '/login',
   registration: '/registration',
   profile: '/profile',
