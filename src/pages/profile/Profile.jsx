@@ -24,11 +24,18 @@ export const Profile = () => {
   const handleSubmit = (data) => dispatch(profileActions.saveProfileSettings(data));
 
   return (
-    <PagePanel>
-      <CustomSettingOutlined />
-      <PanelText center>{t('userSettings')}</PanelText>
+    <>
+      <PagePanel>
+        <CustomSettingOutlined />
+        <PanelText center>{t('userSettings')}</PanelText>
+        <PanelText subtitle center>
+          There you can change your profile settings,
+          {' '}
+          {name}
+        </PanelText>
+      </PagePanel>
       <AddGoodsReduxForm initialValues={initialValues} onSubmit={handleSubmit} />
-    </PagePanel>
+    </>
   );
 };
 

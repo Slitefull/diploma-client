@@ -32,4 +32,5 @@ export const LocalesDropdownTrigger = styled.button`
   background: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
 `;

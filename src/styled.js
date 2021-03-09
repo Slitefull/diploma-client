@@ -11,16 +11,11 @@ export const GlobalStyle = createGlobalStyle`
     background: #fff;
     font-family: 'circe', Helvetica, Sans-Serif;
   }
-
-  #root {
-    height: 100%;
-  }
 `;
 
 export const Container = styled.div`
   width: 100%;
   max-width: 1250px;
-  min-height: calc(100% - 146px);
   margin: auto;
   display: flex;
   padding: 0 25px;

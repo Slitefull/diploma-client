@@ -3,6 +3,7 @@ import { Table } from 'antd';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { goodsSelectors } from '../../add-goods/selectors';
+
 import { TableThumbnail, TableTitle } from '../styled';
 
 
