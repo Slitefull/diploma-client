@@ -1,4 +1,4 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import jwtDecode from 'jwt-decode';
 import { message } from 'antd';
 import { appActions } from './store';
@@ -15,14 +15,15 @@ import { errorCatcher } from '../helpers/errorCatcher';
 
 function* initHandle() {
   try {
+    yield put(appActions.setLoading(true));
     const locale = getLocalStorageLocale();
+
     if (locale) {
       yield put(appActions.setLocale(locale));
     } else {
       yield put(appActions.setLocale('en'));
     }
 
-    yield put(appActions.setLoading(true));
     const data = JSON.parse(localStorage.getItem(localStorageDataName));
 
     if (data) {
@@ -31,17 +32,17 @@ function* initHandle() {
       const { name, surname, userName, email, role } = tokenDecoded;
 
       if (role === userRoles.superAdmin) {
-        const getAllUsers = yield dashboardApi.getAllUsers();
+        const getAllUsers = yield call(dashboardApi.getAllUsers);
 
         const { users } = getAllUsers;
         yield put(dashboardActions.setUsers(users));
 
-        const getAllGoods = yield goodsApi.getAllGoods();
+        const getAllGoods = yield call(goodsApi.getAllGoods);
         const { goodsCount, goods } = getAllGoods;
         yield put(goodsActions.setGoodsCount(goodsCount));
         yield put(goodsActions.setGoods(goods));
 
-        const getAllCategories = yield goodsApi.getAllCategories();
+        const getAllCategories = yield call(goodsApi.getAllCategories);
         const { categories, categoriesCount } = getAllCategories;
 
         yield put(goodsActions.setCategories(categories));

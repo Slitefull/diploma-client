@@ -9,7 +9,7 @@ export const Preloader = styled.span`
     content: " ";
     display: block;
     border-radius: 50%;
-    border: 6px solid #fff;
+    border: ${(props) => (props.global ? '6px solid #000' : '6px solid #fff')};
     border-color: #fff transparent #fff transparent;
     animation: loading 1.2s linear infinite;
     width: ${(props) => (props.small ? '22px' : '64px')};

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { GoodsTable } from './goods-table/GoodsTable';
 import { greeting } from '../../helpers/greeting';
 import { profileSelectors } from '../profile/selectors';
-
 import { GeneralInfoCards } from './general-info-cards/GeneralInfoCards';
 import { Chart } from '../../components/common/chart/Chart';
 
-import { Button, PagePanel, PanelText } from '../../styled';
+import { Button, PagePanel, PanelText, Wrapper } from '../../styled';
 
 
 export const Dashboard = () => {
@@ -28,7 +28,10 @@ export const Dashboard = () => {
         <Button>{t('viewReports')}</Button>
       </PagePanel>
       <GeneralInfoCards />
-      <Chart />
+      <Wrapper style={{ padding: '0 20px' }}>
+        <GoodsTable />
+        <Chart />
+      </Wrapper>
     </>
   );
 };

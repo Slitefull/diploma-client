@@ -16,15 +16,19 @@ import { Login } from '../pages/auth/login/Login';
 
 import { Wrapper } from '../styled';
 import { AppWrapper } from './styled';
+import { Loader } from '../components/common/Loader/Loader';
 
 
 export const App = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(authSelectors.getIsAuth);
+
   useEffect(() => {
     dispatch(appActions.setInit());
     i18next.changeLanguage(getLocalStorageLocale());
   }, [dispatch]);
+
+  if (!isAuth) return <Loader />;
 
   return (
     <AppWrapper>
