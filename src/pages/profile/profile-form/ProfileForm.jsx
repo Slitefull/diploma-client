@@ -7,24 +7,19 @@ import { required } from '../../../helpers/validators/validators';
 
 import { Wrapper } from '../../../styled';
 import { Button, ProfileFormWrapper } from '../styled';
-import { AvatarImage, AvatarLetter } from '../../../components/header/profile-icon/styled';
+import { AvatarLetter } from '../../../components/header/profile-icon/styled';
 import { FormDescription, FormField, FormLabel, FormTitle } from '../../../components/common/form-control/styled';
 
 
 export const ProfileForm = ({ handleSubmit }) => {
   const { t } = useTranslation();
   const userNameLetter = useSelector(profileSelectors.getUserName).split('', 1)[0];
-  const avatar = useSelector(profileSelectors.getUserAvatar);
 
   return (
     <ProfileFormWrapper style={{ maxWidth: 1200 }} onSubmit={handleSubmit}>
       <FormTitle>{t('personalData')}</FormTitle>
       <FormDescription>{t('useThisPageToUpdateYourContactInformationAndChangeYourPassword')}</FormDescription>
-      {
-        avatar
-          ? <AvatarImage src={avatar} style={{ width: 100, height: 100 }} />
-          : <AvatarLetter style={{ width: 100, height: 100, fontSize: 36 }}>{userNameLetter}</AvatarLetter>
-      }
+      <AvatarLetter style={{ width: 100, height: 100, fontSize: 36 }}>{userNameLetter}</AvatarLetter>
       <Wrapper row justify>
         <Wrapper full style={{ maxWidth: 550 }}>
           <FormLabel>{t('name')}</FormLabel>

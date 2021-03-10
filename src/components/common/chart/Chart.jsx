@@ -5,7 +5,7 @@ import { goodsSelectors } from '../../../pages/add-goods/selectors';
 
 
 export const Chart = () => {
-  const goodsCount = useSelector(goodsSelectors.getGoodsCount);
+  const goodsCount = useSelector(goodsSelectors.getAllGoodsCount);
 
   const chartData = {
     labels: ['Goods', 'Categories', 'Dimon', 'Green', 'Purple', 'Orange'],

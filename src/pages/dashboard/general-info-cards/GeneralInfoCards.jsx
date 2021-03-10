@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { ArrowDownOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { dashboardSelectors } from '../selectors';
+import { AiOutlineShopping } from 'react-icons/all';
 import { StatisticCard } from '../../../components/common/statistic-card/StatisticCard';
 
 import { Wrapper } from '../../../styled';
@@ -11,16 +10,7 @@ import { goodsSelectors } from '../../add-goods/selectors';
 
 export const GeneralInfoCards = () => {
   const { t } = useTranslation();
-  const users = useSelector(dashboardSelectors.getAllUsers);
-  const usersCount = users.length;
-
-  const admins = users.filter((user) => user.role === 'admin');
-  const adminsCount = admins.length;
-
-  const regulars = users.filter((user) => user.role === 'regular');
-  const regularsCount = regulars.length;
-
-  const goodsCount = useSelector(goodsSelectors.getGoodsCount);
+  const goodsCount = useSelector(goodsSelectors.getAllGoodsCount);
 
   return (
     <Wrapper
@@ -34,36 +24,10 @@ export const GeneralInfoCards = () => {
       }}
     >
       <StatisticCard
-        icon={<ArrowDownOutlined style={{ color: 'red' }} />}
-        iconBackground="#fcddde"
-        title={t('totalUsersCount')}
-        count={usersCount}
-        percents="11%"
-        isGrow
-      />
-      <StatisticCard
-        icon="test"
-        iconBackground="#ccf5eb"
-        title={t('totalRegularsCount')}
-        count={regularsCount}
-        percents="21%"
-        isGrow={false}
-      />
-      <StatisticCard
-        icon="test"
-        iconBackground="#f2545b"
-        title={t('totalsAdminsCount')}
-        count={adminsCount}
-        percents="54%"
-        isGrow
-      />
-      <StatisticCard
-        icon="test"
-        iconBackground="#f2545b"
-        title={t('goodsCount')}
+        icon={<AiOutlineShopping size={20} style={{ color: '#1bb5fe' }} />}
+        iconBackground="#d1f0ff"
+        title={t('totalGoodsCount')}
         count={goodsCount}
-        percents="19%"
-        isGrow={false}
       />
     </Wrapper>
   );

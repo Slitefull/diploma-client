@@ -7,6 +7,7 @@ export const InfoCardIcon = styled.div`
   align-items: center;
   height: 2.5rem;
   width: 2.5rem;
+  justify-content: center;
   background: ${(props) => props.background};
   border-radius: 50%;
 `;

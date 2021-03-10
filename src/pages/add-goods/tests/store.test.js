@@ -4,8 +4,6 @@ import { goodsActions, goodsReducer } from '../store';
 const mockInitialState = {
   goods: [],
   categories: [],
-  goodsCount: 0,
-  categoriesCount: 0,
 };
 
 describe('addGoods reducer', () => {
@@ -28,25 +26,6 @@ describe('addGoods reducer', () => {
         },
       ],
       categories: [],
-      goodsCount: 0,
-      categoriesCount: 0,
-    };
-
-    const reducer = goodsReducer(mockInitialState, action);
-    expect(reducer).toEqual(expectedState);
-  });
-
-  it('should setGoodsCount action change state', () => {
-    const action = {
-      type: goodsActions.setGoodsCount.type,
-      payload: 1,
-    };
-
-    const expectedState = {
-      goods: [],
-      categories: [],
-      goodsCount: 1,
-      categoriesCount: 0,
     };
 
     const reducer = goodsReducer(mockInitialState, action);
@@ -72,25 +51,6 @@ describe('addGoods reducer', () => {
           name: 'Laptops',
         },
       ],
-      goodsCount: 0,
-      categoriesCount: 0,
-    };
-
-    const reducer = goodsReducer(mockInitialState, action);
-    expect(reducer).toEqual(expectedState);
-  });
-
-  it('should setCategoriesCount action change state', () => {
-    const action = {
-      type: goodsActions.setCategoriesCount.type,
-      payload: 1,
-    };
-
-    const expectedState = {
-      goods: [],
-      categories: [],
-      goodsCount: 0,
-      categoriesCount: 1,
     };
 
     const reducer = goodsReducer(mockInitialState, action);

@@ -5,8 +5,6 @@ const mockInitialState = {
   goods: {
     goods: [],
     categories: [],
-    goodsCount: 0,
-    categoriesCount: 0,
   },
 };
 
@@ -15,15 +13,15 @@ describe('addGoods selectors', () => {
     expect(goodsSelectors.getAllGoods(mockInitialState)).toEqual([]);
   });
 
-  it('should getGoodsCount selector return number', () => {
-    expect(goodsSelectors.getGoodsCount(mockInitialState)).toEqual(0);
+  it('should getAllGoodsCount selector return array', () => {
+    expect(goodsSelectors.getAllGoodsCount(mockInitialState)).toEqual(0);
   });
 
   it('should getAllCategories selector return array', () => {
     expect(goodsSelectors.getAllCategories(mockInitialState)).toEqual([]);
   });
 
-  it('should getCategoriesCount selector return number', () => {
-    expect(goodsSelectors.getCategoriesCount(mockInitialState)).toEqual(0);
+  it('should getAllCategoriesCount selector return array', () => {
+    expect(goodsSelectors.getAllCategoriesCount(mockInitialState)).toEqual(0);
   });
 });

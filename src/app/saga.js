@@ -25,15 +25,12 @@ export function* setInitData(data) {
       yield put(dashboardActions.setUsers(users));
 
       const getAllGoods = yield call(goodsApi.getAllGoods);
-      const { goodsCount, goods } = getAllGoods;
-      yield put(goodsActions.setGoodsCount(goodsCount));
+      const { goods } = getAllGoods;
       yield put(goodsActions.setGoods(goods));
 
       const getAllCategories = yield call(goodsApi.getAllCategories);
-      const { categories, categoriesCount } = getAllCategories;
-
+      const { categories } = getAllCategories;
       yield put(goodsActions.setCategories(categories));
-      yield put(goodsActions.setCategoriesCount(categoriesCount));
     }
     yield put(profileActions.setUserData({ name, role, surname, userName, email }));
     yield put(authActions.setIsAuth(true));
