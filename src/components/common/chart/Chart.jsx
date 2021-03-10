@@ -1,17 +1,13 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { useSelector } from 'react-redux';
-import { goodsSelectors } from '../../../pages/add-goods/selectors';
 
 
 export const Chart = () => {
-  const goodsCount = useSelector(goodsSelectors.getAllGoodsCount);
-
   const chartData = {
     labels: ['Goods', 'Categories', 'Dimon', 'Green', 'Purple', 'Orange'],
     datasets: [{
       label: 'Testing chart',
-      data: [goodsCount, 190, 23, 196, 522, 39],
+      data: [10, 190, 23, 196, 522, 39],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',

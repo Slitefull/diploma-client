@@ -14,7 +14,7 @@ describe('addGoods selectors', () => {
   });
 
   it('should getAllGoodsCount selector return array', () => {
-    expect(goodsSelectors.getAllGoodsCount(mockInitialState)).toEqual(0);
+    expect(goodsSelectors.getAllDifferentGoodsCount(mockInitialState)).toEqual(0);
   });
 
   it('should getAllCategories selector return array', () => {

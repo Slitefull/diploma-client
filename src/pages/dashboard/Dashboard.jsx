@@ -5,7 +5,6 @@ import { GoodsTable } from './goods-table/GoodsTable';
 import { greeting } from '../../helpers/greeting';
 import { profileSelectors } from '../profile/selectors';
 import { GeneralInfoCards } from './general-info-cards/GeneralInfoCards';
-import { Chart } from '../../components/common/chart/Chart';
 
 import { Button, PagePanel, PanelText, Wrapper } from '../../styled';
 
@@ -30,7 +29,7 @@ export const Dashboard = () => {
       <GeneralInfoCards />
       <Wrapper style={{ padding: '0 20px' }}>
         <GoodsTable />
-        <Chart />
+        {/* <Chart /> */}
       </Wrapper>
     </>
   );
