@@ -36,6 +36,7 @@ export const InfoCardTitle = styled.p`
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 1px;
+  text-align: center;
   text-transform: uppercase;
 `;
 
