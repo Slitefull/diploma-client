@@ -13,7 +13,38 @@ import { getLocalStorageLocale, localStorageDataName } from '../helpers/localSto
 import { errorCatcher } from '../helpers/errorCatcher';
 
 
-function* initHandle() {
+export function* setInitData(data) {
+  try {
+    const { token } = data;
+    const tokenDecoded = jwtDecode(token);
+    const { name, surname, userName, email, role } = tokenDecoded;
+
+    if (role === userRoles.superAdmin) {
+      const getAllUsers = yield call(dashboardApi.getAllUsers);
+      const { users } = getAllUsers;
+      yield put(dashboardActions.setUsers(users));
+
+      const getAllGoods = yield call(goodsApi.getAllGoods);
+      const { goodsCount, goods } = getAllGoods;
+      yield put(goodsActions.setGoodsCount(goodsCount));
+      yield put(goodsActions.setGoods(goods));
+
+      const getAllCategories = yield call(goodsApi.getAllCategories);
+      const { categories, categoriesCount } = getAllCategories;
+
+      yield put(goodsActions.setCategories(categories));
+      yield put(goodsActions.setCategoriesCount(categoriesCount));
+    }
+    yield put(profileActions.setUserData({ name, role, surname, userName, email }));
+    yield put(authActions.setIsAuth(true));
+    yield put(appActions.setLoading(false));
+  } catch (e) {
+    yield put(appActions.setLoading(false));
+    yield call(message.error, errorCatcher(e.text));
+  }
+}
+
+export function* initHandle() {
   try {
     yield put(appActions.setLoading(true));
     const locale = getLocalStorageLocale();
@@ -25,37 +56,10 @@ function* initHandle() {
     }
 
     const data = JSON.parse(localStorage.getItem(localStorageDataName));
-
-    if (data) {
-      const { token } = data;
-      const tokenDecoded = jwtDecode(token);
-      const { name, surname, userName, email, role } = tokenDecoded;
-
-      if (role === userRoles.superAdmin) {
-        const getAllUsers = yield call(dashboardApi.getAllUsers);
-
-        const { users } = getAllUsers;
-        yield put(dashboardActions.setUsers(users));
-
-        const getAllGoods = yield call(goodsApi.getAllGoods);
-        const { goodsCount, goods } = getAllGoods;
-        yield put(goodsActions.setGoodsCount(goodsCount));
-        yield put(goodsActions.setGoods(goods));
-
-        const getAllCategories = yield call(goodsApi.getAllCategories);
-        const { categories, categoriesCount } = getAllCategories;
-
-        yield put(goodsActions.setCategories(categories));
-        yield put(goodsActions.setCategoriesCount(categoriesCount));
-      }
-
-      yield put(profileActions.setUserData({ name, role, surname, userName, email }));
-      yield put(authActions.setIsAuth(true));
-    }
-    yield put(appActions.setLoading(false));
+    if (data) yield call(setInitData, data);
   } catch (e) {
     yield put(appActions.setLoading(false));
-    message.error(errorCatcher(e.text));
+    yield call(message.error, errorCatcher(e.text));
   }
 }
 

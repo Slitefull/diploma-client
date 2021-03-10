@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Button, ProfileFormWrapper } from '../styled';
-import { FormDescription, FormField, FormLabel, FormTitle } from '../../../components/common/form-control/styled';
+import { profileSelectors } from '../selectors';
 import { Input } from '../../../components/common/form-control/FormControl';
 import { required } from '../../../helpers/validators/validators';
+
 import { Wrapper } from '../../../styled';
-import { profileSelectors } from '../selectors';
+import { Button, ProfileFormWrapper } from '../styled';
 import { AvatarImage, AvatarLetter } from '../../../components/header/profile-icon/styled';
+import { FormDescription, FormField, FormLabel, FormTitle } from '../../../components/common/form-control/styled';
 
 
 export const ProfileForm = ({ handleSubmit }) => {

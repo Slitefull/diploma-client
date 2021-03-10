@@ -18,10 +18,11 @@ export const Profile = () => {
   const surname = useSelector(profileSelectors.getUserSurname);
   const userName = useSelector(profileSelectors.getUserUserName);
   const email = useSelector(profileSelectors.getUserEmail);
+  const role = useSelector(profileSelectors.getUserRole);
 
   const initialValues = { name, surname, userName, email };
 
-  const handleSubmit = (data) => dispatch(profileActions.saveProfileSettings(data));
+  const handleSubmit = (data) => dispatch(profileActions.saveProfileSettings({ ...data, role }));
 
   return (
     <>

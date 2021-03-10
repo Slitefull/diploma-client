@@ -38,42 +38,34 @@ export const GoodsTable = () => {
       title: <TableTitle>{t('price')}</TableTitle>,
       dataIndex: 'price',
       key: 'price',
-      render: (price) => (
-        <>
-          {price}
-          ₴
-        </>
-      ),
+      render: (price) => <>{`${price}₴`}</>,
     },
     {
       title: <TableTitle>{t('priceWithDiscount')}</TableTitle>,
       dataIndex: 'priceWithDiscount',
       key: 'priceWithDiscount',
-      render: (priceWithDiscount) => (
-        <>
-          {priceWithDiscount}
-          ₴
-        </>
-      ),
+      render: (priceWithDiscount) => <>{`${priceWithDiscount}₴`}</>,
     },
     {
       title: <TableTitle>{t('discount')}</TableTitle>,
       dataIndex: 'discount',
       key: 'discount',
       render: (discount) => (
-        discount ? (
-          <>
-            {discount}
-            ₴
-          </>
-        ) : <p style={{ fontWeight: 800, color: 'red' }}>{t('withoutDiscount')}</p>),
+        discount
+          ? <>{`${discount}₴`}</>
+          : <p style={{ fontWeight: 800, color: 'red' }}>{t('withoutDiscount')}</p>
+      ),
     },
     {
       title: <TableTitle>{t('onStockCount')}</TableTitle>,
       dataIndex: 'onStockCount',
       key: 'onStockCount',
       width: 200,
-      render: (count) => (count ? <>{count}</> : <p style={{ fontWeight: 800, color: 'red' }}>{t('notOnTheStock')}</p>),
+      render: (count) => (
+        count
+          ? <>{count}</>
+          : <p style={{ fontWeight: 800, color: 'red' }}>{t('notOnTheStock')}</p>
+      ),
     },
   ];
 

@@ -19,12 +19,12 @@ export function* editProfile(action) {
 
     const { token } = yield call(profileApi.saveProfileSettings, userData);
     const newTokenDecoded = jwtDecode(token);
-    const { name, email, surname, userName } = newTokenDecoded;
+    const { name, email, surname, userName, role } = newTokenDecoded;
 
     localStorage.removeItem(localStorageDataName);
     localStorage.setItem(localStorageDataName, JSON.stringify({ token }));
 
-    yield put(profileActions.setUserData({ name, email, surname, userName }));
+    yield put(profileActions.setUserData({ name, email, surname, userName, role }));
     yield call(message.success, i18next.t('userDataHasBeenChanged'));
   } catch (e) {
     yield call(message.error, errorCatcher(e.text));
