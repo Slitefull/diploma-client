@@ -2,7 +2,6 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import jwtDecode from 'jwt-decode';
 import { message } from 'antd';
 import { appActions } from './store';
-import { userRoles } from '../helpers/getRole';
 import { authActions } from '../pages/auth/store';
 import { dashboardApi } from '../pages/dashboard/api';
 import { dashboardActions } from '../pages/dashboard/store';
@@ -11,6 +10,7 @@ import { goodsApi } from '../pages/add-goods/api';
 import { goodsActions } from '../pages/add-goods/store';
 import { getLocalStorageLocale, localStorageDataName } from '../helpers/localStorageHelper';
 import { errorCatcher } from '../helpers/errorCatcher';
+import { userRoles } from '../helpers/getRole';
 
 
 export function* setInitData(data) {

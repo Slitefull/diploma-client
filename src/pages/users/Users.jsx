@@ -17,7 +17,7 @@ export const Users = () => {
         <PanelText center>{t('users')}</PanelText>
         <Search title={t('searchUsers')} />
       </PagePanel>
-      <Container style={{ maxWidth: 1650 }}>
+      <Container style={{ maxWidth: 1650, padding: '40px 0' }}>
         <Wrapper row justify wrap>
           <UsersList />
         </Wrapper>

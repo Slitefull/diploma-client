@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import i18next from 'i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { pagesLinks } from '../consts';
 import { appActions } from './store';
 import { appSelectors } from './selectors';
@@ -36,13 +36,13 @@ export const App = () => {
 
   return (
     <AppWrapper>
-      {
-        isAuth
-          ? (
-            <>
-              <Sidebar />
-              <Wrapper full>
-                <Header />
+      {isAuth
+        ? (
+          <>
+            <Sidebar />
+            <Wrapper full>
+              <Header />
+              <Switch>
                 <Route exact path={pagesLinks.dashboard} component={Dashboard} />
                 <Route path={pagesLinks.addGoods} component={AddGoods} />
                 <Route path={pagesLinks.profile} component={Profile} />
@@ -51,19 +51,16 @@ export const App = () => {
                 <Route path="*">
                   <Redirect to={pagesLinks.dashboard} />
                 </Route>
-              </Wrapper>
-            </>
-          )
-          : (
-            <Wrapper style={{ minHeight: '100vh' }} full row>
-              <Route path={pagesLinks.registration} component={Registration} />
-              <Route path={pagesLinks.login} component={Login} />
-              <Route path="*">
-                <Redirect to={pagesLinks.login} />
-              </Route>
+              </Switch>
             </Wrapper>
-          )
-      }
+          </>
+        )
+        : (
+          <Wrapper style={{ minHeight: '100vh' }} full row>
+            <Route path={pagesLinks.registration} component={Registration} />
+            <Route path={pagesLinks.login} component={Login} />
+          </Wrapper>
+        )}
     </AppWrapper>
   );
 };

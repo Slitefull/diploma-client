@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AvatarImage, AvatarLetter } from './styled';
 import { profileSelectors } from '../../../pages/profile/selectors';
+
+import { AvatarImage, AvatarLetter } from './styled';
 
 
 export const ProfileIcon = ({ isBig }) => {
