@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from '../../../../components/common/form-control/FormControl';
+import { FormInput } from '../../../../components/common/form-control/FormControl';
 import { onlyUrl } from '../../../../helpers/validators/validators';
 
 import { FormField, FormLabel } from '../../../../components/common/form-control/styled';
@@ -14,7 +14,7 @@ export const ThirdStep = ({ thumbnail, setThumbnail }) => {
       <FormLabel>{t('thumbnail')}</FormLabel>
       <FormField
         name="thumbnail"
-        component={Input}
+        component={FormInput}
         validate={[onlyUrl]}
         onChange={(e) => setThumbnail(e.target.value)}
         placeholder={thumbnail}

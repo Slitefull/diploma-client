@@ -5,10 +5,10 @@ import { FormError, FormErrorMessage, FormFieldWrapper } from './styled';
 
 const FieldCreator = ({ input, child, meta, ...props }) => {
   const hasError = meta.touched && meta.error;
-  const { children } = props;
+  const { children, width } = props;
 
   return (
-    <FormFieldWrapper>
+    <FormFieldWrapper style={{ width }}>
       {children}
       {hasError && (
         <FormError>

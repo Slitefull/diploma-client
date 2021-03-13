@@ -16,8 +16,8 @@ export const AvatarLetter = styled.span`
 `;
 
 export const AvatarImage = styled.img`
-  width: 40px;
-  height: 40px;
+  width: ${(props) => (props.isBig ? '80px' : '40px')};
+  height: ${(props) => (props.isBig ? '80px' : '40px')};
   display: grid;
   cursor: pointer;
   align-items: center;

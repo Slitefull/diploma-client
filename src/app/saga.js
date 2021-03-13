@@ -17,7 +17,7 @@ export function* setInitData(data) {
   try {
     const { token } = data;
     const tokenDecoded = jwtDecode(token);
-    const { name, surname, userName, email, role } = tokenDecoded;
+    const { name, surname, userName, email, role, avatar, address, city, postalCode, status } = tokenDecoded;
 
     if (role === userRoles.superAdmin) {
       const getAllUsers = yield call(dashboardApi.getAllUsers);
@@ -32,7 +32,18 @@ export function* setInitData(data) {
       const { categories } = getAllCategories;
       yield put(goodsActions.setCategories(categories));
     }
-    yield put(profileActions.setUserData({ name, role, surname, userName, email }));
+    yield put(profileActions.setUserData({
+      name,
+      role,
+      surname,
+      userName,
+      email,
+      avatar,
+      address,
+      city,
+      postalCode,
+      status,
+    }));
     yield put(authActions.setIsAuth(true));
     yield put(appActions.setLoading(false));
   } catch (e) {

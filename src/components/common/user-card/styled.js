@@ -8,7 +8,7 @@ export const UserCardWrapper = styled.div` && {
   padding: 10px 20px;
   background: #ffffff;
   border-radius: 5px;
-  min-width: 350px;
+  width: 350px;
   margin: 0 0 40px;
 }`;
 
@@ -38,7 +38,31 @@ export const Name = styled.p` && {
 }`;
 
 export const UserName = styled.p` && {
+  margin: 0;
   font-size: 14px;
   font-weight: 600;
   color: #6e7da2;
+}`;
+
+export const UserStatus = styled.p` && {
+  margin: 0;
+  color: #6e7da2;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}`;
+
+export const UserAddress = styled.p` && {
+  margin: 0;
+  color: #3e4676;
+  font-size: 14px;
+  font-weight: 600;
+  align-self: flex-end;
+}`;
+
+export const UserPostalCode = styled.span` && {
+  font-weight: 600;
+  font-size: 12px;
+  align-self: flex-end;
+  color: #3e4676;
 }`;

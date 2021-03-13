@@ -7,6 +7,7 @@ import { dashboardSelectors } from '../../dashboard/selectors';
 export const UsersList = () => {
   const users = useSelector(dashboardSelectors.getAllUsers);
 
+
   return (
     <>
       {users.map((user) => (
@@ -15,6 +16,11 @@ export const UsersList = () => {
           surname={user.surname}
           userRole={user.role}
           userName={user.userName}
+          avatar={user.avatar}
+          city={user.city}
+          postalCode={user.postalCode}
+          address={user.address}
+          status={user.status}
         />
       ))}
     </>
