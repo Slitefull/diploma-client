@@ -29,7 +29,7 @@ export const Textarea = (props) => {
   );
 };
 
-export const Input = (props) => {
+export const FormInput = (props) => {
   const { input, meta, child, ...restProps } = props;
 
   return (

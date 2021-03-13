@@ -3,11 +3,11 @@ import { reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProfileForm } from './profile-form/ProfileForm';
+import { profileSelectors } from './selectors';
+import { profileActions } from './store';
 
 import { CustomSettingOutlined } from './styled';
 import { PagePanel, PanelText } from '../../styled';
-import { profileSelectors } from './selectors';
-import { profileActions } from './store';
 
 
 export const Profile = () => {
@@ -30,9 +30,7 @@ export const Profile = () => {
         <CustomSettingOutlined />
         <PanelText center>{t('userSettings')}</PanelText>
         <PanelText subtitle center>
-          There you can change your profile settings,
-          {' '}
-          {name}
+          {`There you can change your profile settings, ${name}`}
         </PanelText>
       </PagePanel>
       <AddGoodsReduxForm initialValues={initialValues} onSubmit={handleSubmit} />

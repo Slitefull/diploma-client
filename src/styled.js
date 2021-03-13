@@ -11,6 +11,10 @@ export const GlobalStyle = createGlobalStyle`
     background: #fff;
     font-family: 'circe', Helvetica, Sans-Serif;
   }
+
+  #root {
+    height: 100%
+  }
 `;
 
 export const Container = styled.div`
@@ -30,6 +34,7 @@ export const Wrapper = styled.div`
   width: ${(props) => (props.full ? '100%' : '')};
   flex-direction: ${(props) => (props.row ? 'row' : 'column')};
   justify-content: ${(props) => (props.justify ? 'space-between' : 'inherit')};
+  flex-wrap: ${(props) => (props.wrap ? 'wrap' : 'nowrap')};
 `;
 
 export const Button = styled.button`
@@ -48,10 +53,10 @@ export const Button = styled.button`
   transition: 0.3s;
   width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
 
-  &:focus{
-    box-shadow: 0 0 0 0.2rem rgba(104,122,232,.25);
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(104, 122, 232, .25);
   }
-  
+
   &:hover {
     transition: 0.3s;
     background: ${(props) => (props.disabled ? 'grey' : 'rgba(128,128,128,.15)')};

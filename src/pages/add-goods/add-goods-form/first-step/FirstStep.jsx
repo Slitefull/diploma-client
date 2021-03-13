@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Modal, Input as AntInput, Select } from 'antd';
+import { Button, Input as AntInput, Modal, Select } from 'antd';
 import { Option } from 'antd/es/mentions';
 import { profileSelectors } from '../../../profile/selectors';
 import { goodsSelectors } from '../../selectors';
 import { goodsActions } from '../../store';
-import { Input, Textarea } from '../../../../components/common/form-control/FormControl';
+import { FormInput, Textarea } from '../../../../components/common/form-control/FormControl';
 import { FormField, FormLabel } from '../../../../components/common/form-control/styled';
 import { maxLengthCreator, onlyLetters, required } from '../../../../helpers/validators/validators';
 
@@ -32,26 +32,19 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
   return (
     <div>
       <Greeting>
-        {t('welcome')}
-        {userName}
-        ,
-        {' '}
-        {t('thereYouCanAddNewGoods')}
+        {`${t('welcome')} ${userName}, ${t('thereYouCanAddNewGoods')}`}
       </Greeting>
-      <FormLabel htmlFor="name">
-        {t('goodsName')}
-        *
+      <FormLabel>
+        {`${t('goodsName')} *`}
       </FormLabel>
       <FormField
         name="name"
-        component={Input}
+        component={FormInput}
         validate={[required, maxLength40]}
         onChange={(e) => setName(e.target.value)}
       />
       <FormLabel htmlFor="description">
-        {t('description')}
-        {' '}
-        *
+        {`${t('description')} *`}
       </FormLabel>
       <FormField
         name="description"
@@ -61,9 +54,7 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
       />
       <Wrapper row justify center style={{ margin: '10px 0' }}>
         <FormLabel htmlFor="category">
-          {t('category')}
-          {' '}
-          *
+          {`${t('category')} *`}
         </FormLabel>
         <Button type="primary" onClick={() => setIsModalVisible(true)}>{t('addNew')}</Button>
         <Modal
@@ -76,9 +67,7 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
             placeholder={t('category')}
             onChange={(e) => setNewCategory(e.target.value)}
           />
-          {isValidMessage
-            ? <p style={{ color: 'red' }}>{isValidMessage}</p>
-            : null}
+          {isValidMessage && <p style={{ color: 'red' }}>{isValidMessage}</p>}
         </Modal>
       </Wrapper>
       <Select

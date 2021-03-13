@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { profileSelectors } from '../selectors';
-import { Input } from '../../../components/common/form-control/FormControl';
+import { FormInput } from '../../../components/common/form-control/FormControl';
 import { required } from '../../../helpers/validators/validators';
 
 import { Wrapper } from '../../../styled';
@@ -26,7 +26,7 @@ export const ProfileForm = ({ handleSubmit }) => {
           <FormField
             name="name"
             placeholder={t('inputYourName')}
-            component={Input}
+            component={FormInput}
             validate={[required]}
           />
         </Wrapper>
@@ -35,7 +35,7 @@ export const ProfileForm = ({ handleSubmit }) => {
           <FormField
             name="surname"
             placeholder={t('inputYourSurname')}
-            component={Input}
+            component={FormInput}
             validate={[required]}
           />
         </Wrapper>
@@ -46,7 +46,7 @@ export const ProfileForm = ({ handleSubmit }) => {
           <FormField
             name="userName"
             placeholder={t('inputYourUsername')}
-            component={Input}
+            component={FormInput}
             validate={[required]}
           />
         </Wrapper>
@@ -55,7 +55,7 @@ export const ProfileForm = ({ handleSubmit }) => {
           <FormField
             name="email"
             placeholder={t('inputYourEmail')}
-            component={Input}
+            component={FormInput}
             validate={[required]}
           />
         </Wrapper>
@@ -64,7 +64,7 @@ export const ProfileForm = ({ handleSubmit }) => {
       <FormField
         name="address"
         placeholder={t('inputYourAddress')}
-        component={Input}
+        component={FormInput}
       />
       <Button onClick={handleSubmit}>{t('saveChanges')}</Button>
     </ProfileFormWrapper>

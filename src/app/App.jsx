@@ -18,6 +18,8 @@ import { Login } from '../pages/auth/login/Login';
 
 import { Wrapper } from '../styled';
 import { AppWrapper } from './styled';
+import { Users } from '../pages/users/Users';
+import { Settings } from '../pages/settings/Settings';
 
 
 export const App = () => {
@@ -44,6 +46,8 @@ export const App = () => {
                 <Route exact path={pagesLinks.dashboard} component={Dashboard} />
                 <Route path={pagesLinks.addGoods} component={AddGoods} />
                 <Route path={pagesLinks.profile} component={Profile} />
+                <Route path={pagesLinks.users} component={Users} />
+                <Route path={pagesLinks.settings} component={Settings} />
                 <Route path="*">
                   <Redirect to={pagesLinks.dashboard} />
                 </Route>

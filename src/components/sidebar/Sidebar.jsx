@@ -3,7 +3,7 @@ import Sider from 'antd/es/layout/Sider';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { Menu } from 'antd';
-import { DesktopOutlined, PieChartOutlined } from '@ant-design/icons';
+import { DesktopOutlined, PieChartOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import logo from '../../assets/logo.svg';
 import { Logo } from '../../styled';
 
@@ -33,10 +33,16 @@ export const Sidebar = () => {
         mode="inline"
       >
         <Menu.Item key="1" icon={<PieChartOutlined />}>
-          <NavLinkItem to="/">Dashboard</NavLinkItem>
+          <NavLinkItem to="/">{pagesTitles.dashboard}</NavLinkItem>
         </Menu.Item>
         <Menu.Item key="2" icon={<DesktopOutlined />}>
           <NavLinkItem to={pagesLinks.addGoods}>{pagesTitles.addGoods}</NavLinkItem>
+        </Menu.Item>
+        <Menu.Item key="3" icon={<UserOutlined />}>
+          <NavLinkItem to={pagesLinks.users}>{pagesTitles.users}</NavLinkItem>
+        </Menu.Item>
+        <Menu.Item key="4" icon={<SettingOutlined />}>
+          <NavLinkItem to={pagesLinks.settings}>{pagesTitles.settings}</NavLinkItem>
         </Menu.Item>
       </Menu>
     </Sider>
@@ -44,4 +50,3 @@ export const Sidebar = () => {
 };
 
 // TODO normal menu component
-// TODO fix close button color

@@ -39,31 +39,15 @@ export const ProductPreview = ({ name, description, category, discount, price, t
               )
           }
         </ProductInStock>
-        {
-          category
-            ? <ProductCategory>{category}</ProductCategory>
-            : null
-        }
+        { category && <ProductCategory>{category}</ProductCategory> }
       </Wrapper>
       <ProductDescription>{description}</ProductDescription>
-      {
-        thumbnail
-          ? <ProductThumbnail src={thumbnail} alt="Commodity" />
-          : null
-      }
+      { thumbnail && <ProductThumbnail src={thumbnail} alt="Commodity" /> }
       <ProductDiscount>
-        {
-          discount
-            ? `${price}₴`
-            : null
-        }
+        { discount && `${price}₴` }
       </ProductDiscount>
       <ProductPrice>
-        {
-          price
-            ? `${price - discount}₴`
-            : null
-        }
+        { price && `${price - discount}₴` }
       </ProductPrice>
     </ProductPreviewWrapper>
   );

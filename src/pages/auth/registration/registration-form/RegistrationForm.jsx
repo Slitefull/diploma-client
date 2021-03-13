@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { appSelectors } from '../../../../app/selectors';
-import { Input } from '../../../../components/common/form-control/FormControl';
+import { FormInput } from '../../../../components/common/form-control/FormControl';
 import { email, maxLengthCreator, required } from '../../../../helpers/validators/validators';
 
 import { Form, FormField, FormLabel } from '../../../../components/common/form-control/styled';
@@ -21,32 +21,32 @@ export const RegistrationForm = ({ handleSubmit }) => {
       <FormLabel htmlFor="name">{t('name')}</FormLabel>
       <FormField
         name="name"
-        component={Input}
+        component={FormInput}
         validate={[maxLength15, required]}
       />
       <FormLabel htmlFor="surname">{t('surname')}</FormLabel>
       <FormField
         name="surname"
-        component={Input}
+        component={FormInput}
         validate={[maxLength15, required]}
       />
       <FormLabel htmlFor="name">{t('username')}</FormLabel>
       <FormField
         name="userName"
-        component={Input}
+        component={FormInput}
         validate={[maxLength15, required]}
       />
       <FormLabel htmlFor="email">{t('email')}</FormLabel>
       <FormField
         name="email"
-        component={Input}
+        component={FormInput}
         validate={[required, email]}
       />
       <FormLabel htmlFor="password">{t('password')}</FormLabel>
       <FormField
         name="password"
         type="password"
-        component={Input}
+        component={FormInput}
         validate={[maxLength15, required]}
       />
       <AuthButton fullWidth>

@@ -53,7 +53,11 @@ export function* initHandle() {
     }
 
     const data = JSON.parse(localStorage.getItem(localStorageDataName));
-    if (data) yield call(setInitData, data);
+    if (data) {
+      yield call(setInitData, data);
+    } else {
+      yield put(appActions.setLoading(false));
+    }
   } catch (e) {
     yield put(appActions.setLoading(false));
     yield call(message.error, errorCatcher(e.text));

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { appSelectors } from '../../../../app/selectors';
 import { email, maxLengthCreator, required } from '../../../../helpers/validators/validators';
-import { Input } from '../../../../components/common/form-control/FormControl';
+import { FormInput } from '../../../../components/common/form-control/FormControl';
 
 import { AuthButton } from '../../styled';
 import { Preloader } from '../../../../components/common/preloader/styled';
@@ -21,14 +21,14 @@ export const LoginForm = ({ handleSubmit }) => {
       <FormLabel>{t('emailAddress')}</FormLabel>
       <FormField
         name="email"
-        component={Input}
+        component={FormInput}
         validate={[required, email]}
       />
       <FormLabel>{t('password')}</FormLabel>
       <FormField
         name="password"
         type="password"
-        component={Input}
+        component={FormInput}
         validate={[maxLength15, required]}
       />
       <AuthButton fullWidth>
