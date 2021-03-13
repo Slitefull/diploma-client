@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { reduxForm, reset } from 'redux-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { AddGoodsForm } from './add-goods-form/AddGoodsForm';
-
-import { Container, PagePanel, PanelText, Wrapper } from '../../styled';
+import { useTranslation } from 'react-i18next';
 import { goodsActions } from './store';
+import { AddGoodsForm } from './add-goods-form/AddGoodsForm';
 import { ProductPreview } from './product-preview/ProductPreview';
 import { greeting } from '../../helpers/greeting';
 import { profileSelectors } from '../profile/selectors';
 
+import { Container, PagePanel, PanelText, Wrapper } from '../../styled';
+
 
 export const AddGoods = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const userName = useSelector(profileSelectors.getUserName);
@@ -43,7 +45,7 @@ export const AddGoods = () => {
       <PagePanel>
         {greeting((time.getHours()), userName)}
         <PanelText subtitle>
-          Good time to create new commodity, yes?
+          {t('goodTimeToCreateNewCommodityYes')}
         </PanelText>
       </PagePanel>
       <Container style={{ maxWidth: 1600 }}>

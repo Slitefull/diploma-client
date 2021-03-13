@@ -30,7 +30,7 @@ export const Profile = () => {
         <CustomSettingOutlined />
         <PanelText center>{t('userSettings')}</PanelText>
         <PanelText subtitle center>
-          {`There you can change your profile settings, ${name}`}
+          {`${t('thereYouCanChangeYourProfileSettings')}, ${name}`}
         </PanelText>
       </PagePanel>
       <AddGoodsReduxForm initialValues={initialValues} onSubmit={handleSubmit} />

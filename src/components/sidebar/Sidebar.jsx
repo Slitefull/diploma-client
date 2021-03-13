@@ -5,11 +5,11 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { Menu } from 'antd';
 import { DesktopOutlined, PieChartOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import logo from '../../assets/logo.svg';
-import { Logo } from '../../styled';
+import { pagesLinks, pagesTitles } from '../../consts';
 
 import './style.less';
+import { Logo } from '../../styled';
 import { NavLinkItem } from '../header/menu/styled';
-import { pagesLinks, pagesTitles } from '../../consts';
 
 
 library.add(fas);

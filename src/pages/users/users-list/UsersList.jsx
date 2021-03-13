@@ -9,14 +9,14 @@ export const UsersList = () => {
 
   return (
     <>
-      { users.map((user) => (
+      {users.map((user) => (
         <UserCard
           name={user.name}
           surname={user.surname}
           userRole={user.role}
           userName={user.userName}
         />
-      )) }
+      ))}
     </>
   );
 };

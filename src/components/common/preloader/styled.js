@@ -5,6 +5,7 @@ export const Preloader = styled.span`
   display: inline-block;
   width: ${(props) => (props.small ? '22px' : '80px')};
   height: ${(props) => (props.small ? '22px' : '80px')};
+  
   &:after {
     content: " ";
     display: block;
@@ -15,6 +16,7 @@ export const Preloader = styled.span`
     width: ${(props) => (props.small ? '22px' : '64px')};
     height: ${(props) => (props.small ? '22px' : '64px')};
   }
+  
   @keyframes loading {
     0% {
       transform: rotate(0deg);

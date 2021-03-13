@@ -1,7 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { AiFillShop, AiOutlineShopping, FaMoneyCheckAlt, GiReceiveMoney } from 'react-icons/all';
+import {
+  AiFillShop,
+  AiOutlineShopping,
+  FaMoneyCheckAlt,
+  GiReceiveMoney,
+  GiTakeMyMoney,
+  VscError,
+} from 'react-icons/all';
 import { goodsSelectors } from '../../add-goods/selectors';
 import { StatisticCard } from '../../../components/common/statistic-card/StatisticCard';
 
@@ -21,7 +28,7 @@ export const GeneralInfoCards = () => {
     // <Carousel
     //   style={{ transform: 'translate(0, -50px)' }}
     //   dots="carousel-dots__diploma"
-  // autoplay
+    // autoplay
     // >
     //   <div>
     <Wrapper row justify style={{ padding: '0 20px', transform: 'translate(0px, -50px)' }}>
@@ -43,30 +50,30 @@ export const GeneralInfoCards = () => {
         title={t('totalDiscount')}
         count={`${totalDiscount} ₴`}
       />
-      <StatisticCard
-        icon={<FaMoneyCheckAlt size={20} style={{ color: '#f2545b' }} />}
-        iconBackground="#fcddde"
-        title={t('totalGoodsPriceWithDiscount')}
-        count={`${totalGoodsPriceWithDiscount} ₴`}
-      />
       {/* </Wrapper> */}
       {/* </div> */}
       {/* <div> */}
       {/*  <Wrapper row full justify style={{ padding: '0 20px' }}> */}
       <StatisticCard
-        icon={<AiFillShop size={20} style={{ color: '#fac646' }} />}
-        iconBackground="#fdf2cd"
+        icon={<VscError size={20} style={{ color: '#de6368' }} />}
+        iconBackground="#ffb5b8"
         title={t('theTotalQuantityOfGoodsThatAreNotOnTheStock')}
         count={notOnTheStockGoodsCount}
       />
       <StatisticCard
-        icon={<AiFillShop size={20} style={{ color: '#fac646' }} />}
-        iconBackground="#fdf2cd"
+        icon={<FaMoneyCheckAlt size={20} style={{ color: '#687ae8' }} />}
+        iconBackground="#e1e4fa"
         title={t('totalGoodsWithDiscountCount')}
         count={totalGoodsWithDiscountCount}
       />
+      <StatisticCard
+        icon={<GiTakeMyMoney size={20} style={{ color: '#f2545b' }} />}
+        iconBackground="#fcddde"
+        title={t('totalGoodsPriceWithDiscount')}
+        count={`${totalGoodsPriceWithDiscount} ₴`}
+      />
     </Wrapper>
-  // </div>
+    // </div>
     // </Carousel>
   );
 };

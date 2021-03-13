@@ -14,12 +14,12 @@ import { Loader } from '../components/common/Loader/Loader';
 import { Profile } from '../pages/profile/Profile';
 import { getLocalStorageLocale } from '../helpers/localStorageHelper';
 import { Registration } from '../pages/auth/registration/Registration';
+import { Users } from '../pages/users/Users';
 import { Login } from '../pages/auth/login/Login';
+import { Settings } from '../pages/settings/Settings';
 
 import { Wrapper } from '../styled';
 import { AppWrapper } from './styled';
-import { Users } from '../pages/users/Users';
-import { Settings } from '../pages/settings/Settings';
 
 
 export const App = () => {
