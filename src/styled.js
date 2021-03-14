@@ -89,5 +89,5 @@ export const PanelText = styled.h1`
   text-align: ${(props) => (props.center ? 'center' : 'left')};
   font-size: ${(props) => (props.subtitle ? '14px' : '24px')};
   opacity: ${(props) => (props.subtitle ? '0.75' : '1')};
-  color: #ffffff;
+  color: ${(props) => (props.black ? '#000000' : '#ffffff')} ;
 `;

@@ -11,6 +11,8 @@ import { goodsActions } from '../pages/add-goods/store';
 import { getLocalStorageLocale, localStorageDataName } from '../helpers/localStorageHelper';
 import { errorCatcher } from '../helpers/errorCatcher';
 import { userRoles } from '../helpers/getRole';
+import { todoApi } from '../pages/todo/api';
+import { todoActions } from '../pages/todo/store';
 
 
 export function* setInitData(data) {
@@ -20,17 +22,17 @@ export function* setInitData(data) {
     const { userId, name, surname, userName, email, role, avatar, address, city, postalCode, status } = tokenDecoded;
 
     if (role === userRoles.superAdmin) {
-      const getAllUsers = yield call(dashboardApi.getAllUsers);
-      const { users } = getAllUsers;
+      const { users } = yield call(dashboardApi.getAllUsers);
       yield put(dashboardActions.setUsers(users));
 
-      const getAllGoods = yield call(goodsApi.getAllGoods);
-      const { goods } = getAllGoods;
+      const { goods } = yield call(goodsApi.getAllGoods);
       yield put(goodsActions.setGoods(goods));
 
-      const getAllCategories = yield call(goodsApi.getAllCategories);
-      const { categories } = getAllCategories;
+      const { categories } = yield call(goodsApi.getAllCategories);
       yield put(goodsActions.setCategories(categories));
+
+      const { lists } = yield call(todoApi.getAllLists, userId);
+      yield put(todoActions.setLists(lists));
     }
     yield put(profileActions.setUserData({
       userId,

@@ -1,8 +1,10 @@
 import wretch from 'wretch';
 
 
-const createTodo = (userId, todo) => wretch('api/todo/todo').post({ userId, todo }).json();
+const createNewList = (userId, list) => wretch('api/todo/list').post({ userId, list }).json();
+const getAllLists = (userId) => wretch(`api/todo/list/userId=${userId}`).get().json();
 
 export const todoApi = {
-  createTodo,
+  createNewList,
+  getAllLists,
 };
