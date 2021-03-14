@@ -76,7 +76,9 @@
   "totalsAdmins": "Totals admins",
   "searchUsers": "Search users",
   "users": "Users",
+  "settings": "Settings",
   "thereYouCanChangeYourProfileSettings": "There you can change your profile settings",
+  "thereYouCanChangeSettings": "There you can change settings",
   "goodTimeToCreateNewCommodityYes": "Good time to create new commodity, yes?",
   "totalDifferentGoods": "Total different goods",
   "totalGoodsUnitsOnTheStock": "Total goods units on the stock",
@@ -93,5 +95,6 @@
   "thereYouCanAddNewGoods": "there you can add new goods",
   "alreadyHaveAnAccountLoginPlease": "Already have an account? Login, please",
   "dontHaveAnAccountRegisterIt": "Dont have an account? Register it",
-  "useThisPageToUpdateYourContactInformationAndChangeYourPassword": "Use this page to update your contact information and change your password."
+  "useThisPageToUpdateYourContactInformationAndChangeYourPassword": "Use this page to update your contact information and change your password.",
+  "useThisPageToUpdateYourSettings": "Use this page to update your settings."
 }

@@ -32,7 +32,7 @@ export const Sidebar = () => {
         style={{ background: 'rgb(28 34 55)' }}
         mode="inline"
       >
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
+        <Menu.Item key="1" onClick={() => console.log('test')} icon={<PieChartOutlined />}>
           <NavLinkItem to="/">{pagesTitles.dashboard}</NavLinkItem>
         </Menu.Item>
         <Menu.Item key="2" icon={<DesktopOutlined />}>

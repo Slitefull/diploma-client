@@ -10,6 +10,7 @@ export const UserCardWrapper = styled.div` && {
   border-radius: 5px;
   width: 350px;
   margin: 0 0 40px;
+  box-shadow: 0 0 4px darkslategrey;
 }`;
 
 export const UserRole = styled.span` && {
