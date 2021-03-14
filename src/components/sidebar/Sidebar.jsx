@@ -42,11 +42,11 @@ export const Sidebar = () => {
         <Menu.Item key="3" icon={<UserOutlined />}>
           <NavLinkItem to={pagesLinks.users}>{pagesTitles.users}</NavLinkItem>
         </Menu.Item>
-        <Menu.Item key="4" icon={<SettingOutlined />}>
-          <NavLinkItem to={pagesLinks.settings}>{pagesTitles.settings}</NavLinkItem>
-        </Menu.Item>
-        <Menu.Item key="5" icon={<FcTodoList />}>
+        <Menu.Item key="4" icon={<FcTodoList />}>
           <NavLinkItem to={pagesLinks.todo}>{pagesTitles.todo}</NavLinkItem>
+        </Menu.Item>
+        <Menu.Item key="5" icon={<SettingOutlined />}>
+          <NavLinkItem to={pagesLinks.settings}>{pagesTitles.settings}</NavLinkItem>
         </Menu.Item>
       </Menu>
     </Sider>

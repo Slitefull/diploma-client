@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const TodoWrapper = styled.div` && {
   transform: translateY(-50px);
-  min-width: 1250px;
+  min-width: 800px;
   padding: 40px 20px;
   background: #ffffff;
   border-radius: 5px;

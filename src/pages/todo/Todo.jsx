@@ -15,7 +15,7 @@ export const Todo = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
-  const [todo, setTodo] = useState();
+  const [todo, setTodo] = useState('');
 
   const name = useSelector(profileSelectors.getUserName);
   const todos = useSelector(todoSelectors.getAllTodos);
@@ -39,7 +39,7 @@ export const Todo = () => {
           </CreateTodoButton>
         </Wrapper>
         <Wrapper>
-          {todos.map((item) => <TodoItem todo={item.todo} status={item.status} />)}
+          {todos.map((item) => (<TodoItem todo={item.todo} />))}
         </Wrapper>
       </TodoWrapper>
     </>

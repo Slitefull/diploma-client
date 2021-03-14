@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { TodoItemWrapper } from './styled';
+import { Checkbox } from 'antd';
+import { TodoItemWrapper, TodoText } from './styled';
 
 
-export const TodoItem = ({ todo, status }) => {
-  const [isChecked, setIsChecked] = useState();
+export const TodoItem = ({ todo }) => {
+  const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <TodoItemWrapper>Test</TodoItemWrapper>
+    <TodoItemWrapper row>
+      <Checkbox onChange={() => setIsChecked(!isChecked)} />
+      <TodoText isComplete={isChecked}>{todo}</TodoText>
+    </TodoItemWrapper>
   );
 };
