@@ -6,6 +6,7 @@ export const pagesLinks = {
   settings: '/settings',
   addGoods: '/add-goods',
   users: '/users',
+  todo: '/todo',
 };
 
 export const pagesTitles = {
@@ -16,4 +17,5 @@ export const pagesTitles = {
   settings: 'Settings',
   addGoods: 'Add Goods',
   users: 'Users',
+  todo: 'Todo',
 };

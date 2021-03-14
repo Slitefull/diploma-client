@@ -15,6 +15,7 @@ import { Profile } from '../pages/profile/Profile';
 import { getLocalStorageLocale } from '../helpers/localStorageHelper';
 import { Registration } from '../pages/auth/registration/Registration';
 import { Users } from '../pages/users/Users';
+import { Todo } from '../pages/todo/Todo';
 import { Login } from '../pages/auth/login/Login';
 import { Settings } from '../pages/settings/Settings';
 
@@ -47,6 +48,7 @@ export const App = () => {
                 <Route path={pagesLinks.addGoods} component={AddGoods} />
                 <Route path={pagesLinks.profile} component={Profile} />
                 <Route path={pagesLinks.users} component={Users} />
+                <Route path={pagesLinks.todo} component={Todo} />
                 <Route path={pagesLinks.settings} component={Settings} />
                 <Route path="*">
                   <Redirect to={pagesLinks.dashboard} />

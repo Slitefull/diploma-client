@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 
 const profileState = (state) => state.profile;
 
+const getUserId = createSelector(profileState, (state) => state.profile.userId);
 const getUserName = createSelector(profileState, (state) => state.profile.name);
 const getUserSurname = createSelector(profileState, (state) => state.profile.surname);
 const getUserUserName = createSelector(profileState, (state) => state.profile.userName);
@@ -15,6 +16,7 @@ const getUserPostalCode = createSelector(profileState, (state) => state.profile.
 const getUserStatus = createSelector(profileState, (state) => state.profile.status);
 
 export const profileSelectors = {
+  getUserId,
   getUserName,
   getUserSurname,
   getUserUserName,

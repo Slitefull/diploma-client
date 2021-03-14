@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { SettingOutlined } from '@ant-design/icons';
+import { MehOutlined } from '@ant-design/icons';
 import { Field } from 'redux-form';
 
 
-export const CustomSettingOutlined = styled(SettingOutlined)` && {
+export const CustomMehOutlined = styled(MehOutlined)` && {
   display: block;
   margin: 0 auto 15px;
   color: #fff;

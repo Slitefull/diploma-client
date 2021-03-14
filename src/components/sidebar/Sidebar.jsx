@@ -4,6 +4,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { Menu } from 'antd';
 import { DesktopOutlined, PieChartOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import { FcTodoList } from 'react-icons/all';
 import logo from '../../assets/logo.svg';
 import { pagesLinks, pagesTitles } from '../../consts';
 
@@ -41,7 +42,10 @@ export const Sidebar = () => {
         <Menu.Item key="3" icon={<UserOutlined />}>
           <NavLinkItem to={pagesLinks.users}>{pagesTitles.users}</NavLinkItem>
         </Menu.Item>
-        <Menu.Item key="4" icon={<SettingOutlined />}>
+        <Menu.Item key="4" icon={<FcTodoList />}>
+          <NavLinkItem to={pagesLinks.todo}>{pagesTitles.todo}</NavLinkItem>
+        </Menu.Item>
+        <Menu.Item key="5" icon={<SettingOutlined />}>
           <NavLinkItem to={pagesLinks.settings}>{pagesTitles.settings}</NavLinkItem>
         </Menu.Item>
       </Menu>

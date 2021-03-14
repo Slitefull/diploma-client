@@ -17,7 +17,7 @@ export function* setInitData(data) {
   try {
     const { token } = data;
     const tokenDecoded = jwtDecode(token);
-    const { name, surname, userName, email, role, avatar, address, city, postalCode, status } = tokenDecoded;
+    const { userId, name, surname, userName, email, role, avatar, address, city, postalCode, status } = tokenDecoded;
 
     if (role === userRoles.superAdmin) {
       const getAllUsers = yield call(dashboardApi.getAllUsers);
@@ -33,6 +33,7 @@ export function* setInitData(data) {
       yield put(goodsActions.setCategories(categories));
     }
     yield put(profileActions.setUserData({
+      userId,
       name,
       role,
       surname,
