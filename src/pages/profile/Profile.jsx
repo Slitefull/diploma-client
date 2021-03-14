@@ -6,7 +6,7 @@ import { ProfileForm } from './profile-form/ProfileForm';
 import { profileSelectors } from './selectors';
 import { profileActions } from './store';
 
-import { CustomSettingOutlined } from './styled';
+import { CustomMehOutlined } from './styled';
 import { PagePanel, PanelText } from '../../styled';
 
 
@@ -32,7 +32,7 @@ export const Profile = () => {
   return (
     <>
       <PagePanel>
-        <CustomSettingOutlined />
+        <CustomMehOutlined />
         <PanelText center>{t('userSettings')}</PanelText>
         <PanelText subtitle center>
           {`${t('thereYouCanChangeYourProfileSettings')}, ${name}`}

@@ -5,6 +5,7 @@ import { authReducer } from './pages/auth/store';
 import { dashboardReducer } from './pages/dashboard/store';
 import { profileReducer } from './pages/profile/store';
 import { goodsReducer } from './pages/add-goods/store';
+import { todoReducer } from './pages/todo/store';
 
 
 export const rootReducer = combineReducers({
@@ -13,5 +14,6 @@ export const rootReducer = combineReducers({
   profile: profileReducer,
   dashboard: dashboardReducer,
   goods: goodsReducer,
+  todo: todoReducer,
   form: formReducer,
 });

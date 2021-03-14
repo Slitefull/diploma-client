@@ -24,7 +24,8 @@
   "newCommodityHasBeenCreated": "New commodity has been created!",
   "newCategoryHasBeenCreated": "New category has been created!",
   "viewReports": "View reports",
-  "userSettings": "User Settings",
+  "settings": "Settings",
+  "userSettings": "User settings",
   "goodsName": "Good's name",
   "personalData": "Personal data",
   "inputYourName": "Input your name",
@@ -76,7 +77,10 @@
   "totalsAdmins": "Totals admins",
   "searchUsers": "Search users",
   "users": "Users",
+  "todoApp": "Todo App",
   "thereYouCanChangeYourProfileSettings": "There you can change your profile settings",
+  "simpleTodoAppToCreateNewTasks": "Simple todo app to create new tasks",
+  "thereYouCanChangeYourSettings": "There you can change your settings",
   "goodTimeToCreateNewCommodityYes": "Good time to create new commodity, yes?",
   "totalDifferentGoods": "Total different goods",
   "totalGoodsUnitsOnTheStock": "Total goods units on the stock",
@@ -92,6 +96,11 @@
   "selectCategory": "Select a category",
   "thereYouCanAddNewGoods": "there you can add new goods",
   "alreadyHaveAnAccountLoginPlease": "Already have an account? Login, please",
+  "darkTheme": "Dark theme",
+  "whatNeedsToBeDone": "What needs to be done?",
+  "enablePushNotifications": "Enable push notifications",
+  "enableEmailNotifications": "Enable email notifications",
   "dontHaveAnAccountRegisterIt": "Dont have an account? Register it",
-  "useThisPageToUpdateYourContactInformationAndChangeYourPassword": "Use this page to update your contact information and change your password."
+  "useThisPageToUpdateYourContactInformationAndChangeYourPassword": "Use this page to update your contact information and change your password.",
+  "useThisPageToUpdateYourSettings": "Use this page to update your settings."
 }
