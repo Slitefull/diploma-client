@@ -25,6 +25,7 @@ export function* editProfile(action) {
     localStorage.setItem(localStorageDataName, JSON.stringify({ token }));
 
     yield put(profileActions.setUserData({
+      userId,
       name,
       role,
       surname,
