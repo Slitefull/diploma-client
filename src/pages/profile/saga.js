@@ -5,7 +5,6 @@ import i18next from 'i18next';
 import { getToken } from '../../helpers/getToken';
 import { profileApi } from './api';
 import { profileActions } from './store';
-import { errorCatcher } from '../../helpers/errorCatcher';
 import { localStorageDataName } from '../../helpers/localStorageHelper';
 
 
@@ -39,10 +38,10 @@ export function* editProfile(action) {
     }));
     yield call(message.success, i18next.t('userDataHasBeenChanged'));
   } catch (e) {
-    yield call(message.error, errorCatcher(e.text));
+    yield call(message.error, e);
   }
 }
 
-export const profileWatcher = [
-  takeLatest(profileActions.saveProfileSettings.type, editProfile),
-];
+export function* profileWatcher() {
+  yield takeLatest(profileActions.saveProfileSettings.type, editProfile);
+}

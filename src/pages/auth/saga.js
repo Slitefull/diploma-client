@@ -4,7 +4,6 @@ import { history } from '../../history';
 import { appActions } from '../../app/store';
 import { authActions } from './store';
 import { authApi } from './api';
-import { errorCatcher } from '../../helpers/errorCatcher';
 import { localStorageDataName } from '../../helpers/localStorageHelper';
 import { setInitData } from '../../app/saga';
 
@@ -22,7 +21,7 @@ function* handleLogin(action) {
     history.push('/');
   } catch (e) {
     yield put(appActions.setLoading(false));
-    yield call(message.error, errorCatcher(e.text));
+    yield call(message.error, e);
   }
 }
 
@@ -39,7 +38,7 @@ function* handleRegister(action) {
     history.push('/');
   } catch (e) {
     yield put(appActions.setLoading(false));
-    yield call(message.error, errorCatcher(e.text));
+    yield call(message.error, e);
   }
 }
 
@@ -49,8 +48,8 @@ function* logout() {
   history.push('/login');
 }
 
-export const authWatcher = [
-  takeLatest(authActions.login.type, handleLogin),
-  takeEvery(authActions.register.type, handleRegister),
-  takeLatest(authActions.logout.type, logout),
-];
+export function* authWatcher() {
+  yield takeLatest(authActions.login.type, handleLogin);
+  yield takeEvery(authActions.register.type, handleRegister);
+  yield takeLatest(authActions.logout.type, logout);
+}

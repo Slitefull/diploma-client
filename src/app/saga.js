@@ -9,7 +9,6 @@ import { profileActions } from '../pages/profile/store';
 import { goodsApi } from '../pages/add-goods/api';
 import { goodsActions } from '../pages/add-goods/store';
 import { getLocalStorageLocale, localStorageDataName } from '../helpers/localStorageHelper';
-import { errorCatcher } from '../helpers/errorCatcher';
 import { userRoles } from '../helpers/getRole';
 import { todoApi } from '../pages/todo/api';
 import { todoActions } from '../pages/todo/store';
@@ -51,7 +50,7 @@ export function* setInitData(data) {
     yield put(appActions.setLoading(false));
   } catch (e) {
     yield put(appActions.setLoading(false));
-    yield call(message.error, errorCatcher(e.text));
+    yield call(message.error, e);
   }
 }
 
@@ -74,10 +73,10 @@ export function* initHandle() {
     }
   } catch (e) {
     yield put(appActions.setLoading(false));
-    yield call(message.error, errorCatcher(e.text));
+    yield call(message.error, e);
   }
 }
 
-export const appWatcher = [
-  takeLatest(appActions.setInit.type, initHandle),
-];
+export function* appWatcher() {
+  yield takeLatest(appActions.setInit.type, initHandle);
+}

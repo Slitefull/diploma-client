@@ -3,7 +3,6 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { message } from 'antd';
 import { dashboardApi } from './api';
 import { dashboardActions } from './store';
-import { errorCatcher } from '../../helpers/errorCatcher';
 
 
 function* makeAdmin(action) {
@@ -15,7 +14,7 @@ function* makeAdmin(action) {
 
     yield call(message.success, i18next.t('newAdminHasBeenAdded'));
   } catch (e) {
-    yield call(message.error, errorCatcher(e.text));
+    yield call(message.error, e);
   }
 }
 
@@ -28,11 +27,11 @@ function* removeAdmin(action) {
 
     yield call(message.success, i18next.t('adminHasBeenRemoved'));
   } catch (e) {
-    yield call(message.error, errorCatcher(e.text));
+    yield call(message.error, e);
   }
 }
 
-export const dashboardWatcher = [
-  takeLatest(dashboardActions.makeAdmin.type, makeAdmin),
-  takeLatest(dashboardActions.removeAdmin.type, removeAdmin),
-];
+export function* dashboardWatcher() {
+  yield takeLatest(dashboardActions.makeAdmin.type, makeAdmin);
+  yield takeLatest(dashboardActions.removeAdmin.type, removeAdmin);
+}
