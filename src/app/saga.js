@@ -14,9 +14,8 @@ import { todoApi } from '../pages/todo/api';
 import { todoActions } from '../pages/todo/store';
 
 
-export function* setInitData(data) {
+export function* setInitData(token) {
   try {
-    const { token } = data;
     const tokenDecoded = jwtDecode(token);
     const { userId, name, surname, userName, email, role, avatar, address, city, postalCode, status } = tokenDecoded;
 
@@ -67,7 +66,8 @@ export function* initHandle() {
 
     const data = JSON.parse(localStorage.getItem(localStorageDataName));
     if (data) {
-      yield call(setInitData, data);
+      const { token } = data;
+      yield call(setInitData, token);
     } else {
       yield put(appActions.setLoading(false));
     }
