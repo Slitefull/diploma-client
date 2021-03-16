@@ -4,6 +4,7 @@ import { profileSelectors } from '../selectors';
 const mockInitialState = {
   profile: {
     profile: {
+      userId: '602ec0030a42b8419055d672',
       name: 'Max',
       role: 'superAdmin',
       surname: 'Tytechko',
@@ -18,7 +19,11 @@ const mockInitialState = {
   },
 };
 
-describe('profile selectors', () => {
+describe('profile page selectors', () => {
+  it('should return string getUserId selector', () => {
+    expect(profileSelectors.getUserId(mockInitialState)).toEqual('602ec0030a42b8419055d672');
+  });
+
   it('should return string getUserName selector', () => {
     expect(profileSelectors.getUserName(mockInitialState)).toEqual('Max');
   });

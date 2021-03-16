@@ -7,6 +7,7 @@ const getAllGoods = createSelector(goodsState, (state) => state.goods);
 const getAllDifferentGoodsCount = createSelector(goodsState, (state) => state.goods.length);
 const getAllCategories = createSelector(goodsState, (state) => state.categories);
 const getAllCategoriesCount = createSelector(goodsState, (state) => state.categories.length);
+
 const getNotOnTheStockGoodsCount = createSelector(goodsState, (state) => {
   const notOnTheStockGoods = state.goods.filter((item) => item.onStockCount === 0);
   return notOnTheStockGoods.length;
