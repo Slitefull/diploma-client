@@ -9,11 +9,11 @@ import { todoWatcher } from './pages/todo/saga';
 
 export function* rootSaga() {
   yield all([
-    ...appWatcher,
-    ...authWatcher,
-    ...profileWatcher,
-    ...dashboardWatcher,
-    ...goodsWatcher,
-    ...todoWatcher,
+    appWatcher(),
+    authWatcher(),
+    profileWatcher(),
+    dashboardWatcher(),
+    goodsWatcher(),
+    todoWatcher(),
   ]);
 }
