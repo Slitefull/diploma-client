@@ -46,6 +46,65 @@ describe('auth page sagas', () => {
     });
   });
 
+  describe('handleRegister saga', () => {
+    it('should successfully passed saga and redirected to dashboard page', () => {
+      const action = {
+        type: authActions.register.type,
+        payload: {
+          name: 'Max',
+          surname: 'Tytechko',
+          email: 'viptitechko1@gmail.com',
+          password: 123123,
+        },
+      };
+
+      const data = {
+        name: 'Max',
+        surname: 'Tytechko',
+        email: 'viptitechko1@gmail.com',
+        password: 123123,
+      };
+
+      const email = 'viptitechko1@gmail.com';
+      const password = 123123;
+
+      const generator = handleRegister(action);
+      expect(generator.next().value).toEqual(put(appActions.setLoading(true)));
+      expect(generator.next(data).value).toEqual(call(authApi.register, data));
+      expect(generator.next().value).toEqual(put(appActions.setLoading(false)));
+      expect(generator.next({ email, password }).value).toEqual(put(authActions.login({ email, password })));
+      expect(generator.next().done).toBeTruthy();
+    });
+
+    it('should show error if request is incorrect', () => {
+      const action = {
+        type: authActions.register.type,
+        payload: {
+          name: 'Max',
+          surname: 'Tytechko',
+          email: 'viptitechko1@gmail.com',
+          password: 123123,
+        },
+      };
+
+      const serverMessage = 'Unexpected response from server';
+
+      const generator = handleRegister(action);
+      generator.next();
+      expect(generator.throw(serverMessage).value).toEqual(put(appActions.setLoading(false)));
+      expect(generator.next().value).toEqual(call(message.error, serverMessage));
+      expect(generator.next().done).toBeTruthy();
+    });
+  });
+
+  describe('logout saga', () => {
+    it('should successfully logout', () => {
+      const generator = logout();
+      expect(generator.next().value).toEqual(put(authActions.setIsAuth(false)));
+      expect(generator.next().done).toBeTruthy();
+    });
+  });
+
   describe('authWatcher', () => {
     const generator = authWatcher();
 
