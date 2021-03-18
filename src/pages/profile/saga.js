@@ -10,14 +10,15 @@ import { localStorageDataName } from '../../helpers/localStorageHelper';
 
 export function* editProfile(action) {
   try {
-    const oldToken = getToken();
-    const tokenDecoded = jwtDecode(oldToken);
+    const oldToken = yield call(getToken);
+    const tokenDecoded = yield call(jwtDecode, oldToken);
 
     const { userId } = tokenDecoded;
     const userData = { ...action.payload, userId };
 
     const { token } = yield call(profileApi.saveProfileSettings, userData);
-    const newTokenDecoded = jwtDecode(token);
+
+    const newTokenDecoded = yield call(jwtDecode, token);
     const { name, email, surname, userName, role, avatar, address, city, postalCode, status } = newTokenDecoded;
 
     localStorage.removeItem(localStorageDataName);
