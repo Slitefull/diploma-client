@@ -4,14 +4,21 @@ import { createSlice } from '@reduxjs/toolkit';
 const storeName = 'todo';
 
 const initialState = {
+  listName: '',
+  todoName: '',
   todoLists: [],
-  isExist: false,
 };
 
 const todoSlice = createSlice({
   name: storeName,
   initialState,
   reducers: {
+    setListName(state, action) {
+      state.listName = action.payload;
+    },
+    setTodoName(state, action) {
+      state.todoName = action.payload;
+    },
     setLists(state, action) {
       state.todoLists = action.payload;
     },
@@ -19,8 +26,9 @@ const todoSlice = createSlice({
       state.todoLists.push(action.payload);
     },
     createTodo(state, action) {
-      const isExist = state.todoLists.find((item) => item.todo === action.payload.todo);
-      isExist ? state.isExist = true : state.todoLists.push(action.payload);
+      const { id, todoName, status } = action.payload;
+      const selectedList = state.todoLists.find((todo) => todo._id === id);
+      selectedList.todos.push({ todoName, status });
     },
     completeTodo(state, action) {
       const todo = state.todoLists.find((item) => item.todo === action.payload);
@@ -30,6 +38,8 @@ const todoSlice = createSlice({
 });
 
 export const todoActions = {
+  setTodoName: todoSlice.actions.setTodoName,
+  setListName: todoSlice.actions.setListName,
   setLists: todoSlice.actions.setLists,
   createNewList: todoSlice.actions.createNewList,
   createTodo: todoSlice.actions.createTodo,

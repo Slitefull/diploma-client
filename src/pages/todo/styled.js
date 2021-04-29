@@ -22,7 +22,7 @@ export const TodoInput = styled.input` && {
   border: none;
   outline: none;
   padding: 5px 10px;
-  font-size: 18px;
+  font-size: 12px;
   background: transparent;
 }`;
 

@@ -3,16 +3,30 @@ import { createSelector } from 'reselect';
 
 const todoState = (state) => state.todo;
 
-const getAllTodos = createSelector(todoState, (state) => state.todoLists);
 // eslint-disable-next-line max-len
-const getAllActiveTodos = createSelector(todoState, (state) => state.todoLists.filter((todo) => todo.status === 'active'));
-// eslint-disable-next-line max-len
-const getAllCompleteTodos = createSelector(todoState, (state) => state.todoLists.filter((todo) => todo.status === 'complete'));
-const getIsExistTodo = createSelector(todoState, (state) => state.isExist);
+const getAllTodoListsById = (id) => createSelector(todoState, (state) => state.todoLists.filter((todo) => todo._id === id));
+const getAllTodosByListId = (id) => createSelector(todoState, (state) => {
+  const selectedList = state.todoLists.find((list) => list._id === id);
+  return selectedList.todos.map((todo) => todo);
+});
+const getAllActiveTodosByListId = (id) => createSelector(todoState, (state) => {
+  const selectedList = state.todoLists.find((list) => list._id === id);
+  return selectedList.todos.map((todo) => todo.status === 'active');
+});
+const getAllCompleteTodosByListId = (id) => createSelector(todoState, (state) => {
+  const selectedList = state.todoLists.find((list) => list._id === id);
+  return selectedList.todos.map((todo) => todo.status === 'complete');
+});
+const getListName = createSelector(todoState, (state) => state.listName);
+const getTodoName = createSelector(todoState, (state) => state.todoName);
+const getAllTodoLists = createSelector(todoState, (state) => state.todoLists);
 
 export const todoSelectors = {
-  getAllTodos,
-  getAllActiveTodos,
-  getAllCompleteTodos,
-  getIsExistTodo,
+  getAllTodoListsById,
+  getAllTodosByListId,
+  getListName,
+  getTodoName,
+  getAllActiveTodosByListId,
+  getAllCompleteTodosByListId,
+  getAllTodoLists,
 };

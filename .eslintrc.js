@@ -31,6 +31,7 @@ module.exports = {
   ],
   'parser': 'babel-eslint',
   'rules': {
+    'no-underscore-dangle': ['error', { 'allow': ['_id'] }],
     'no-shadow': ['error', { 'allow': ['action'] }],
     'react/prop-types': 0,
     'import/prefer-default-export': 'off',

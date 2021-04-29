@@ -32,6 +32,7 @@ export function* setInitData(token) {
       const { lists } = yield call(todoApi.getAllLists, userId);
       yield put(todoActions.setLists(lists));
     }
+
     yield put(profileActions.setUserData({
       userId,
       name,
