@@ -3,7 +3,6 @@ import { message } from 'antd';
 import { todoActions } from './store';
 import { todoApi } from './api';
 import { profileSelectors } from '../profile/selectors';
-import { todoSelectors } from './selectors';
 
 
 function* createNewList(action) {
@@ -49,10 +48,32 @@ function* createTodo(action) {
 }
 
 function* changeTodoStatus(action) {
-  const { listId, todo } = action.payload;
-  const selectedList = yield select(todoSelectors.getAllTodosByListId(listId));
-  const selectedTodo = selectedList.todos.find((item) => item.todo === todo);
-  yield selectedTodo.status = !selectedTodo.status;
+  try {
+    const { listId, todoId, isActive } = action.payload;
+    yield put(todoActions.setIsLoading(true));
+    const userId = yield select(profileSelectors.getUserId);
+    const { lists } = yield call(todoApi.changeTodoStatus, userId, listId, todoId, isActive);
+    yield put(todoActions.setLists(lists));
+    yield put(todoActions.setTodoName(''));
+    yield put(todoActions.setIsLoading(false));
+  } catch (e) {
+    yield put(todoActions.setIsLoading(false));
+    yield call(message.error, e);
+  }
+}
+
+function* deleteTodo(action) {
+  try {
+    const { listId, todoId } = action.payload;
+    yield put(todoActions.setIsLoading(true));
+    const userId = yield select(profileSelectors.getUserId);
+    const { lists } = yield call(todoApi.deleteTodo, userId, listId, todoId);
+    yield put(todoActions.setLists(lists));
+    yield put(todoActions.setIsLoading(false));
+  } catch (e) {
+    yield put(todoActions.setIsLoading(false));
+    yield call(message.error, e);
+  }
 }
 
 export function* todoWatcher() {
@@ -60,4 +81,5 @@ export function* todoWatcher() {
   yield takeLatest(todoActions.deleteListById.type, deleteListById);
   yield takeLatest(todoActions.createTodo.type, createTodo);
   yield takeLatest(todoActions.changeTodoStatus.type, changeTodoStatus);
+  yield takeLatest(todoActions.deleteTodo.type, deleteTodo);
 }

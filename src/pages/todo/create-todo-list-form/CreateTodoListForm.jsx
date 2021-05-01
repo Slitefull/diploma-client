@@ -7,6 +7,7 @@ import { todoActions } from '../store';
 
 import { PanelText, Wrapper } from '../../../styled';
 import { CreateTodoButton, TodoInput } from '../styled';
+import { FormErrorMessage } from '../../../components/common/form-control/styled';
 
 
 export const CreateTodoListForm = () => {
@@ -15,7 +16,12 @@ export const CreateTodoListForm = () => {
   const dispatch = useDispatch();
   const listName = useSelector(todoSelectors.getListName);
 
-  const onClickHandler = useCallback(() => dispatch(todoActions.createNewList({ listName })), [listName]);
+  const isEmpty = listName === '';
+
+  const onClickHandler = useCallback(() => {
+    if (isEmpty) return;
+    dispatch(todoActions.createNewList({ listName }));
+  }, [listName]);
   const onChangeHandler = useCallback((e) => dispatch(todoActions.setListName(e.target.value)), []);
 
   return (
@@ -23,7 +29,7 @@ export const CreateTodoListForm = () => {
       <PanelText subtitle center black>
         {`${t('thereYouCanCreateNewTodoLists')}`}
       </PanelText>
-      <Wrapper row full style={{ borderBottom: '1px solid #80808070' }}>
+      <Wrapper row style={{ borderBottom: '1px solid #80808070' }}>
         <TodoInput
           onChange={onChangeHandler}
           placeholder={t('createNewTodoList')}
@@ -33,6 +39,11 @@ export const CreateTodoListForm = () => {
           <IoMdCreate size="15px" />
         </CreateTodoButton>
       </Wrapper>
+      {isEmpty && (
+        <FormErrorMessage>
+          {`${t('listNameCannotBeEmpty')}`}
+        </FormErrorMessage>
+      )}
     </Wrapper>
   );
 };

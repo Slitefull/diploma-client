@@ -37,6 +37,7 @@ export const todoActions = {
   createNewList: createAction(`${storeName}/createNewList`),
   deleteListById: createAction(`${storeName}/deleteListById`),
   createTodo: createAction(`${storeName}/createTodo`),
+  deleteTodo: createAction(`${storeName}/deleteTodo`),
   changeTodoStatus: createAction(`${storeName}/changeTodoStatus`),
 };
 

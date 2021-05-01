@@ -5,7 +5,7 @@ import { dashboardApi } from './api';
 import { dashboardActions } from './store';
 
 
-function* makeAdmin(action) {
+export function* makeAdmin(action) {
   try {
     yield call(dashboardApi.makeAdmin, action.payload);
 
@@ -18,7 +18,7 @@ function* makeAdmin(action) {
   }
 }
 
-function* removeAdmin(action) {
+export function* removeAdmin(action) {
   try {
     yield call(dashboardApi.removeAdmin, action.payload);
 

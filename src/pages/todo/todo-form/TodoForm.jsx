@@ -1,15 +1,16 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { IoMdCreate } from 'react-icons/all';
 import { Tabs } from 'antd';
 import { CheckCircleOutlined, CloseCircleOutlined, FileDoneOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
 import { todoActions } from '../store';
 import { TodoItem } from '../todo-item/TodoItem';
 import { todoSelectors } from '../selectors';
 
 import { Wrapper } from '../../../styled';
 import { CreateTodoButton, TodoInput } from '../styled';
+import { FormErrorMessage } from '../../../components/common/form-control/styled';
 
 
 const { TabPane } = Tabs;
@@ -24,10 +25,12 @@ export const TodoForm = ({ id }) => {
   const completeTodos = useSelector(todoSelectors.getAllCompleteTodosByListId(id));
 
   const todo = { name: todoName, isActive: true };
+  const isEmpty = todoName === '';
 
   const onClickHandler = useCallback(() => {
+    if (isEmpty) return;
     dispatch(todoActions.createTodo({ id, todo }));
-  }, [todoName]);
+  }, [id, todo]);
 
   const onChangeHandler = useCallback((e) => dispatch(todoActions.setTodoName(e.target.value)), []);
 
@@ -43,6 +46,11 @@ export const TodoForm = ({ id }) => {
           <IoMdCreate size="15px" />
         </CreateTodoButton>
       </Wrapper>
+      {isEmpty && (
+        <FormErrorMessage>
+          {`${t('listNameCannotBeEmpty')}`}
+        </FormErrorMessage>
+      )}
       <Tabs>
         <TabPane
           tab={(
@@ -55,6 +63,7 @@ export const TodoForm = ({ id }) => {
         >
           {todos.map((item) => (
             <TodoItem
+              id={item._id}
               name={item.name}
               isActive={item.isActive}
               listId={id}
@@ -72,6 +81,7 @@ export const TodoForm = ({ id }) => {
         >
           {activeTodos.map((item) => (
             <TodoItem
+              id={item._id}
               name={item.name}
               isActive={item.isActive}
               listId={id}
@@ -89,6 +99,7 @@ export const TodoForm = ({ id }) => {
         >
           {completeTodos.map((item) => (
             <TodoItem
+              id={item._id}
               name={item.name}
               isActive={item.isActive}
               listId={id}
