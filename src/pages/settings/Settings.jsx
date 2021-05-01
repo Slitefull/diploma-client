@@ -11,19 +11,23 @@ import { FormDescription } from '../../components/common/form-control/styled';
 
 export const Settings = () => {
   const { t } = useTranslation();
-  const name = useSelector(profileSelectors.getUserName);
+  const name = useSelector(profileSelectors.getName);
 
   return (
     <>
       <PagePanel>
         <CustomSettingOutlined />
-        <PanelText center>{t('settings')}</PanelText>
+        <PanelText center>
+          {t('settings')}
+        </PanelText>
         <PanelText subtitle center>
           {`${t('thereYouCanChangeYourSettings')}, ${name}`}
         </PanelText>
       </PagePanel>
       <SettingsWrapper style={{ minWidth: 'auto' }}>
-        <FormDescription>{t('useThisPageToUpdateYourSettings')}</FormDescription>
+        <FormDescription>
+          {t('useThisPageToUpdateYourSettings')}
+        </FormDescription>
         <Wrapper row justify style={{ marginBottom: 10 }}>
           {t('darkTheme')}
           <Switch />

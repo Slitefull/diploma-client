@@ -24,7 +24,7 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [newCategory, setNewCategory] = useState('');
 
-  const userName = useSelector(profileSelectors.getUserName);
+  const userName = useSelector(profileSelectors.getName);
   const categories = useSelector(goodsSelectors.getAllCategories);
 
   const isValidMessage = onlyLetters(newCategory);

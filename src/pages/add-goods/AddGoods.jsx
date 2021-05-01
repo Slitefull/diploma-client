@@ -15,7 +15,7 @@ export const AddGoods = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const userName = useSelector(profileSelectors.getUserName);
+  const userName = useSelector(profileSelectors.getName);
   const time = new Date();
 
   const [name, setName] = useState('');

@@ -4,8 +4,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const storeName = 'app';
 
 const initialState = {
-  isInitialized: false,
   isLoading: false,
+  isInitialized: false,
   locale: '',
 };
 

@@ -6,8 +6,8 @@ import { AvatarImage, AvatarLetter } from './styled';
 
 
 export const ProfileIcon = ({ isBig }) => {
-  const userName = useSelector(profileSelectors.getUserName).split('', 1)[0];
-  const avatar = useSelector(profileSelectors.getUserAvatar);
+  const userName = useSelector(profileSelectors.getName).split('', 1)[0];
+  const avatar = useSelector(profileSelectors.getAvatar);
 
   return (
     <>

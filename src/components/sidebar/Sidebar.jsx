@@ -1,56 +1,96 @@
-import React, { useState } from 'react';
-import Sider from 'antd/es/layout/Sider';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { Menu } from 'antd';
-import { DesktopOutlined, PieChartOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
-import { FcTodoList } from 'react-icons/all';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  Avatar,
+  AvatarWrapper,
+  CloseSidebarButtonArrow,
+  CloseSidebarButtonWrapper,
+  CustomHr,
+  Logo,
+  MenuItemsWrapper,
+  SidebarWrapper,
+  UserName,
+} from './styled';
+import { profileSelectors } from '../../pages/profile/selectors';
+import { sidebarActions } from './store';
+import { sidebarSelectors } from './selectors';
+import { Wrapper } from '../../styled';
+import arrow from '../../assets/icons/arrow-left.svg';
+import logout from '../../assets/icons/logout.svg';
 import logo from '../../assets/logo.svg';
-import { pagesLinks, pagesTitles } from '../../consts';
+import { pagesLinks } from '../../consts';
+import { MenuItemButton } from './MenuItemButton/MenuItemButton';
+import { menu } from '../../constants/menu';
+import { LogoutButton } from './LogoutButton/LogoutButton';
 
-import './style.less';
-import { Logo } from '../../styled';
-import { NavLinkItem } from '../header/menu/styled';
-
-
-library.add(fas);
 
 export const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(true);
-  const onCollapse = () => setCollapsed(!collapsed);
+  const dispatch = useDispatch();
+
+  const userName = useSelector(profileSelectors.getUserName);
+  const avatar = useSelector(profileSelectors.getAvatar);
+  const isOpenSidebar = useSelector(sidebarSelectors.getIsOpenSidebar);
+  const activeMenuItem = useSelector(sidebarSelectors.getCurrentMenuItem);
+
+  const onOpenSidebarHandler = useCallback(() => {
+    dispatch(sidebarActions.setIsOpenSidebar(!isOpenSidebar));
+  }, [isOpenSidebar]);
+
+  const onClickAvatarHandler = useCallback(() => {
+    dispatch(sidebarActions.setCurrentMenuItem('profile'));
+  }, []);
 
   return (
-    <Sider
-      collapsible
-      collapsed={collapsed}
-      onCollapse={onCollapse}
-      style={{ background: 'rgb(28 34 55)' }}
+    <SidebarWrapper
+      isOpen={isOpenSidebar}
     >
-      <Logo center src={logo} />
-      <Menu
-        theme="dark"
-        defaultSelectedKeys={['1']}
-        style={{ background: 'rgb(28 34 55)' }}
-        mode="inline"
+      <Wrapper row justify center>
+        <Wrapper>
+          <Logo src={logo} />
+          <CustomHr />
+        </Wrapper>
+        <CloseSidebarButtonWrapper
+          onClick={onOpenSidebarHandler}
+        >
+          <CloseSidebarButtonArrow
+            src={arrow}
+            isRotated={!isOpenSidebar}
+          />
+        </CloseSidebarButtonWrapper>
+      </Wrapper>
+      <MenuItemsWrapper
+        isOpen={isOpenSidebar}
       >
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
-          <NavLinkItem to="/">{pagesTitles.dashboard}</NavLinkItem>
-        </Menu.Item>
-        <Menu.Item key="2" icon={<DesktopOutlined />}>
-          <NavLinkItem to={pagesLinks.addGoods}>{pagesTitles.addGoods}</NavLinkItem>
-        </Menu.Item>
-        <Menu.Item key="3" icon={<UserOutlined />}>
-          <NavLinkItem to={pagesLinks.users}>{pagesTitles.users}</NavLinkItem>
-        </Menu.Item>
-        <Menu.Item key="4" icon={<FcTodoList />}>
-          <NavLinkItem to={pagesLinks.todo}>{pagesTitles.todo}</NavLinkItem>
-        </Menu.Item>
-        <Menu.Item key="5" icon={<SettingOutlined />}>
-          <NavLinkItem to={pagesLinks.settings}>{pagesTitles.settings}</NavLinkItem>
-        </Menu.Item>
-      </Menu>
-    </Sider>
+        <Wrapper full>
+          <AvatarWrapper
+            to={pagesLinks.profile}
+            isFull={isOpenSidebar}
+            onClick={onClickAvatarHandler}
+          >
+            <Avatar src={avatar} />
+            {isOpenSidebar && <UserName>{userName}</UserName>}
+          </AvatarWrapper>
+          {menu.map((item) => (
+            <MenuItemButton
+              name={item.name}
+              title={item.title}
+              link={item.link}
+              icon={item.icon}
+              isFull={isOpenSidebar}
+              isActive={activeMenuItem === item.name}
+            />
+          ))}
+        </Wrapper>
+        <Wrapper full>
+          <CustomHr />
+          <LogoutButton
+            title="Logout"
+            icon={logout}
+            isFull={isOpenSidebar}
+          />
+        </Wrapper>
+      </MenuItemsWrapper>
+    </SidebarWrapper>
   );
 };
-
-// TODO normal menu component

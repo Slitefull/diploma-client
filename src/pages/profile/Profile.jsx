@@ -15,15 +15,15 @@ export const Profile = () => {
   const dispatch = useDispatch();
 
   const name = useSelector(profileSelectors.getUserName);
-  const surname = useSelector(profileSelectors.getUserSurname);
-  const userName = useSelector(profileSelectors.getUserUserName);
-  const email = useSelector(profileSelectors.getUserEmail);
-  const role = useSelector(profileSelectors.getUserRole);
-  const avatar = useSelector(profileSelectors.getUserAvatar);
-  const address = useSelector(profileSelectors.getUserAddress);
-  const city = useSelector(profileSelectors.getUserCity);
-  const postalCode = useSelector(profileSelectors.getUserPostalCode);
-  const status = useSelector(profileSelectors.getUserStatus);
+  const surname = useSelector(profileSelectors.getSurname);
+  const userName = useSelector(profileSelectors.getUserName);
+  const email = useSelector(profileSelectors.getEmail);
+  const role = useSelector(profileSelectors.getRole);
+  const avatar = useSelector(profileSelectors.getAvatar);
+  const address = useSelector(profileSelectors.getAddress);
+  const city = useSelector(profileSelectors.getCity);
+  const postalCode = useSelector(profileSelectors.getPostalCode);
+  const status = useSelector(profileSelectors.getStatus);
 
   const initialValues = { name, surname, userName, email, avatar, address, city, postalCode, status };
 
@@ -33,12 +33,17 @@ export const Profile = () => {
     <>
       <PagePanel>
         <CustomMehOutlined />
-        <PanelText center>{t('userSettings')}</PanelText>
+        <PanelText center>
+          {t('userSettings')}
+        </PanelText>
         <PanelText subtitle center>
           {`${t('thereYouCanChangeYourProfileSettings')}, ${name}`}
         </PanelText>
       </PagePanel>
-      <AddGoodsReduxForm initialValues={initialValues} onSubmit={handleSubmit} />
+      <AddGoodsReduxForm
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+      />
     </>
   );
 };

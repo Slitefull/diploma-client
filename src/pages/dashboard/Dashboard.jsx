@@ -11,7 +11,7 @@ import { Button, PagePanel, PanelText, Wrapper } from '../../styled';
 
 export const Dashboard = () => {
   const { t } = useTranslation();
-  const userName = useSelector(profileSelectors.getUserName);
+  const userName = useSelector(profileSelectors.getName);
   const time = new Date();
 
   return (

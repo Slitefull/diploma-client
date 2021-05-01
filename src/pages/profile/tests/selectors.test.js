@@ -21,46 +21,46 @@ const mockInitialState = {
 
 describe('profile page selectors', () => {
   it('should return string getUserId selector', () => {
-    expect(profileSelectors.getUserId(mockInitialState)).toEqual('602ec0030a42b8419055d672');
+    expect(profileSelectors.getId(mockInitialState)).toEqual('602ec0030a42b8419055d672');
   });
 
   it('should return string getUserName selector', () => {
-    expect(profileSelectors.getUserName(mockInitialState)).toEqual('Max');
+    expect(profileSelectors.getName(mockInitialState)).toEqual('Max');
   });
 
   it('should return string getUserSurname selector', () => {
-    expect(profileSelectors.getUserSurname(mockInitialState)).toEqual('Tytechko');
+    expect(profileSelectors.getSurname(mockInitialState)).toEqual('Tytechko');
   });
 
   it('should return string getUserUserName selector', () => {
-    expect(profileSelectors.getUserUserName(mockInitialState)).toEqual('invizza');
+    expect(profileSelectors.getUserName(mockInitialState)).toEqual('invizza');
   });
 
   it('should return string getUserEmail selector', () => {
-    expect(profileSelectors.getUserEmail(mockInitialState)).toEqual('viptitechko1@gmail.com');
+    expect(profileSelectors.getEmail(mockInitialState)).toEqual('viptitechko1@gmail.com');
   });
 
   it('should return string getUserRole selector', () => {
-    expect(profileSelectors.getUserRole(mockInitialState)).toEqual('superAdmin');
+    expect(profileSelectors.getRole(mockInitialState)).toEqual('superAdmin');
   });
 
   it('should return string getUserAvatar selector', () => {
-    expect(profileSelectors.getUserAvatar(mockInitialState)).toEqual('https://avatar');
+    expect(profileSelectors.getAvatar(mockInitialState)).toEqual('https://avatar');
   });
 
   it('should return string getUserAddress selector', () => {
-    expect(profileSelectors.getUserAddress(mockInitialState)).toEqual('Nauky avenue, 36');
+    expect(profileSelectors.getAddress(mockInitialState)).toEqual('Nauky avenue, 36');
   });
 
   it('should return string getUserCity selector', () => {
-    expect(profileSelectors.getUserCity(mockInitialState)).toEqual('Kyiv');
+    expect(profileSelectors.getCity(mockInitialState)).toEqual('Kyiv');
   });
 
   it('should return string getUserPostalCode selector', () => {
-    expect(profileSelectors.getUserPostalCode(mockInitialState)).toEqual('03043');
+    expect(profileSelectors.getPostalCode(mockInitialState)).toEqual('03043');
   });
 
   it('should return string getUserStatus selector', () => {
-    expect(profileSelectors.getUserStatus(mockInitialState)).toEqual('Lorem ipsum dolor sit amet');
+    expect(profileSelectors.getStatus(mockInitialState)).toEqual('Lorem ipsum dolor sit amet');
   });
 });
