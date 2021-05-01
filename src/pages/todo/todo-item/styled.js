@@ -14,6 +14,6 @@ export const TodoText = styled.p` && {
   font-size: 14px;
   transition: 0.5s;
   margin: 0 0 0 20px;
-  text-decoration: ${(props) => (props.isComplete ? 'line-through' : 'auto')};
-  opacity: ${(props) => (props.isComplete ? '0.7' : '1')};
+  text-decoration: ${(props) => (props.isActive ? 'auto' : 'line-through')};
+  opacity: ${(props) => (props.isActive ? '1' : '0.7')};
 }`;

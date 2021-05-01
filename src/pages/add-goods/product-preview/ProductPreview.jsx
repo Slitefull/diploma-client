@@ -19,7 +19,9 @@ export const ProductPreview = ({ name, description, category, discount, price, t
   return (
     <ProductPreviewWrapper>
       <Wrapper row center justify>
-        <ProductName>{name}</ProductName>
+        <ProductName>
+          {name}
+        </ProductName>
         <ProductInStock onStock={inStockCount}>
           {
             inStockCount
@@ -39,9 +41,15 @@ export const ProductPreview = ({ name, description, category, discount, price, t
               )
           }
         </ProductInStock>
-        { category && <ProductCategory>{category}</ProductCategory> }
+        { category && (
+          <ProductCategory>
+            {category}
+          </ProductCategory>
+        ) }
       </Wrapper>
-      <ProductDescription>{description}</ProductDescription>
+      <ProductDescription>
+        {description}
+      </ProductDescription>
       { thumbnail && <ProductThumbnail src={thumbnail} alt="Commodity" /> }
       <ProductDiscount>
         { discount && `${price}₴` }

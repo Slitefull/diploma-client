@@ -34,7 +34,7 @@ export const LoginForm = ({ handleSubmit }) => {
       <AuthButton fullWidth>
         {
           isLoading
-            ? <Preloader small />
+            ? <Preloader size={22} />
             : t('login')
         }
       </AuthButton>

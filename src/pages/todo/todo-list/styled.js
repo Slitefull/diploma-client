@@ -26,5 +26,4 @@ export const CustomArrow = styled(BsArrowDownShort)`
   transform: ${(props) => (props.isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
   transition: 0.5s;
   cursor: pointer;
-  margin-left: auto;
 `;

@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Checkbox } from 'antd';
-
-import { TodoItemWrapper, TodoText } from './styled';
 import { todoActions } from '../store';
 
+import { TodoItemWrapper, TodoText } from './styled';
 
-export const TodoItem = ({ todo }) => {
+
+export const TodoItem = ({ listId, isActive, name }) => {
   const dispatch = useDispatch();
-  const [isChecked, setIsChecked] = useState(false);
+  const [isActiveTodo, setIsActiveTodo] = useState(isActive);
 
-  const completeTodo = () => {
-    setIsChecked(!isChecked);
-    dispatch(todoActions.completeTodo(todo));
-  };
+  const completeTodo = useCallback(() => {
+    setIsActiveTodo(!isActiveTodo);
+    dispatch(todoActions.changeTodoStatus({ listId, name }));
+  }, [isActiveTodo, listId, name]);
 
   return (
     <TodoItemWrapper row>
       <Checkbox onChange={completeTodo} />
-      <TodoText isComplete={isChecked}>{todo}</TodoText>
+      <TodoText isActive={isActiveTodo}>
+        {name}
+      </TodoText>
     </TodoItemWrapper>
   );
 };

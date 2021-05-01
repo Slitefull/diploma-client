@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input as AntInput, Modal, Select } from 'antd';
@@ -29,6 +29,14 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
 
   const isValidMessage = onlyLetters(newCategory);
 
+  const onChangeNameHandler = useCallback((e) => setName(e.target.value), [setName]);
+  const onChangeDescriptionHandler = useCallback((e) => setDescription(e.target.value), [setDescription]);
+  const onChangeCategoryHandler = useCallback((e) => setNewCategory(e.target.value), [setNewCategory]);
+  const onChangeSelectCategoryHandler = useCallback((value) => setCategory(value), [setCategory]);
+  const onSetIsModalVisibleHandler = useCallback(() => setIsModalVisible(true), [setIsModalVisible]);
+  const onOkModalHandler = useCallback(() => dispatch(goodsActions.createCategory(newCategory)), [newCategory]);
+  const onCancelModalHandler = useCallback(() => setIsModalVisible(false), [setIsModalVisible]);
+
   return (
     <div>
       <Greeting>
@@ -41,7 +49,7 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
         name="name"
         component={FormInput}
         validate={[required, maxLength40]}
-        onChange={(e) => setName(e.target.value)}
+        onChange={onChangeNameHandler}
       />
       <FormLabel htmlFor="description">
         {`${t('description')} *`}
@@ -50,24 +58,33 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
         name="description"
         component={Textarea}
         validate={[required, maxLength800]}
-        onChange={(e) => setDescription(e.target.value)}
+        onChange={onChangeDescriptionHandler}
       />
       <Wrapper row justify center style={{ margin: '10px 0' }}>
         <FormLabel htmlFor="category">
           {`${t('category')} *`}
         </FormLabel>
-        <Button type="primary" onClick={() => setIsModalVisible(true)}>{t('addNew')}</Button>
+        <Button
+          type="primary"
+          onClick={onSetIsModalVisibleHandler}
+        >
+          {t('addNew')}
+        </Button>
         <Modal
           title={t('createCategory')}
           visible={isModalVisible}
-          onOk={() => dispatch(goodsActions.createCategory(newCategory))}
-          onCancel={() => setIsModalVisible(false)}
+          onOk={onOkModalHandler}
+          onCancel={onCancelModalHandler}
         >
           <AntInput
             placeholder={t('category')}
-            onChange={(e) => setNewCategory(e.target.value)}
+            onChange={onChangeCategoryHandler}
           />
-          {isValidMessage && <p style={{ color: 'red' }}>{isValidMessage}</p>}
+          {isValidMessage && (
+            <p style={{ color: 'red' }}>
+              {isValidMessage}
+            </p>
+          )}
         </Modal>
       </Wrapper>
       <Select
@@ -75,10 +92,17 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
         style={{ width: 200 }}
         placeholder={t('selectCategory')}
         optionFilterProp="children"
-        onChange={(value) => setCategory(value)}
+        onChange={onChangeSelectCategoryHandler}
         filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
       >
-        {categories.map((category) => <Option value={category.name} key={category.id}>{category.name}</Option>)}
+        {categories.map((category) => (
+          <Option
+            value={category.name}
+            key={category.id}
+          >
+            {category.name}
+          </Option>
+        ))}
       </Select>
     </div>
   );

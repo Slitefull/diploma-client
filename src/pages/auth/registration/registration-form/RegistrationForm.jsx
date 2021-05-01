@@ -52,7 +52,7 @@ export const RegistrationForm = ({ handleSubmit }) => {
       <AuthButton fullWidth>
         {
           isLoading
-            ? <Preloader small />
+            ? <Preloader size={22} />
             : t('register')
         }
       </AuthButton>

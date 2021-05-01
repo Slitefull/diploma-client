@@ -23,8 +23,10 @@ export const TodoForm = ({ id }) => {
   const activeTodos = useSelector(todoSelectors.getAllActiveTodosByListId(id));
   const completeTodos = useSelector(todoSelectors.getAllCompleteTodosByListId(id));
 
+  const todo = { name: todoName, isActive: true };
+
   const onClickHandler = useCallback(() => {
-    dispatch(todoActions.createTodo({ id, todoName, status: 'active' }));
+    dispatch(todoActions.createTodo({ id, todo }));
   }, [todoName]);
 
   const onChangeHandler = useCallback((e) => dispatch(todoActions.setTodoName(e.target.value)), []);
@@ -35,6 +37,7 @@ export const TodoForm = ({ id }) => {
         <TodoInput
           onChange={onChangeHandler}
           placeholder={t('whatNeedsToBeDone')}
+          value={todoName}
         />
         <CreateTodoButton onClick={onClickHandler}>
           <IoMdCreate size="15px" />
@@ -50,7 +53,13 @@ export const TodoForm = ({ id }) => {
           )}
           key="1"
         >
-          {todos.map((item) => <TodoItem todo={item.todo} />)}
+          {todos.map((item) => (
+            <TodoItem
+              name={item.name}
+              isActive={item.isActive}
+              listId={id}
+            />
+          ))}
         </TabPane>
         <TabPane
           tab={(
@@ -61,7 +70,13 @@ export const TodoForm = ({ id }) => {
           )}
           key="2"
         >
-          {activeTodos.map((item) => <TodoItem todo={item.todo} />)}
+          {activeTodos.map((item) => (
+            <TodoItem
+              name={item.name}
+              isActive={item.isActive}
+              listId={id}
+            />
+          ))}
         </TabPane>
         <TabPane
           tab={(
@@ -72,7 +87,13 @@ export const TodoForm = ({ id }) => {
           )}
           key="3"
         >
-          {completeTodos.map((item) => <TodoItem todo={item.todo} />)}
+          {completeTodos.map((item) => (
+            <TodoItem
+              name={item.name}
+              isActive={item.isActive}
+              listId={id}
+            />
+          ))}
         </TabPane>
       </Tabs>
     </>

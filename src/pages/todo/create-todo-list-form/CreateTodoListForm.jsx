@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { IoMdCreate } from 'react-icons/all';
 import { useDispatch, useSelector } from 'react-redux';
+import { IoMdCreate } from 'react-icons/all';
 import { todoSelectors } from '../selectors';
 import { todoActions } from '../store';
 
@@ -27,6 +27,7 @@ export const CreateTodoListForm = () => {
         <TodoInput
           onChange={onChangeHandler}
           placeholder={t('createNewTodoList')}
+          value={listName}
         />
         <CreateTodoButton onClick={onClickHandler}>
           <IoMdCreate size="15px" />

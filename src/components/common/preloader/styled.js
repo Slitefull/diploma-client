@@ -3,20 +3,20 @@ import styled from 'styled-components';
 
 export const Preloader = styled.span`
   display: inline-block;
-  width: ${(props) => (props.small ? '22px' : '80px')};
-  height: ${(props) => (props.small ? '22px' : '80px')};
-  
+  width: ${(props) => `${props.size}px`};
+  height: ${(props) => `${props.size}px`};
+
   &:after {
     content: " ";
     display: block;
     border-radius: 50%;
-    border: ${(props) => (props.global ? '6px solid #000' : '6px solid #fff')};
-    border-color: #fff transparent #fff transparent;
+    border: ${(props) => `6px solid ${props.color}`};
+    border-color: ${(props) => `${props.color} transparent ${props.color} transparent`};
     animation: loading 1.2s linear infinite;
-    width: ${(props) => (props.small ? '22px' : '64px')};
-    height: ${(props) => (props.small ? '22px' : '64px')};
+    width: ${(props) => `${props.size}px`};
+    height: ${(props) => `${props.size}px`};
   }
-  
+
   @keyframes loading {
     0% {
       transform: rotate(0deg);
