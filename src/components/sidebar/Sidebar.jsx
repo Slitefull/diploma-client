@@ -1,6 +1,17 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { profileSelectors } from '../../pages/profile/selectors';
+import { sidebarActions } from './store';
+import { sidebarSelectors } from './selectors';
+import { pagesLinks } from '../../consts';
+import { MenuItemButton } from './MenuItemButton/MenuItemButton';
+import { menu } from '../../constants/menu';
+import { LogoutButton } from './LogoutButton/LogoutButton';
+import arrow from '../../assets/icons/arrow-left.svg';
+import logout from '../../assets/icons/logout.svg';
+import logo from '../../assets/logo.svg';
 
+import { Wrapper } from '../../styled';
 import {
   Avatar,
   AvatarWrapper,
@@ -12,17 +23,6 @@ import {
   SidebarWrapper,
   UserName,
 } from './styled';
-import { profileSelectors } from '../../pages/profile/selectors';
-import { sidebarActions } from './store';
-import { sidebarSelectors } from './selectors';
-import { Wrapper } from '../../styled';
-import arrow from '../../assets/icons/arrow-left.svg';
-import logout from '../../assets/icons/logout.svg';
-import logo from '../../assets/logo.svg';
-import { pagesLinks } from '../../consts';
-import { MenuItemButton } from './MenuItemButton/MenuItemButton';
-import { menu } from '../../constants/menu';
-import { LogoutButton } from './LogoutButton/LogoutButton';
 
 
 export const Sidebar = () => {
