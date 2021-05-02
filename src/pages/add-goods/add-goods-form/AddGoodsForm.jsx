@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
-import { Button, Steps } from 'antd';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { Button, Steps } from 'antd';
+import { goodsActions } from '../store';
+import { goodsSelectors } from '../selectors';
 import { FirstStep } from './first-step/FirstStep';
 import { SecondStep } from './second-step/SecondStep';
 import { ThirdStep } from './third-step/ThirdStep';
@@ -12,62 +15,78 @@ import { Wrapper } from '../../../styled';
 const { Step } = Steps;
 
 export const AddGoodsForm = (props) => {
-  const {
-    handleSubmit, name, setName, description, setDescription,
-    category, setCategory, price, setPrice, inStockCount, setInStockCount,
-    discount, setDiscount, thumbnail, setThumbnail, isPreview, setIsPreview,
-  } = props;
-  const { t } = useTranslation();
-  const [current, setCurrent] = useState(0);
+  const { handleSubmit, name, description, category, price, onStockCount, discount, thumbnail, isPreview } = props;
 
-  const next = () => setCurrent(current + 1);
-  const prev = () => setCurrent(current - 1);
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  const currentStep = useSelector(goodsSelectors.getCurrentStep);
+
+  const onNextStepHandler = useCallback(() => dispatch(goodsActions.setCurrentStep(currentStep + 1)), [currentStep]);
+  const onPrevStepHandler = useCallback(() => dispatch(goodsActions.setCurrentStep(currentStep - 1)), [currentStep]);
+  const onSetIsPreviewHandler = useCallback(() => dispatch(goodsActions.setIsPreview(!isPreview)), [isPreview]);
 
   // TODO fix disabled price
-  const isDisabled = name === '' || description === '' || category === '' || (current === 2 && price === null);
+  const isDisabled = name === '' || description === '' || category === '' || (currentStep === 2 && price === null);
 
   const steps = [
     {
       title: t('general'),
-      content: <FirstStep
-        setName={setName}
-        setDescription={setDescription}
-        setCategory={setCategory}
-      />,
+      content: <FirstStep />,
     },
     {
       title: t('additional'),
       content: <SecondStep
         price={price}
-        setPrice={setPrice}
-        inStockCount={inStockCount}
-        setInStockCount={setInStockCount}
+        onStockCount={onStockCount}
         discount={discount}
-        setDiscount={setDiscount}
       />,
     },
     {
       title: t('photo'),
-      content: <ThirdStep
-        thumbnail={thumbnail}
-        setThumbnail={setThumbnail}
-      />,
+      content: <ThirdStep thumbnail={thumbnail} />,
     },
   ];
 
   return (
     <AddGoodsWrapper onSubmit={handleSubmit}>
-      <Steps current={current}>
-        {steps.map((item) => <Step key={item.title} title={item.title} />)}
+      <Steps current={currentStep}>
+        {steps.map((item) => (
+          <Step
+            key={item.title}
+            title={item.title}
+          />
+        ))}
       </Steps>
-      {steps[current].content}
+      {steps[currentStep].content}
       <Wrapper row center justify style={{ marginTop: 20 }}>
-        {current > 0 && <Button onClick={() => prev()}>{t('previous')}</Button>}
-        <Button type="primary" onClick={() => setIsPreview(!isPreview)}>
+        {currentStep > 0 && (
+          <Button onClick={onPrevStepHandler}>
+            {t('previous')}
+          </Button>
+        )}
+        <Button
+          type="primary"
+          onClick={onSetIsPreviewHandler}
+        >
           {isPreview ? t('hidePreview') : t('showPreview')}
         </Button>
-        {current < steps.length - 1 && <Button disabled={isDisabled} onClick={() => next()}>{t('next')}</Button>}
-        {current === steps.length - 1 && <Button type="primary" onClick={handleSubmit}>{t('done')}</Button>}
+        {currentStep < steps.length - 1 && (
+          <Button
+            disabled={isDisabled}
+            onClick={onNextStepHandler}
+          >
+            {t('next')}
+          </Button>
+        )}
+        {currentStep === steps.length - 1 && (
+          <Button
+            type="primary"
+            onClick={handleSubmit}
+          >
+            {t('done')}
+          </Button>
+        )}
       </Wrapper>
     </AddGoodsWrapper>
   );

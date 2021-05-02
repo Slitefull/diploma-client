@@ -38,3 +38,15 @@ export const menu = [
     icon: settings,
   },
 ];
+
+export const menuKeys = {
+  dashboard: 'dashboard',
+  profile: 'profile',
+  addGoods: 'addGoods',
+  users: 'users',
+  todoList: 'todoList',
+  settings: 'settings',
+};
+
+export const localStorageCurrentMenuItem = 'currentMenuItem';
+export const getLocalStorageCurrentMenuItem = () => localStorage.getItem(localStorageCurrentMenuItem);

@@ -5,7 +5,7 @@ const storeName = 'sidebar';
 
 const initialState = {
   isOpenSidebar: false,
-  currentMenuItem: '',
+  currentMenuItem: 'dashboard',
 };
 
 export const sidebarSlice = createSlice({

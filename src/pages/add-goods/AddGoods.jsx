@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
 import { reduxForm, reset } from 'redux-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +9,7 @@ import { greeting } from '../../helpers/greeting';
 import { profileSelectors } from '../profile/selectors';
 
 import { Container, PagePanel, PanelText, Wrapper } from '../../styled';
+import { goodsSelectors } from './selectors';
 
 
 export const AddGoods = () => {
@@ -16,29 +17,23 @@ export const AddGoods = () => {
   const dispatch = useDispatch();
 
   const userName = useSelector(profileSelectors.getName);
+  const name = useSelector(goodsSelectors.getName);
+  const description = useSelector(goodsSelectors.getDescription);
+  const category = useSelector(goodsSelectors.getCategory);
+  const price = useSelector(goodsSelectors.getPrice);
+  const onStockCount = useSelector(goodsSelectors.getOnStockCount);
+  const discount = useSelector(goodsSelectors.getDiscount);
+  const thumbnail = useSelector(goodsSelectors.getThumbnail);
+  const isPreview = useSelector(goodsSelectors.getIsPreview);
+
   const time = new Date();
 
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
-  const [price, setPrice] = useState(null);
-  const [inStockCount, setInStockCount] = useState(null);
-  const [discount, setDiscount] = useState(null);
-  const [thumbnail, setThumbnail] = useState(null);
-  const [isPreview, setIsPreview] = useState(false);
-
-  const handleSubmit = (data) => {
+  const handleSubmit = useCallback((data) => {
     const commodity = { ...data, category };
     dispatch(goodsActions.createGoods(commodity));
-    setName('');
-    setDescription('');
-    setCategory('');
-    setPrice(null);
-    setInStockCount(null);
-    setDiscount(null);
-    setThumbnail('');
+    dispatch(goodsActions.resetFields());
     dispatch(reset('add-goods'));
-  };
+  }, [category]);
 
   return (
     <>
@@ -53,21 +48,13 @@ export const AddGoods = () => {
           <AddGoodsReduxForm
             onSubmit={handleSubmit}
             name={name}
-            setName={setName}
             description={description}
-            setDescription={setDescription}
             category={category}
-            setCategory={setCategory}
             price={price}
-            setPrice={setPrice}
-            inStockCount={inStockCount}
-            setInStockCount={setInStockCount}
+            inStockCount={onStockCount}
             discount={discount}
-            setDiscount={setDiscount}
             thumbnail={thumbnail}
-            setThumbnail={setThumbnail}
             isPreview={isPreview}
-            setIsPreview={setIsPreview}
           />
           {isPreview && (
             <ProductPreview
@@ -75,7 +62,7 @@ export const AddGoods = () => {
               description={description}
               category={category}
               price={price}
-              inStockCount={inStockCount}
+              onStockCount={onStockCount}
               discount={discount}
               thumbnail={thumbnail}
             />

@@ -34,15 +34,3 @@ export const MenuItemButtonText = styled.span`&& {
   font-size: 12px;
   color: ${(props) => (props.isActive ? '#ffffff' : '#C4C4C4')};
 }`;
-
-export const UnreadMessagesCount = styled.div` && {
-  background: #4285F4;
-  border-radius: 8px;
-  color: #ffffff;
-  max-height: 18px;
-  font-size: 11px;
-  text-align: center;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-}`;

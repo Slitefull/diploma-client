@@ -17,7 +17,7 @@ import { Greeting } from '../styled';
 const maxLength40 = maxLengthCreator(40);
 const maxLength800 = maxLengthCreator(800);
 
-export const FirstStep = ({ setName, setDescription, setCategory }) => {
+export const FirstStep = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -27,15 +27,16 @@ export const FirstStep = ({ setName, setDescription, setCategory }) => {
   const userName = useSelector(profileSelectors.getName);
   const categories = useSelector(goodsSelectors.getAllCategories);
 
-  const isValidMessage = onlyLetters(newCategory);
-
-  const onChangeNameHandler = useCallback((e) => setName(e.target.value), [setName]);
-  const onChangeDescriptionHandler = useCallback((e) => setDescription(e.target.value), [setDescription]);
-  const onChangeCategoryHandler = useCallback((e) => setNewCategory(e.target.value), [setNewCategory]);
-  const onChangeSelectCategoryHandler = useCallback((value) => setCategory(value), [setCategory]);
-  const onSetIsModalVisibleHandler = useCallback(() => setIsModalVisible(true), [setIsModalVisible]);
+  const onChangeNameHandler = useCallback((e) => dispatch(goodsActions.setName(e.target.value)), []);
+  const onChangeDescriptionHandler = useCallback((e) => dispatch(goodsActions.setDescription(e.target.value)), []);
+  const onChangeSelectCategoryHandler = useCallback((value) => dispatch(goodsActions.setCategory(value)), []);
   const onOkModalHandler = useCallback(() => dispatch(goodsActions.createCategory(newCategory)), [newCategory]);
+
   const onCancelModalHandler = useCallback(() => setIsModalVisible(false), [setIsModalVisible]);
+  const onSetIsModalVisibleHandler = useCallback(() => setIsModalVisible(true), [setIsModalVisible]);
+  const onChangeCategoryHandler = useCallback((e) => setNewCategory(e.target.value), [setNewCategory]);
+
+  const isValidMessage = onlyLetters(newCategory);
 
   return (
     <div>

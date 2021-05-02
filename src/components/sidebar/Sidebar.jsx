@@ -5,7 +5,7 @@ import { sidebarActions } from './store';
 import { sidebarSelectors } from './selectors';
 import { pagesLinks } from '../../consts';
 import { MenuItemButton } from './MenuItemButton/MenuItemButton';
-import { menu } from '../../constants/menu';
+import { localStorageCurrentMenuItem, menu, menuKeys } from '../../constants/menu';
 import { LogoutButton } from './LogoutButton/LogoutButton';
 import arrow from '../../assets/icons/arrow-left.svg';
 import logout from '../../assets/icons/logout.svg';
@@ -29,6 +29,7 @@ export const Sidebar = () => {
   const dispatch = useDispatch();
 
   const userName = useSelector(profileSelectors.getUserName);
+  const userNameLetter = useSelector(profileSelectors.getName).split('', 1)[0];
   const avatar = useSelector(profileSelectors.getAvatar);
   const isOpenSidebar = useSelector(sidebarSelectors.getIsOpenSidebar);
   const activeMenuItem = useSelector(sidebarSelectors.getCurrentMenuItem);
@@ -38,38 +39,42 @@ export const Sidebar = () => {
   }, [isOpenSidebar]);
 
   const onClickAvatarHandler = useCallback(() => {
-    dispatch(sidebarActions.setCurrentMenuItem('profile'));
+    dispatch(sidebarActions.setCurrentMenuItem(menuKeys.profile));
+    localStorage.setItem(localStorageCurrentMenuItem, menuKeys.profile);
   }, []);
 
   return (
-    <SidebarWrapper
-      isOpen={isOpenSidebar}
-    >
+    <SidebarWrapper isOpen={isOpenSidebar}>
       <Wrapper row justify center>
-        <Wrapper>
+        <Wrapper full center>
           <Logo src={logo} />
           <CustomHr />
         </Wrapper>
-        <CloseSidebarButtonWrapper
-          onClick={onOpenSidebarHandler}
-        >
+        <CloseSidebarButtonWrapper onClick={onOpenSidebarHandler}>
           <CloseSidebarButtonArrow
             src={arrow}
             isRotated={!isOpenSidebar}
           />
         </CloseSidebarButtonWrapper>
       </Wrapper>
-      <MenuItemsWrapper
-        isOpen={isOpenSidebar}
-      >
+      <MenuItemsWrapper isOpen={isOpenSidebar}>
         <Wrapper full>
           <AvatarWrapper
             to={pagesLinks.profile}
             isFull={isOpenSidebar}
             onClick={onClickAvatarHandler}
+            isActive={activeMenuItem === menuKeys.profile}
           >
-            <Avatar src={avatar} />
-            {isOpenSidebar && <UserName>{userName}</UserName>}
+            {
+              avatar
+                ? <Avatar src={avatar} />
+                : <>{userNameLetter}</>
+            }
+            {isOpenSidebar && (
+              <UserName>
+                {userName}
+              </UserName>
+            )}
           </AvatarWrapper>
           {menu.map((item) => (
             <MenuItemButton
@@ -85,7 +90,6 @@ export const Sidebar = () => {
         <Wrapper full>
           <CustomHr />
           <LogoutButton
-            title="Logout"
             icon={logout}
             isFull={isOpenSidebar}
           />

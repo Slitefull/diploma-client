@@ -12,6 +12,8 @@ import { getLocalStorageLocale, localStorageDataName } from '../helpers/localSto
 import { userRoles } from '../helpers/getRole';
 import { todoApi } from '../pages/todo/api';
 import { todoActions } from '../pages/todo/store';
+import { getLocalStorageCurrentMenuItem } from '../constants/menu';
+import { sidebarActions } from '../components/sidebar/store';
 
 
 export function* setInitData(token) {
@@ -31,6 +33,10 @@ export function* setInitData(token) {
 
       const { lists } = yield call(todoApi.getAllLists, userId);
       yield put(todoActions.setLists(lists));
+    }
+
+    if (getLocalStorageCurrentMenuItem()) {
+      yield put(sidebarActions.setCurrentMenuItem(getLocalStorageCurrentMenuItem()));
     }
 
     yield put(profileActions.setUserData({

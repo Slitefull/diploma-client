@@ -11,7 +11,7 @@ export const SidebarWrapper = styled.div` && {
 `;
 
 export const Logo = styled.img` && {
-  width: 55px;
+  width: 35px;
 }`;
 
 export const CustomHr = styled.hr` && {
@@ -64,7 +64,6 @@ export const UserName = styled.span` && {
 export const MenuItemsWrapper = styled.div`&& {
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 20px 0 80px;
   justify-content: space-between;
   align-items: ${(props) => (props.isOpen ? 'flex-start' : 'center')};
@@ -72,6 +71,7 @@ export const MenuItemsWrapper = styled.div`&& {
 
 export const AvatarWrapper = styled(Link)`
   display: flex;
+  background: ${(props) => (props.isActive ? '#2B3643' : 'transparent')};
   width: ${(props) => (props.isFull ? '100%' : 'auto')};
   align-items: center;
   padding: 10px;
