@@ -14,7 +14,9 @@ export const Users = () => {
     <>
       <PagePanel>
         <CustomUserOutlined />
-        <PanelText center>{t('users')}</PanelText>
+        <PanelText center>
+          {t('users')}
+        </PanelText>
         <Search title={t('searchUsers')} />
       </PagePanel>
       <Container style={{ maxWidth: 1650, padding: '40px 0' }}>

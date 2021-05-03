@@ -3,13 +3,14 @@ import { reduxForm, reset } from 'redux-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { goodsActions } from './store';
+import { goodsSelectors } from './selectors';
+import { formsNames } from '../../constants/formsNames';
+import { greeting } from '../../helpers/greeting';
 import { AddGoodsForm } from './add-goods-form/AddGoodsForm';
 import { ProductPreview } from './product-preview/ProductPreview';
-import { greeting } from '../../helpers/greeting';
 import { profileSelectors } from '../profile/selectors';
 
 import { Container, PagePanel, PanelText, Wrapper } from '../../styled';
-import { goodsSelectors } from './selectors';
 
 
 export const AddGoods = () => {
@@ -32,7 +33,7 @@ export const AddGoods = () => {
     const commodity = { ...data, category };
     dispatch(goodsActions.createGoods(commodity));
     dispatch(goodsActions.resetFields());
-    dispatch(reset('add-goods'));
+    dispatch(reset(formsNames.addGoods));
   }, [category]);
 
   return (
@@ -73,4 +74,4 @@ export const AddGoods = () => {
   );
 };
 
-const AddGoodsReduxForm = reduxForm({ form: 'add-goods' })(AddGoodsForm);
+const AddGoodsReduxForm = reduxForm({ form: formsNames.addGoods })(AddGoodsForm);

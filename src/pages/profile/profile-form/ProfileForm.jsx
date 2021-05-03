@@ -18,12 +18,18 @@ export const ProfileForm = ({ handleSubmit }) => {
 
   return (
     <ProfileFormWrapper style={{ maxWidth: 1200 }} onSubmit={handleSubmit}>
-      <FormTitle>{t('personalData')}</FormTitle>
-      <FormDescription>{t('useThisPageToUpdateYourContactInformationAndChangeYourPassword')}</FormDescription>
+      <FormTitle>
+        {t('personalData')}
+      </FormTitle>
+      <FormDescription>
+        {t('useThisPageToUpdateYourContactInformationAndChangeYourPassword')}
+      </FormDescription>
       <ProfileIcon isBig />
       <Wrapper row justify>
         <Wrapper full style={{ maxWidth: 550 }}>
-          <FormLabel>{t('name')}</FormLabel>
+          <FormLabel>
+            {t('name')}
+          </FormLabel>
           <FormField
             name="name"
             placeholder={t('inputYourName')}
@@ -32,7 +38,9 @@ export const ProfileForm = ({ handleSubmit }) => {
           />
         </Wrapper>
         <Wrapper full style={{ maxWidth: 550 }}>
-          <FormLabel>{t('surname')}</FormLabel>
+          <FormLabel>
+            {t('surname')}
+          </FormLabel>
           <FormField
             name="surname"
             placeholder={t('inputYourSurname')}
@@ -43,7 +51,9 @@ export const ProfileForm = ({ handleSubmit }) => {
       </Wrapper>
       <Wrapper row justify>
         <Wrapper full style={{ maxWidth: 550 }}>
-          <FormLabel>{t('username')}</FormLabel>
+          <FormLabel>
+            {t('username')}
+          </FormLabel>
           <FormField
             name="userName"
             placeholder={t('inputYourUsername')}
@@ -52,7 +62,9 @@ export const ProfileForm = ({ handleSubmit }) => {
           />
         </Wrapper>
         <Wrapper full style={{ maxWidth: 550 }}>
-          <FormLabel>{t('email')}</FormLabel>
+          <FormLabel>
+            {t('email')}
+          </FormLabel>
           <FormField
             name="email"
             placeholder={t('inputYourEmail')}
@@ -63,7 +75,9 @@ export const ProfileForm = ({ handleSubmit }) => {
       </Wrapper>
       <Wrapper row justify>
         <Wrapper full style={{ maxWidth: 550 }}>
-          <FormLabel>{t('city')}</FormLabel>
+          <FormLabel>
+            {t('city')}
+          </FormLabel>
           <AddressWrapper>
             <CustomFormField
               name="city"
@@ -82,7 +96,9 @@ export const ProfileForm = ({ handleSubmit }) => {
           </AddressWrapper>
         </Wrapper>
         <Wrapper full style={{ maxWidth: 550 }}>
-          <FormLabel>{t('address')}</FormLabel>
+          <FormLabel>
+            {t('address')}
+          </FormLabel>
           <FormField
             name="address"
             placeholder={t('inputYourAddress')}
@@ -91,21 +107,27 @@ export const ProfileForm = ({ handleSubmit }) => {
           />
         </Wrapper>
       </Wrapper>
-      <FormLabel>{t('avatarURL')}</FormLabel>
+      <FormLabel>
+        {t('avatarURL')}
+      </FormLabel>
       <FormField
         name="avatar"
         placeholder={t('inputAvatarURL')}
         component={FormInput}
         validate={[onlyUrl]}
       />
-      <FormLabel>{t('status')}</FormLabel>
+      <FormLabel>
+        {t('status')}
+      </FormLabel>
       <FormField
         name="status"
         placeholder={t('inputYourStatus')}
         component={Textarea}
         validate={[maxLength200]}
       />
-      <Button onClick={handleSubmit}>{t('saveChanges')}</Button>
+      <Button onClick={handleSubmit}>
+        {t('saveChanges')}
+      </Button>
     </ProfileFormWrapper>
   );
 };

@@ -11,17 +11,39 @@ export const UserCard = ({ name, surname, userRole, userName, avatar, address, c
 
   return (
     <UserCardWrapper>
-      <UserRole isAdmin={isAdmin}>{userRole}</UserRole>
+      <UserRole isAdmin={isAdmin}>
+        {userRole}
+      </UserRole>
       {
         avatar
           ? <AvatarImage isBig src={avatar} />
-          : <AvatarLetter isBig>{nameLetter}</AvatarLetter>
+          : (
+            <AvatarLetter isBig>
+              {nameLetter}
+            </AvatarLetter>
+          )
       }
-      <Name>{`${name} ${surname}`}</Name>
-      <UserName>{`@${userName}`}</UserName>
-      {status && <UserStatus>{`${status}`}</UserStatus>}
-      {address && <UserAddress>{`${address}, ${city}`}</UserAddress>}
-      {postalCode && <UserPostalCode>{`${postalCode}`}</UserPostalCode>}
+      <Name>
+        {`${name} ${surname}`}
+      </Name>
+      <UserName>
+        {`@${userName}`}
+      </UserName>
+      {status && (
+        <UserStatus>
+          {`${status}`}
+        </UserStatus>
+      )}
+      {address && (
+        <UserAddress>
+          {`${address}, ${city}`}
+        </UserAddress>
+      )}
+      {postalCode && (
+        <UserPostalCode>
+          {`${postalCode}`}
+        </UserPostalCode>
+      )}
     </UserCardWrapper>
   );
 };

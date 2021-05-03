@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProfileForm } from './profile-form/ProfileForm';
+import { formsNames } from '../../constants/formsNames';
 import { profileSelectors } from './selectors';
 import { profileActions } from './store';
 
@@ -14,7 +15,7 @@ export const Profile = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const name = useSelector(profileSelectors.getUserName);
+  const name = useSelector(profileSelectors.getName);
   const surname = useSelector(profileSelectors.getSurname);
   const userName = useSelector(profileSelectors.getUserName);
   const email = useSelector(profileSelectors.getEmail);
@@ -48,4 +49,4 @@ export const Profile = () => {
   );
 };
 
-const AddGoodsReduxForm = reduxForm({ form: 'profile' })(ProfileForm);
+const AddGoodsReduxForm = reduxForm({ form: formsNames.profile })(ProfileForm);
