@@ -3,6 +3,15 @@ import { goodsSelectors } from '../selectors';
 
 const mockInitialState = {
   goods: {
+    currentStep: 0,
+    name: 'Test name',
+    description: 'Test description',
+    category: 'Test category',
+    thumbnail: 'https://test.com',
+    price: 100,
+    onStockCount: 100,
+    discount: 100,
+    isPreview: false,
     goods: [
       {
         name: 'Playstation 5',
@@ -41,6 +50,42 @@ const mockInitialState = {
 };
 
 describe('addGoods page selectors', () => {
+  it('should getCurrentStep selector return number', () => {
+    expect(goodsSelectors.getCurrentStep(mockInitialState)).toEqual(0);
+  });
+
+  it('should getName selector return string', () => {
+    expect(goodsSelectors.getName(mockInitialState)).toEqual('Test name');
+  });
+
+  it('should getDescription selector return string', () => {
+    expect(goodsSelectors.getDescription(mockInitialState)).toEqual('Test description');
+  });
+
+  it('should getCategory selector return number', () => {
+    expect(goodsSelectors.getCategory(mockInitialState)).toEqual('Test category');
+  });
+
+  it('should getPrice selector return number', () => {
+    expect(goodsSelectors.getPrice(mockInitialState)).toEqual(100);
+  });
+
+  it('should getOnStockCount selector return number', () => {
+    expect(goodsSelectors.getOnStockCount(mockInitialState)).toEqual(100);
+  });
+
+  it('should getDiscount selector return number', () => {
+    expect(goodsSelectors.getDiscount(mockInitialState)).toEqual(100);
+  });
+
+  it('should getThumbnail selector return string', () => {
+    expect(goodsSelectors.getThumbnail(mockInitialState)).toEqual('https://test.com');
+  });
+
+  it('should getIsPreview selector return boolean', () => {
+    expect(goodsSelectors.getIsPreview(mockInitialState)).toEqual(false);
+  });
+
   it('should getAllGoods selector return array', () => {
     expect(goodsSelectors.getAllGoods(mockInitialState)).toEqual([
       {

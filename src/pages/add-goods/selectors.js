@@ -4,7 +4,6 @@ import { createSelector } from 'reselect';
 const goodsState = (state) => state.goods;
 
 const getCurrentStep = createSelector(goodsState, (state) => state.currentStep);
-const getAllGoods = createSelector(goodsState, (state) => state.goods);
 const getName = createSelector(goodsState, (state) => state.name);
 const getDescription = createSelector(goodsState, (state) => state.description);
 const getCategory = createSelector(goodsState, (state) => state.category);
@@ -13,6 +12,7 @@ const getOnStockCount = createSelector(goodsState, (state) => state.onStockCount
 const getDiscount = createSelector(goodsState, (state) => state.discount);
 const getThumbnail = createSelector(goodsState, (state) => state.thumbnail);
 const getIsPreview = createSelector(goodsState, (state) => state.isPreview);
+const getAllGoods = createSelector(goodsState, (state) => state.goods);
 const getAllDifferentGoodsCount = createSelector(goodsState, (state) => state.goods.length);
 const getAllCategories = createSelector(goodsState, (state) => state.categories);
 const getAllCategoriesCount = createSelector(goodsState, (state) => state.categories.length);
