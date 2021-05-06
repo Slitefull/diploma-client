@@ -12,6 +12,7 @@ import { Button, PagePanel, PanelText, Wrapper } from '../../styled';
 export const Dashboard = () => {
   const { t } = useTranslation();
   const userName = useSelector(profileSelectors.getName);
+
   const time = new Date();
 
   return (
@@ -19,10 +20,7 @@ export const Dashboard = () => {
       <PagePanel>
         {greeting((time.getHours()), userName)}
         <PanelText subtitle>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis dolores
-          <br />
-          doloribus esse et iste laboriosam maiores maxime, mollitia nisi numquam omnis praesentium provident quam quasi
-          quia quisquam recusandae vel.
+          {t('dashboardToControlTheGoodsInYourWarehouse')}
         </PanelText>
         <Button>{t('viewReports')}</Button>
       </PagePanel>

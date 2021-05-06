@@ -94,7 +94,7 @@ export const Sidebar = () => {
             icon={logout}
             isFull={isOpenSidebar}
           />
-          <LocalesDropdown />
+          <LocalesDropdown isOpenSidebar={isOpenSidebar} />
         </Wrapper>
       </MenuItemsWrapper>
     </SidebarWrapper>

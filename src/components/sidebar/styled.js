@@ -6,7 +6,7 @@ export const SidebarWrapper = styled.div` && {
   position: relative;
   background: #12171E;
   padding: ${(props) => (props.isOpen ? '15px 25px' : '15px 10px')};
-  min-width: ${(props) => (props.isOpen ? '200px' : '100px')};
+  min-width: ${(props) => (props.isOpen ? '170px' : '100px')};
   transition: 0.5s;
 `;
 

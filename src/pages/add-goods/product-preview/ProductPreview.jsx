@@ -13,7 +13,15 @@ import {
 import { Wrapper } from '../../../styled';
 
 
-export const ProductPreview = ({ name, description, category, discount, price, thumbnail, inStockCount }) => {
+export const ProductPreview = ({
+  name,
+  description,
+  category,
+  discount,
+  price,
+  thumbnail,
+  inStockCount,
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -41,21 +49,26 @@ export const ProductPreview = ({ name, description, category, discount, price, t
               )
           }
         </ProductInStock>
-        { category && (
+        {category && (
           <ProductCategory>
             {category}
           </ProductCategory>
-        ) }
+        )}
       </Wrapper>
       <ProductDescription>
         {description}
       </ProductDescription>
-      { thumbnail && <ProductThumbnail src={thumbnail} alt="Commodity" /> }
+      {thumbnail && (
+        <ProductThumbnail
+          src={thumbnail}
+          alt="Commodity"
+        />
+      )}
       <ProductDiscount>
-        { discount && `${price}₴` }
+        {discount && `${price}₴`}
       </ProductDiscount>
       <ProductPrice>
-        { price && `${price - discount}₴` }
+        {price && `${price - discount}₴`}
       </ProductPrice>
     </ProductPreviewWrapper>
   );

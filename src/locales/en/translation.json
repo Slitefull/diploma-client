@@ -112,5 +112,6 @@
   "todoCannotBeEmpty": "Todo cannot be empty.",
   "doYouReallyWantToExit": "Do you really want to exit?",
   "cancel": "Cancel",
-  "exit": "Exit"
+  "exit": "Exit",
+  "dashboardToControlTheGoodsInYourWarehouse": "Dashboard to control the goods in your warehouse."
 }
