@@ -10,7 +10,7 @@ import { AddGoodsForm } from './add-goods-form/AddGoodsForm';
 import { ProductPreview } from './product-preview/ProductPreview';
 import { profileSelectors } from '../profile/selectors';
 
-import { Container, PagePanel, PanelText, Wrapper } from '../../styled';
+import { Container, PagePanel, PageWrapper, PanelText } from '../../styled';
 
 
 export const AddGoods = () => {
@@ -45,7 +45,7 @@ export const AddGoods = () => {
         </PanelText>
       </PagePanel>
       <Container style={{ maxWidth: 1600 }}>
-        <Wrapper row justify style={{ margin: '100px 0' }}>
+        <PageWrapper>
           <AddGoodsReduxForm
             onSubmit={handleSubmit}
             name={name}
@@ -68,7 +68,7 @@ export const AddGoods = () => {
               thumbnail={thumbnail}
             />
           )}
-        </Wrapper>
+        </PageWrapper>
       </Container>
     </>
   );

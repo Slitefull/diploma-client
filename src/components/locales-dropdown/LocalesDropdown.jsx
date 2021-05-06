@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
-import { getAllLocales, getLocaleFlag, getLocaleName } from '../../../locales/consts';
-import { CustomMenu, DropdownLocaleName, LocaleFlag, LocaleName, LocalesDropdownTrigger, MenuItem } from './styled';
-import { appActions } from '../../../app/store';
-import { appSelectors } from '../../../app/selectors';
-import { localStorageLocale } from '../../../helpers/localStorageHelper';
+import { getAllLocales, getLocaleFlag } from '../../locales/consts';
+import { appActions } from '../../app/store';
+import { appSelectors } from '../../app/selectors';
+import { localStorageLocale } from '../../helpers/localStorageHelper';
+
+import './style.css';
+import { CustomMenu, LocaleFlag, LocalesDropdownTrigger, MenuItem } from './styled';
 
 
 const LocalesDropdownMenu = ({ changeLanguage }) => {
   const menu = getAllLocales.map((locale) => (
     <MenuItem onClick={(localeInfo) => changeLanguage(localeInfo.key)} key={locale}>
       <LocaleFlag src={getLocaleFlag(locale)} />
-      <DropdownLocaleName>{getLocaleName(locale)}</DropdownLocaleName>
     </MenuItem>
   ));
 
@@ -43,10 +43,6 @@ export const LocalesDropdown = () => {
     >
       <LocalesDropdownTrigger className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
         <LocaleFlag src={getLocaleFlag(appLocale)} />
-        <LocaleName>
-          {getLocaleName(appLocale)}
-          <DownOutlined style={{ fontSize: 12, marginLeft: 10 }} />
-        </LocaleName>
       </LocalesDropdownTrigger>
     </Dropdown>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { userRoles } from '../../../helpers/getRole';
 
 import { Name, UserAddress, UserCardWrapper, UserName, UserPostalCode, UserRole, UserStatus } from './styled';
-import { AvatarImage, AvatarLetter } from '../../header/profile-icon/styled';
+import { AvatarImage, AvatarLetter } from '../profile-icon/styled';
 
 
 export const UserCard = ({ name, surname, userRole, userName, avatar, address, city, postalCode, status }) => {

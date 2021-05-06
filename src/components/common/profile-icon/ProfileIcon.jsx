@@ -13,8 +13,19 @@ export const ProfileIcon = ({ isBig }) => {
     <>
       {
         avatar
-          ? <AvatarImage isBig={isBig} src={avatar} />
-          : <AvatarLetter isBig={isBig}>{userName}</AvatarLetter>
+          ? (
+            <AvatarImage
+              isBig={isBig}
+              src={avatar}
+            />
+          )
+          : (
+            <AvatarLetter
+              isBig={isBig}
+            >
+              {userName}
+            </AvatarLetter>
+          )
       }
     </>
   );

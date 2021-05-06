@@ -71,9 +71,8 @@ export function* initHandle() {
       yield put(appActions.setLocale('en'));
     }
 
-    const data = JSON.parse(localStorage.getItem(localStorageDataName));
-    if (data) {
-      const { token } = data;
+    const { token } = JSON.parse(localStorage.getItem(localStorageDataName));
+    if (token) {
       yield call(setInitData, token);
     } else {
       yield put(appActions.setLoading(false));

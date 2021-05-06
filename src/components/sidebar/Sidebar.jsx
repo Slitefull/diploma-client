@@ -23,6 +23,7 @@ import {
   SidebarWrapper,
   UserName,
 } from './styled';
+import { LocalesDropdown } from '../locales-dropdown/LocalesDropdown';
 
 
 export const Sidebar = () => {
@@ -93,6 +94,7 @@ export const Sidebar = () => {
             icon={logout}
             isFull={isOpenSidebar}
           />
+          <LocalesDropdown />
         </Wrapper>
       </MenuItemsWrapper>
     </SidebarWrapper>

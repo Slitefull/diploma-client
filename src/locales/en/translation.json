@@ -109,5 +109,8 @@
   "useThisPageToUpdateYourContactInformationAndChangeYourPassword": "Use this page to update your contact information and change your password.",
   "useThisPageToUpdateYourSettings": "Use this page to update your settings.",
   "listNameCannotBeEmpty": "List name cannot be empty.",
-  "todoCannotBeEmpty": "Todo cannot be empty."
+  "todoCannotBeEmpty": "Todo cannot be empty.",
+  "doYouReallyWantToExit": "Do you really want to exit?",
+  "cancel": "Cancel",
+  "exit": "Exit"
 }

@@ -7,6 +7,7 @@ const initialState = {
   isLoading: false,
   isInitialized: false,
   locale: '',
+  isOverlay: false,
 };
 
 export const appSlice = createSlice({
@@ -22,6 +23,9 @@ export const appSlice = createSlice({
     setLocale(state, action) {
       state.locale = action.payload;
     },
+    setIsOverlay(state, action) {
+      state.isOverlay = action.payload;
+    },
   },
 });
 
@@ -29,6 +33,7 @@ export const appActions = {
   setInit: appSlice.actions.setInit,
   setLoading: appSlice.actions.setLoading,
   setLocale: appSlice.actions.setLocale,
+  setIsOverlay: appSlice.actions.setIsOverlay,
 };
 
 export const appReducer = appSlice.reducer;

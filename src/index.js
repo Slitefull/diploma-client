@@ -8,8 +8,6 @@ import { resources } from './i18n';
 import { history } from './history';
 import { store } from './store';
 import { App } from './app/App';
-
-import { GlobalStyle } from './styled';
 import 'antd/dist/antd.css';
 
 
@@ -18,7 +16,6 @@ ReactDOM.render(
   <Router history={history}>
     <Provider store={store}>
       <I18nextProvider i18n={i18next}>
-        <GlobalStyle />
         <App />
       </I18nextProvider>
     </Provider>

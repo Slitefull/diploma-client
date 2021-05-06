@@ -8,12 +8,17 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #fff;
     font-family: 'circe', Helvetica, Sans-Serif;
+    width: 100%;
+    height: 100%;
   }
 
   #root {
     height: 100%;
+  }
+  
+  p {
+    margin-bottom: 0;
   }
 `;
 
@@ -36,6 +41,13 @@ export const Wrapper = styled.div`
   justify-content: ${(props) => (props.justify ? 'space-between' : 'inherit')};
   flex-wrap: ${(props) => (props.wrap ? 'wrap' : 'nowrap')};
 `;
+
+export const PageWrapper = styled.div` && {
+  display: flex;
+  flex-direction: row;
+  margin: 100px 0; 
+  justify-content: space-between;
+}`;
 
 export const Button = styled.button`
   display: flex;
@@ -89,5 +101,5 @@ export const PanelText = styled.h1`
   text-align: ${(props) => (props.center ? 'center' : 'left')};
   font-size: ${(props) => (props.subtitle ? '14px' : '24px')};
   opacity: ${(props) => (props.subtitle ? '0.75' : '1')};
-  color: ${(props) => (props.black ? '#000000' : '#ffffff')} ;
+  color: ${(props) => (props.black ? '#000000' : '#ffffff')};
 `;

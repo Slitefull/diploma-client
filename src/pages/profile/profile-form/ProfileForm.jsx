@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormInput, Textarea } from '../../../components/common/form-control/FormControl';
-import { ProfileIcon } from '../../../components/header/profile-icon/ProfileIcon';
+import { ProfileIcon } from '../../../components/common/profile-icon/ProfileIcon';
 import { maxLengthCreator, onlyDigits, onlyLetters, onlyUrl, required } from '../../../helpers/validators/validators';
 
 import { Wrapper } from '../../../styled';
